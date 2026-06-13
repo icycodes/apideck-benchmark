@@ -1,0 +1,166 @@
+{
+    "schema_version": 1,
+    "created_at": "2026-06-13T07:40:21.313840Z",
+    "harbor": {
+        "version": "0.7.1",
+        "is_editable": false
+    },
+    "invocation": [
+        "/home/icy/github/benchmark-run/.venv/bin/harbor",
+        "run",
+        "--model",
+        "google/gemini-3.5-flash",
+        "--agent-import-path",
+        "agents.pochi:Pochi",
+        "--env",
+        "docker",
+        "--path",
+        "/home/icy/github/benchmark-run/local-scripts/../tasks",
+        "--jobs-dir",
+        "/home/icy/github/benchmark-run/local-scripts/../jobs",
+        "--n-attempts",
+        "1",
+        "--max-retries",
+        "0",
+        "--n-concurrent",
+        "8",
+        "--artifact",
+        "/home/user",
+        "--mounts",
+        "[{\"type\": \"bind\",\"source\":\"test_initial_state.py\",\"target\":\"/bootstrap/test_initial_state.py\"}]",
+        "--yes"
+    ],
+    "n_concurrent_trials": 8,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "VerifierTimeoutError",
+            "RewardFileEmptyError",
+            "AgentTimeoutError",
+            "RewardFileNotFoundError",
+            "VerifierOutputParseError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "task": {
+                "name": "upload_file_to_subfolder",
+                "type": "local",
+                "digest": "sha256:d984408e79780bc8d88fa2b3d8ea323a44d08379052dee46853c868ab2436f37",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/upload_file_to_subfolder"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "triage_ticket_lifecycle",
+                "type": "local",
+                "digest": "sha256:ba52e1077f284f7fabfe214a9b0661726d9ebbf9a013e2ef63dbc80ef678092b",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/triage_ticket_lifecycle"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "rename_uploaded_file",
+                "type": "local",
+                "digest": "sha256:205e9ff1ea79aa89d1bcd6d772b476257ebb3a349515d1cf392a3240b0203649",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/rename_uploaded_file"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        }
+    ]
+}

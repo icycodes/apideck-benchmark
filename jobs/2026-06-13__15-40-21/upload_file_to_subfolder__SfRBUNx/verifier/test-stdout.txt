@@ -1,0 +1,55 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 5 items
+
+tests/test_final_state.py ...F.                                          [100%]
+
+=================================== FAILURES ===================================
+________________________ test_file_resource_is_correct _________________________
+
+ids_from_log = {'drive_id': '3ada079b78534ff1', 'file_id': 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczY2MjQxYTMyZjlkZDQwY2U4MzEwYjM1M2I1NDUxM...pZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='}
+run_id = 'zr-sfrbunx'
+
+    def test_file_resource_is_correct(ids_from_log, run_id):
+        file_id = ids_from_log["file_id"]
+        folder_id = ids_from_log["folder_id"]
+        response = requests.get(
+            f"{UNIFY_BASE}/file-storage/files/{file_id}",
+            headers=_apideck_headers(),
+            timeout=30,
+        )
+        assert response.status_code == 200, (
+            f"Getting file {file_id!r} via Apideck failed: status={response.status_code}, "
+            f"body={response.text}"
+        )
+        data = (response.json() or {}).get("data") or {}
+        assert data.get("type") == "file", (
+            f"Expected the resolved resource to be a file, got type={data.get('type')!r}."
+        )
+        expected_name = f"report-{run_id}.txt"
+        assert data.get("name") == expected_name, (
+            f"File name mismatch: expected {expected_name!r}, got {data.get('name')!r}."
+        )
+        parent_folders = data.get("parent_folders") or []
+        assert isinstance(parent_folders, list) and parent_folders, (
+            f"Expected non-empty parent_folders list for the uploaded file, got: {parent_folders!r}."
+        )
+        parent_ids = {p.get("id") for p in parent_folders if isinstance(p, dict)}
+>       assert folder_id in parent_ids, (
+            f"The uploaded file's parent_folders {parent_ids!r} do not include the created "
+            f"folder id {folder_id!r}."
+        )
+E       AssertionError: The uploaded file's parent_folders {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='} do not include the created folder id 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='.
+E       assert 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' in {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}
+
+tests/test_final_state.py:143: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_contains_required_ids
+PASSED tests/test_final_state.py::test_drive_id_matches_configured_drive
+PASSED tests/test_final_state.py::test_folder_resource_is_correct
+PASSED tests/test_final_state.py::test_file_appears_in_listing
+FAILED tests/test_final_state.py::test_file_resource_is_correct - AssertionEr...
+========================= 1 failed, 4 passed in 8.44s ==========================

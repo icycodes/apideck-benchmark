@@ -1,0 +1,7 @@
+{
+  "library_name": "Apideck",
+  "task_name": "rename_uploaded_file",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "tasks/"
+}
