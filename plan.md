@@ -208,10 +208,10 @@ The following environment variables will be provided in the task execution envir
 
 The following connectors have been configured in the ApiDeck dashboard for testing purposes:
 
-- Issue Tracking: connected to GitHub
+- Issue Tracking: connected to GitHub (Service ID: `github`)
   - Because a `Collection` (which maps to a GitHub repository) cannot be created via ApiDeck APIs, ensure all tasks use the collection ID `APIDECK_ISSUE_TRACKING_COLLECTION_ID`.
   - For each ticket, include `ZEALT_RUN_ID` in the ticket title/subject to isolate task side effects.
-- File Storage: connected to OneDrive
+- File Storage: connected to OneDrive (Service ID: `onedrive`)
   - Because `Create Drives` is not supported for OneDrive via ApiDeck APIs, ensure all tasks use the drive name `APIDECK_FILE_STORAGE_DRIVE_NAME`.
   - For each file, include `ZEALT_RUN_ID` in the filename to isolate task side effects.
 
