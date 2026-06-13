@@ -1,0 +1,77 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-13T07:44:13.333323+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 4,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781336644895,
+            "stop": 1781336653333
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_contains_required_ids",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781336644969,
+                "stop": 1781336644969,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_drive_id_matches_configured_drive",
+                "status": "passed",
+                "duration": 2016,
+                "start": 1781336644970,
+                "stop": 1781336646986,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_folder_resource_is_correct",
+                "status": "passed",
+                "duration": 1989,
+                "start": 1781336646987,
+                "stop": 1781336648976,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_file_resource_is_correct",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2006,
+                "start": 1781336648977,
+                "stop": 1781336650983,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "ids_from_log = {'drive_id': '3ada079b78534ff1', 'file_id': 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczY2MjQxYTMyZjlkZDQwY2U4MzEwYjM1M2I1NDUxM...pZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='}\nrun_id = 'zr-sfrbunx'\n\n    def test_file_resource_is_correct(ids_from_log, run_id):\n        file_id = ids_from_log[\"file_id\"]\n        folder_id = ids_from_log[\"folder_id\"]\n        response = requests.get(\n            f\"{UNIFY_BASE}/file-storage/files/{file_id}\",\n            headers=_apideck_headers(),\n            timeout=30,\n        )\n        assert response.status_code == 200, (\n            f\"Getting file {file_id!r} via Apideck failed: status={response.status_code}, \"\n            f\"body={response.text}\"\n        )\n        data = (response.json() or {}).get(\"data\") or {}\n        assert data.get(\"type\") == \"file\", (\n            f\"Expected the resolved resource to be a file, got type={data.get('type')!r}.\"\n        )\n        expected_name = f\"report-{run_id}.txt\"\n        assert data.get(\"name\") == expected_name, (\n            f\"File name mismatch: expected {expected_name!r}, got {data.get('name')!r}.\"\n        )\n        parent_folders = data.get(\"parent_folders\") or []\n        assert isinstance(parent_folders, list) and parent_folders, (\n            f\"Expected non-empty parent_folders list for the uploaded file, got: {parent_folders!r}.\"\n        )\n        parent_ids = {p.get(\"id\") for p in parent_folders if isinstance(p, dict)}\n>       assert folder_id in parent_ids, (\n            f\"The uploaded file's parent_folders {parent_ids!r} do not include the created \"\n            f\"folder id {folder_id!r}.\"\n        )\nE       AssertionError: The uploaded file's parent_folders {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='} do not include the created folder id 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='.\nE       assert 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' in {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczYxY2I1NWExOTA5YzQ5MDQ4ZDliNjJiMmIxMTYzY2U5IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}\n\ntests/test_final_state.py:143: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_file_appears_in_listing",
+                "status": "passed",
+                "duration": 2349,
+                "start": 1781336650983,
+                "stop": 1781336653332,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}
