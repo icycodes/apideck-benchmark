@@ -1,0 +1,77 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-14T02:01:49.312997+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 2,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781402508472,
+            "stop": 1781402509312
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781402508618,
+                "stop": 1781402508619,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_log_file_contains_ticket_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781402508620,
+                "stop": 1781402508621,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_exactly_one_matching_ticket",
+                "status": "failed",
+                "duration": 674,
+                "start": 1781402508621,
+                "stop": 1781402509295,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"session\")\n    def matching_tickets() -> list:\n        collection_id = _required_env(\"APIDECK_ISSUE_TRACKING_COLLECTION_ID\")\n        run_id = _required_env(\"ZEALT_RUN_ID\")\n>       tickets = _list_all_tickets(collection_id)\n\ntests/test_final_state.py:82: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncollection_id = 'REDACTED'\n\n    def _list_all_tickets(collection_id: str) -> list:\n        \"\"\"Page through GET tickets and return every ticket as a list of dicts.\"\"\"\n        url = f\"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets\"\n        headers = _apideck_headers()\n        tickets: list = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n    \n        for _ in range(50):  # hard safety cap\n            params: dict = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            resp = requests.get(url, headers=headers, params=params, timeout=60)\n>           assert resp.status_code == 200, (\n                f\"List Tickets failed: status={resp.status_code}, body={resp.text}\"\n            )\nE           AssertionError: List Tickets failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:57: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_matching_ticket_due_date_is_rescheduled",
+                "status": "failed",
+                "duration": 8,
+                "start": 1781402509295,
+                "stop": 1781402509303,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"session\")\n    def matching_tickets() -> list:\n        collection_id = _required_env(\"APIDECK_ISSUE_TRACKING_COLLECTION_ID\")\n        run_id = _required_env(\"ZEALT_RUN_ID\")\n>       tickets = _list_all_tickets(collection_id)\n\ntests/test_final_state.py:82: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncollection_id = 'REDACTED'\n\n    def _list_all_tickets(collection_id: str) -> list:\n        \"\"\"Page through GET tickets and return every ticket as a list of dicts.\"\"\"\n        url = f\"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets\"\n        headers = _apideck_headers()\n        tickets: list = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n    \n        for _ in range(50):  # hard safety cap\n            params: dict = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            resp = requests.get(url, headers=headers, params=params, timeout=60)\n>           assert resp.status_code == 200, (\n                f\"List Tickets failed: status={resp.status_code}, body={resp.text}\"\n            )\nE           AssertionError: List Tickets failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:57: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_logged_ticket_id_matches_remote_ticket",
+                "status": "failed",
+                "duration": 8,
+                "start": 1781402509304,
+                "stop": 1781402509312,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"session\")\n    def matching_tickets() -> list:\n        collection_id = _required_env(\"APIDECK_ISSUE_TRACKING_COLLECTION_ID\")\n        run_id = _required_env(\"ZEALT_RUN_ID\")\n>       tickets = _list_all_tickets(collection_id)\n\ntests/test_final_state.py:82: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\ncollection_id = 'REDACTED'\n\n    def _list_all_tickets(collection_id: str) -> list:\n        \"\"\"Page through GET tickets and return every ticket as a list of dicts.\"\"\"\n        url = f\"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets\"\n        headers = _apideck_headers()\n        tickets: list = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n    \n        for _ in range(50):  # hard safety cap\n            params: dict = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            resp = requests.get(url, headers=headers, params=params, timeout=60)\n>           assert resp.status_code == 200, (\n                f\"List Tickets failed: status={resp.status_code}, body={resp.text}\"\n            )\nE           AssertionError: List Tickets failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:57: AssertionError"
+            }
+        ]
+    }
+}

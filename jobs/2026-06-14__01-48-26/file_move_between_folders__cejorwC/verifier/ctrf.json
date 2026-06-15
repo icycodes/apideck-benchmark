@@ -1,0 +1,81 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-14T02:01:25.331137+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 0,
+            "failed": 5,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781402483802,
+            "stop": 1781402485330
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_src_folder_exists_at_drive_root",
+                "status": "failed",
+                "duration": 684,
+                "start": 1781402483965,
+                "stop": 1781402484649,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def all_files() -> list[dict[str, Any]]:\n>       return _list_all_files()\n\ntests/test_final_state.py:116: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def _list_all_files() -> list[dict[str, Any]]:\n        items: list[dict[str, Any]] = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n        while True:\n            params: dict[str, Any] = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = _get_with_retry(f\"{UNIFY_BASE}/file-storage/files\", params=params)\n>           assert response.status_code == 200, (\n                \"List Files request failed: \"\n                f\"status={response.status_code}, body={response.text[:500]}\"\n            )\nE           AssertionError: List Files request failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:61: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_dst_folder_exists_at_drive_root",
+                "status": "failed",
+                "duration": 13,
+                "start": 1781402484649,
+                "stop": 1781402484662,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def all_files() -> list[dict[str, Any]]:\n>       return _list_all_files()\n\ntests/test_final_state.py:116: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def _list_all_files() -> list[dict[str, Any]]:\n        items: list[dict[str, Any]] = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n        while True:\n            params: dict[str, Any] = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = _get_with_retry(f\"{UNIFY_BASE}/file-storage/files\", params=params)\n>           assert response.status_code == 200, (\n                \"List Files request failed: \"\n                f\"status={response.status_code}, body={response.text[:500]}\"\n            )\nE           AssertionError: List Files request failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:61: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_moved_file_exists_with_preserved_name",
+                "status": "failed",
+                "duration": 12,
+                "start": 1781402484662,
+                "stop": 1781402484674,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def all_files() -> list[dict[str, Any]]:\n>       return _list_all_files()\n\ntests/test_final_state.py:116: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def _list_all_files() -> list[dict[str, Any]]:\n        items: list[dict[str, Any]] = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n        while True:\n            params: dict[str, Any] = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = _get_with_retry(f\"{UNIFY_BASE}/file-storage/files\", params=params)\n>           assert response.status_code == 200, (\n                \"List Files request failed: \"\n                f\"status={response.status_code}, body={response.text[:500]}\"\n            )\nE           AssertionError: List Files request failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:61: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_moved_file_parent_is_destination_not_source",
+                "status": "failed",
+                "duration": 12,
+                "start": 1781402484674,
+                "stop": 1781402484686,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def all_files() -> list[dict[str, Any]]:\n>       return _list_all_files()\n\ntests/test_final_state.py:116: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def _list_all_files() -> list[dict[str, Any]]:\n        items: list[dict[str, Any]] = []\n        cursor: str | None = None\n        seen_cursors: set[str] = set()\n        while True:\n            params: dict[str, Any] = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = _get_with_retry(f\"{UNIFY_BASE}/file-storage/files\", params=params)\n>           assert response.status_code == 200, (\n                \"List Files request failed: \"\n                f\"status={response.status_code}, body={response.text[:500]}\"\n            )\nE           AssertionError: List Files request failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:61: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_get_file_endpoint_confirms_move",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 644,
+                "start": 1781402484686,
+                "stop": 1781402485330,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "run_id = 'zr-cejorwc'\nlog_payload = {'dst_folder_id': 'id:Vr-XAnRi4NgAAAAAAAQH1g', 'file_id': 'id:Vr-XAnRi4NgAAAAAAAQH1w', 'src_folder_id': 'id:Vr-XAnRi4NgAAAAAAAQH1Q'}\n\n    def test_get_file_endpoint_confirms_move(\n        run_id: str, log_payload: dict[str, Any]\n    ):\n        file_id = log_payload[\"file_id\"]\n        expected_name = f\"MOVE-{run_id}.txt\"\n        response = _get_with_retry(f\"{UNIFY_BASE}/file-storage/files/{file_id}\")\n>       assert response.status_code == 200, (\n            \"Get File request failed: \"\n            f\"status={response.status_code}, body={response.text[:500]}\"\n        )\nE       AssertionError: Get File request failed: status=401, body={\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE       assert 401 == 200\nE        +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:239: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

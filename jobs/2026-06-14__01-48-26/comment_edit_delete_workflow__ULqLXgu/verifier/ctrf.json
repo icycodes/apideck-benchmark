@@ -1,0 +1,58 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-14T01:57:30.916696+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 1,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781402250088,
+            "stop": 1781402250916
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_has_ticket_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781402250230,
+                "stop": 1781402250231,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_exactly_one_marked_ticket",
+                "status": "failed",
+                "duration": 676,
+                "start": 1781402250232,
+                "stop": 1781402250908,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "run_id = 'zr-ulqlxgu', collection_id = 'REDACTED', ticket_id_from_log = '7'\n\n    @pytest.fixture(scope=\"session\")\n    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets\"\n>       tickets = _get_paginated(url)\n\ntests/test_final_state.py:79: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nurl = 'https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets'\n\n    def _get_paginated(url: str) -> list:\n        items: list = []\n        cursor = None\n        seen_cursors: set = set()\n        while True:\n            params = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = requests.get(url, headers=_headers(), params=params, timeout=60)\n>           assert response.status_code == 200, (\n                f\"GET {url} returned {response.status_code}: {response.text}\"\n            )\nE           AssertionError: GET https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets returned 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:39: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_final_comment_bodies",
+                "status": "failed",
+                "duration": 8,
+                "start": 1781402250908,
+                "stop": 1781402250916,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "run_id = 'zr-ulqlxgu', collection_id = 'REDACTED', ticket_id_from_log = '7'\n\n    @pytest.fixture(scope=\"session\")\n    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets\"\n>       tickets = _get_paginated(url)\n\ntests/test_final_state.py:79: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nurl = 'https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets'\n\n    def _get_paginated(url: str) -> list:\n        items: list = []\n        cursor = None\n        seen_cursors: set = set()\n        while True:\n            params = {\"limit\": 200}\n            if cursor:\n                params[\"cursor\"] = cursor\n            response = requests.get(url, headers=_headers(), params=params, timeout=60)\n>           assert response.status_code == 200, (\n                f\"GET {url} returned {response.status_code}: {response.text}\"\n            )\nE           AssertionError: GET https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets returned 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:39: AssertionError"
+            }
+        ]
+    }
+}

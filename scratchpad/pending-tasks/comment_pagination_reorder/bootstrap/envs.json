@@ -1,0 +1,14 @@
+{
+    "task": [
+        "APIDECK_API_KEY",
+        "APIDECK_APP_ID",
+        "APIDECK_CONSUMER_ID",
+        "APIDECK_ISSUE_TRACKING_COLLECTION_ID"
+    ],
+    "verifier": [
+        "APIDECK_API_KEY",
+        "APIDECK_APP_ID",
+        "APIDECK_CONSUMER_ID",
+        "APIDECK_ISSUE_TRACKING_COLLECTION_ID"
+    ]
+}

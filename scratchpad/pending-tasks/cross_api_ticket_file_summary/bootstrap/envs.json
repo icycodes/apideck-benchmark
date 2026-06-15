@@ -1,0 +1,16 @@
+{
+    "task": [
+        "APIDECK_APP_ID",
+        "APIDECK_API_KEY",
+        "APIDECK_CONSUMER_ID",
+        "APIDECK_ISSUE_TRACKING_COLLECTION_ID",
+        "APIDECK_FILE_STORAGE_DRIVE_NAME"
+    ],
+    "verifier": [
+        "APIDECK_APP_ID",
+        "APIDECK_API_KEY",
+        "APIDECK_CONSUMER_ID",
+        "APIDECK_ISSUE_TRACKING_COLLECTION_ID",
+        "APIDECK_FILE_STORAGE_DRIVE_NAME"
+    ]
+}

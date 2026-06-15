@@ -1,0 +1,65 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-14T02:05:30.782419+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 0,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781402728694,
+            "stop": 1781402730782
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_outer_folder_exists_at_drive_root",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 686,
+                "start": 1781402728832,
+                "stop": 1781402729518,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "parsed_log = {'inner_id': 'id:Vr-XAnRi4NgAAAAAAAQH3A', 'outer_id': 'id:Vr-XAnRi4NgAAAAAAAQH2w'}\nouter_name = 'OUTER-zr-k7fmcuq'\n\n    def test_outer_folder_exists_at_drive_root(parsed_log: dict, outer_name: str):\n>       data = _get_folder(parsed_log[\"outer_id\"])\n\ntests/test_final_state.py:122: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfolder_id = 'id:Vr-XAnRi4NgAAAAAAAQH2w'\n\n    def _get_folder(folder_id: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/file-storage/folders/{folder_id}\"\n        response = requests.get(url, headers=_apideck_headers(), timeout=60)\n>       assert response.status_code == 200, (\n            f\"Expected GET {url} to return 200, got {response.status_code}: \"\n            f\"{response.text}\"\n        )\nE       AssertionError: Expected GET https://unify.apideck.com/file-storage/folders/id:Vr-XAnRi4NgAAAAAAAQH2w to return 200, got 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE       assert 401 == 200\nE        +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:86: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_inner_renamed_folder_is_inside_outer",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 645,
+                "start": 1781402729518,
+                "stop": 1781402730163,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "parsed_log = {'inner_id': 'id:Vr-XAnRi4NgAAAAAAAQH3A', 'outer_id': 'id:Vr-XAnRi4NgAAAAAAAQH2w'}\ninner_new_name = 'INNER-RENAMED-zr-k7fmcuq', outer_name = 'OUTER-zr-k7fmcuq'\n\n    def test_inner_renamed_folder_is_inside_outer(\n        parsed_log: dict, inner_new_name: str, outer_name: str\n    ):\n>       data = _get_folder(parsed_log[\"inner_id\"])\n\ntests/test_final_state.py:144: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfolder_id = 'id:Vr-XAnRi4NgAAAAAAAQH3A'\n\n    def _get_folder(folder_id: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/file-storage/folders/{folder_id}\"\n        response = requests.get(url, headers=_apideck_headers(), timeout=60)\n>       assert response.status_code == 200, (\n            f\"Expected GET {url} to return 200, got {response.status_code}: \"\n            f\"{response.text}\"\n        )\nE       AssertionError: Expected GET https://unify.apideck.com/file-storage/folders/id:Vr-XAnRi4NgAAAAAAAQH3A to return 200, got 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE       assert 401 == 200\nE        +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:86: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_listing_reflects_rename_and_move",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 618,
+                "start": 1781402730163,
+                "stop": 1781402730781,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "parsed_log = {'inner_id': 'id:Vr-XAnRi4NgAAAAAAAQH3A', 'outer_id': 'id:Vr-XAnRi4NgAAAAAAAQH2w'}\nouter_name = 'OUTER-zr-k7fmcuq', inner_old_name = 'INNER-zr-k7fmcuq'\ninner_new_name = 'INNER-RENAMED-zr-k7fmcuq'\n\n    def test_listing_reflects_rename_and_move(\n        parsed_log: dict,\n        outer_name: str,\n        inner_old_name: str,\n        inner_new_name: str,\n    ):\n        headers = _apideck_headers()\n    \n        renamed_matches: list = []\n        outer_matches: list = []\n>       for item in _iter_all_files(headers):\n\ntests/test_final_state.py:177: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nheaders = {'Accept': 'application/json', 'Authorization': 'Bearer sk_live_d3f06613-d4b9-442a-8da5-4e74354ecb54-OouuOUUgG4OZU5HQM...8f8180', 'x-apideck-app-id': 'REDACTED', 'x-apideck-consumer-id': 'REDACTED', ...}\n\n    def _iter_all_files(headers: dict):\n        \"\"\"Yield every entry from `GET /file-storage/files`, following cursors.\"\"\"\n        url = f\"{APIDECK_BASE_URL}/file-storage/files\"\n        params: dict = {\"limit\": 200}\n        seen_cursors: set = set()\n        while True:\n            response = requests.get(url, headers=headers, params=params, timeout=60)\n>           assert response.status_code == 200, (\n                f\"Expected GET /file-storage/files to return 200, got \"\n                f\"{response.status_code}: {response.text}\"\n            )\nE           AssertionError: Expected GET /file-storage/files to return 200, got 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"File-storage Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE           assert 401 == 200\nE            +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:106: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

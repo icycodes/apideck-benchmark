@@ -1,0 +1,81 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 3 items
+
+tests/test_final_state.py .FE                                            [100%]
+
+==================================== ERRORS ====================================
+_________ ERROR at setup of test_ticket_assignee_matches_directory_min _________
+
+collection_id = 'REDACTED'
+
+    @pytest.fixture(scope="module")
+    def expected_assignee_id(collection_id: str) -> str:
+>       users = _paginate(f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/users")
+
+tests/test_final_state.py:85: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+url = 'https://unify.apideck.com/issue-tracking/collections/REDACTED/users'
+
+    def _paginate(url: str) -> list[dict[str, Any]]:
+        """Walk Apideck cursor pagination and return all items in `data`."""
+        items: list[dict[str, Any]] = []
+        cursor: str | None = None
+        seen_cursors: set[str] = set()
+        for _ in range(50):  # hard safety cap
+            params: dict[str, Any] = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=_apideck_headers(), params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"GET {url} failed: status={resp.status_code}, body={resp.text[:500]}"
+            )
+E           AssertionError: GET https://unify.apideck.com/issue-tracking/collections/REDACTED/users failed: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+tests/test_final_state.py:42: AssertionError
+=================================== FAILURES ===================================
+_____________________ test_exactly_one_ticket_with_marker ______________________
+
+collection_id = 'REDACTED', run_id = 'zr-sh7iynu', logged_ticket_id = '28'
+
+    def test_exactly_one_ticket_with_marker(
+        collection_id: str, run_id: str, logged_ticket_id: str
+    ):
+>       tickets = _paginate(
+            f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets"
+        )
+
+tests/test_final_state.py:102: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+url = 'https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets'
+
+    def _paginate(url: str) -> list[dict[str, Any]]:
+        """Walk Apideck cursor pagination and return all items in `data`."""
+        items: list[dict[str, Any]] = []
+        cursor: str | None = None
+        seen_cursors: set[str] = set()
+        for _ in range(50):  # hard safety cap
+            params: dict[str, Any] = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=_apideck_headers(), params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"GET {url} failed: status={resp.status_code}, body={resp.text[:500]}"
+            )
+E           AssertionError: GET https://unify.apideck.com/issue-tracking/collections/REDACTED/tickets failed: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+tests/test_final_state.py:42: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_file_records_ticket_id
+ERROR tests/test_final_state.py::test_ticket_assignee_matches_directory_min
+FAILED tests/test_final_state.py::test_exactly_one_ticket_with_marker - Asser...
+===================== 1 failed, 1 passed, 1 error in 1.49s =====================

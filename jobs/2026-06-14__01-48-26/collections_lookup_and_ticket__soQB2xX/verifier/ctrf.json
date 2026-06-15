@@ -1,0 +1,49 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-14T01:55:19.645936+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 2,
+            "passed": 0,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781402118793,
+            "stop": 1781402119645
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_collection_name_matches_lookup",
+                "status": "failed",
+                "duration": 699,
+                "start": 1781402118939,
+                "stop": 1781402119638,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "collection_id = 'REDACTED'\n\n    @pytest.fixture(scope=\"module\")\n    def expected_collection_name(collection_id: str) -> str:\n        response = _request_with_retries(\n            \"GET\",\n            f\"{APIDECK_BASE}/issue-tracking/collections\",\n            headers=_apideck_headers(),\n            params={\"limit\": 200},\n        )\n>       assert response.status_code == 200, (\n            f\"Listing collections failed with {response.status_code}: {response.text}\"\n        )\nE       AssertionError: Listing collections failed with 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE       assert 401 == 200\nE        +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:65: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_exactly_one_matching_ticket",
+                "status": "failed",
+                "duration": 7,
+                "start": 1781402119638,
+                "stop": 1781402119645,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "collection_id = 'REDACTED'\n\n    @pytest.fixture(scope=\"module\")\n    def expected_collection_name(collection_id: str) -> str:\n        response = _request_with_retries(\n            \"GET\",\n            f\"{APIDECK_BASE}/issue-tracking/collections\",\n            headers=_apideck_headers(),\n            params={\"limit\": 200},\n        )\n>       assert response.status_code == 200, (\n            f\"Listing collections failed with {response.status_code}: {response.text}\"\n        )\nE       AssertionError: Listing collections failed with 401: {\"status_code\":401,\"error\":\"Unauthorized\",\"type_name\":\"ConnectorCredentialsError\",\"message\":\"Issue-tracking Connector not authorized.\",\"detail\":\"noConnectionFound\",\"ref\":\"https://developers.apideck.com/errors#connectorcredentialserror\"}\nE       assert 401 == 200\nE        +  where 401 = <Response [401]>.status_code\n\ntests/test_final_state.py:65: AssertionError"
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 7 items
+
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_apideck_sdk_importable PASSED
+bootstrap/test_initial_state.py::test_requests_library_available PASSED
+bootstrap/test_initial_state.py::test_required_env_vars_present PASSED
+bootstrap/test_initial_state.py::test_run_id_format PASSED
+bootstrap/test_initial_state.py::test_log_file_not_yet_created PASSED
+bootstrap/test_initial_state.py::test_seed_six_open_partition_tickets 
+-------------------------------- live log call ---------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /issue-tracking/collections/REDACTED/tickets?limit=200 HTTP/1.1" 401 236
+FAILED
+
+=================================== FAILURES ===================================
+_____________________ test_seed_six_open_partition_tickets _____________________
+
+    def test_seed_six_open_partition_tickets():
+        """Seed exactly six `open` tickets with the `[PARTITION]` marker plus the
+        current ZEALT_RUN_ID so the agent has a deterministic starting set.
+    
+        This setup is idempotent: if a previous attempt left tickets in place, we
+        only create enough to bring the total to six. We do NOT delete tickets
+        here, because the agent's responsibility is to transition (not delete)
+        them.
+        """
+        collection_id = _required_env("APIDECK_ISSUE_TRACKING_COLLECTION_ID")
+        run_id = _required_env("ZEALT_RUN_ID")
+    
+>       existing = _list_partition_tickets(collection_id, run_id)
+
+bootstrap/test_initial_state.py:128: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_id = 'REDACTED', run_id = 'zr-vsexnzx'
+
+    def _list_partition_tickets(collection_id: str, run_id: str) -> list:
+        url = f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets"
+        cursor = None
+        found = []
+        for _ in range(20):
+            params = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            response = requests.get(
+                url, headers=_apideck_headers(), params=params, timeout=30
+            )
+>           assert response.status_code == 200, (
+                f"List Tickets failed during initial-state setup: "
+                f"status={response.status_code}, body={response.text}"
+            )
+E           AssertionError: List Tickets failed during initial-state setup: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+bootstrap/test_initial_state.py:45: AssertionError
+------------------------------ Captured log call -------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /issue-tracking/collections/REDACTED/tickets?limit=200 HTTP/1.1" 401 236
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_seed_six_open_partition_tickets
+========================= 1 failed, 6 passed in 8.03s ==========================

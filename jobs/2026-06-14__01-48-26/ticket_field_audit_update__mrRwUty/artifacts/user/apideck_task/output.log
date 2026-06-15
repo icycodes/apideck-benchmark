@@ -1,0 +1,23 @@
+{
+  "ticket_id": "11",
+  "subjects": [
+    "INITIAL-SUBJECT-zr-mrrwuty-[FIELD-AUDIT]",
+    "INTERMEDIATE-SUBJECT-zr-mrrwuty-[FIELD-AUDIT]",
+    "FINAL-SUBJECT-zr-mrrwuty-[FIELD-AUDIT]"
+  ],
+  "descriptions": [
+    "INITIAL-DESCRIPTION-zr-mrrwuty",
+    "INTERMEDIATE-DESCRIPTION-zr-mrrwuty",
+    "FINAL-DESCRIPTION-zr-mrrwuty"
+  ],
+  "patch_statuses": {
+    "subject": [
+      200,
+      200
+    ],
+    "description": [
+      200,
+      200
+    ]
+  }
+}

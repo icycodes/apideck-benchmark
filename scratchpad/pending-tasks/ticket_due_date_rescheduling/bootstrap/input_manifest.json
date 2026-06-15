@@ -1,0 +1,7 @@
+{
+  "library_name": "ApiDeck",
+  "task_name": "ticket_due_date_rescheduling",
+  "complexity_level": "much more complicated task that is not easy for LLM agents to solve and provides only a simple instruction.md",
+  "research_plan_path": "/Users/kw/code/zealt/apideck-benchmark/plan.md",
+  "output_dir": "scratchpad/pending-tasks/"
+}

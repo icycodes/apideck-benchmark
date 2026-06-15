@@ -1,0 +1,81 @@
+Skipping image OS validation for hb__file_move_between_folders: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-cejorwc > /logs/artifacts/run-id && echo file_move_between_folders__cejorwC > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.5-flash --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Move a File Between Two Folders via Apideck File Storage (OneDrive)
+
+## Background
+You are working with the Apideck Unified File Storage API connected to a OneDrive drive. Implement a small one-off automation that organizes a freshly uploaded file by relocating it from a staging folder to a destination folder using the unified API.
+
+## Requirements
+- Use the Apideck File Storage API against the configured OneDrive connector to perform a three-step organize operation in a single run:
+  1. Create a staging folder and a destination folder at the drive root.
+  2. Upload a small text file into the staging folder.
+  3. Move that file into the destination folder (the file's name must NOT change).
+- Persist a structured log line describing the resulting resource ids.
+
+## Implementation Hints
+- Read the `ZEALT_RUN_ID`, `APIDECK_APP_ID`, `APIDECK_API_KEY`, and `APIDECK_CONSUMER_ID` environment variables before issuing any request.
+- Apideck normalizes File Storage. Required headers on every call: `Authorization: Bearer`, `x-apideck-app-id`, `x-apideck-consumer-id`, `x-apideck-service-id`.
+- The Unify base URL `https://unify.apideck.com` is used for folder, file metadata, list, and patch calls. File binary uploads use a different host.
+- Folder creation accepts a `parent_folder_id` of `"root"` to target the drive root.
+- The unified "move" operation for a file is a PATCH on the file resource that updates the file's parent.
+- Avoid renaming the file when moving it.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the script is executed and the artifacts exist (the verifier does not re-run the move).
+- Log file: /home/user/apideck_task/output.log
+- Service id used for File Storage calls: `onedrive`.
+- The drive root must contain a folder named `SRC-${ZEALT_RUN_ID}` and a folder named `DST-${ZEALT_RUN_ID}`.
+- Exactly one file named `MOVE-${ZEALT_RUN_ID}.txt` must exist in the configured drive after the run, and it must reside in the destination folder (its `parent_folders` references the destination folder id, not the source folder id).
+- The file name `MOVE-${ZEALT_RUN_ID}.txt` must be preserved across the move (no rename).
+- The log file must contain a single JSON object on its last non-empty line with the keys `file_id`, `src_folder_id`, and `dst_folder_id`, each mapped to the corresponding Apideck unified resource id strings.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+The verifier.env contains an API key (often the case for LLM-based verifiers). You will incur costs associated with the API calls.

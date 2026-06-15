@@ -1,0 +1,119 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 5 items
+
+tests/test_final_state.py ..EEE                                          [100%]
+
+==================================== ERRORS ====================================
+______________ ERROR at setup of test_exactly_one_matching_ticket ______________
+
+    @pytest.fixture(scope="session")
+    def matching_tickets() -> list:
+        collection_id = _required_env("APIDECK_ISSUE_TRACKING_COLLECTION_ID")
+        run_id = _required_env("ZEALT_RUN_ID")
+>       tickets = _list_all_tickets(collection_id)
+
+tests/test_final_state.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_id = 'REDACTED'
+
+    def _list_all_tickets(collection_id: str) -> list:
+        """Page through GET tickets and return every ticket as a list of dicts."""
+        url = f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets"
+        headers = _apideck_headers()
+        tickets: list = []
+        cursor: str | None = None
+        seen_cursors: set[str] = set()
+    
+        for _ in range(50):  # hard safety cap
+            params: dict = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=headers, params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"List Tickets failed: status={resp.status_code}, body={resp.text}"
+            )
+E           AssertionError: List Tickets failed: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+tests/test_final_state.py:57: AssertionError
+________ ERROR at setup of test_matching_ticket_due_date_is_rescheduled ________
+
+    @pytest.fixture(scope="session")
+    def matching_tickets() -> list:
+        collection_id = _required_env("APIDECK_ISSUE_TRACKING_COLLECTION_ID")
+        run_id = _required_env("ZEALT_RUN_ID")
+>       tickets = _list_all_tickets(collection_id)
+
+tests/test_final_state.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_id = 'REDACTED'
+
+    def _list_all_tickets(collection_id: str) -> list:
+        """Page through GET tickets and return every ticket as a list of dicts."""
+        url = f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets"
+        headers = _apideck_headers()
+        tickets: list = []
+        cursor: str | None = None
+        seen_cursors: set[str] = set()
+    
+        for _ in range(50):  # hard safety cap
+            params: dict = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=headers, params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"List Tickets failed: status={resp.status_code}, body={resp.text}"
+            )
+E           AssertionError: List Tickets failed: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+tests/test_final_state.py:57: AssertionError
+________ ERROR at setup of test_logged_ticket_id_matches_remote_ticket _________
+
+    @pytest.fixture(scope="session")
+    def matching_tickets() -> list:
+        collection_id = _required_env("APIDECK_ISSUE_TRACKING_COLLECTION_ID")
+        run_id = _required_env("ZEALT_RUN_ID")
+>       tickets = _list_all_tickets(collection_id)
+
+tests/test_final_state.py:82: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+collection_id = 'REDACTED'
+
+    def _list_all_tickets(collection_id: str) -> list:
+        """Page through GET tickets and return every ticket as a list of dicts."""
+        url = f"{UNIFY_BASE}/issue-tracking/collections/{collection_id}/tickets"
+        headers = _apideck_headers()
+        tickets: list = []
+        cursor: str | None = None
+        seen_cursors: set[str] = set()
+    
+        for _ in range(50):  # hard safety cap
+            params: dict = {"limit": 200}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=headers, params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"List Tickets failed: status={resp.status_code}, body={resp.text}"
+            )
+E           AssertionError: List Tickets failed: status=401, body={"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+tests/test_final_state.py:57: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_file_exists
+PASSED tests/test_final_state.py::test_log_file_contains_ticket_id
+ERROR tests/test_final_state.py::test_exactly_one_matching_ticket - Assertion...
+ERROR tests/test_final_state.py::test_matching_ticket_due_date_is_rescheduled
+ERROR tests/test_final_state.py::test_logged_ticket_id_matches_remote_ticket
+========================= 2 passed, 3 errors in 0.84s ==========================

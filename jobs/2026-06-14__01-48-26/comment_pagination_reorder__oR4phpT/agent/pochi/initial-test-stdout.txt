@@ -1,0 +1,51 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 5 items
+
+bootstrap/test_initial_state.py::test_apideck_sdk_importable PASSED
+bootstrap/test_initial_state.py::test_requests_importable PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_required_env_vars_present PASSED
+bootstrap/test_initial_state.py::test_initial_target_ticket_exists 
+-------------------------------- live log call ---------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /issue-tracking/collections/REDACTED/tickets?limit=50 HTTP/1.1" 401 236
+FAILED
+
+=================================== FAILURES ===================================
+______________________ test_initial_target_ticket_exists _______________________
+
+    def test_initial_target_ticket_exists():
+        """Ensure exactly one ticket containing ZEALT_RUN_ID exists. Create if missing."""
+        run_id = os.environ["ZEALT_RUN_ID"]
+>       tickets = _list_all_tickets()
+
+bootstrap/test_initial_state.py:91: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def _list_all_tickets():
+        collection_id = os.environ["APIDECK_ISSUE_TRACKING_COLLECTION_ID"]
+        url = f"https://unify.apideck.com/issue-tracking/collections/{collection_id}/tickets"
+        cursor = None
+        tickets = []
+        for _ in range(50):
+            params = {"limit": 50}
+            if cursor:
+                params["cursor"] = cursor
+            resp = requests.get(url, headers=_headers(), params=params, timeout=60)
+>           assert resp.status_code == 200, (
+                f"List Tickets failed with status {resp.status_code}: {resp.text}"
+            )
+E           AssertionError: List Tickets failed with status 401: {"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"Issue-tracking Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+bootstrap/test_initial_state.py:38: AssertionError
+------------------------------ Captured log call -------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /issue-tracking/collections/REDACTED/tickets?limit=50 HTTP/1.1" 401 236
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_initial_target_ticket_exists - A...
+========================= 1 failed, 4 passed in 11.10s =========================

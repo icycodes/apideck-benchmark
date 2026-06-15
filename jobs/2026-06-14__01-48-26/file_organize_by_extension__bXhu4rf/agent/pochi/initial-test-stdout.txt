@@ -1,0 +1,62 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 5 items
+
+bootstrap/test_initial_state.py::test_project_dir_exists PASSED
+bootstrap/test_initial_state.py::test_requests_importable PASSED
+bootstrap/test_initial_state.py::test_apideck_unify_sdk_importable PASSED
+bootstrap/test_initial_state.py::test_apideck_env_vars_present PASSED
+bootstrap/test_initial_state.py::test_seed_six_source_files_at_drive_root 
+-------------------------------- live log call ---------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /file-storage/files?limit=200 HTTP/1.1" 401 234
+FAILED
+
+=================================== FAILURES ===================================
+___________________ test_seed_six_source_files_at_drive_root ___________________
+
+    def test_seed_six_source_files_at_drive_root():
+        """Upload the six RAW-${run-id}-N.{txt,md} source files to the drive root.
+    
+        The agent task is to MOVE pre-existing files into per-extension folders, so
+        the source files must already exist before the agent runs. This test seeds
+        them via the unified Upload File endpoint and then asserts they are
+        visible via List Files.
+        """
+        run_id = _get_env("ZEALT_RUN_ID")
+        headers = _apideck_headers()
+    
+        expected_names = {name for name, _mime in _seed_file_names(run_id)}
+    
+>       existing = {item.get("name") for item in _list_all_root_items(headers)}
+
+bootstrap/test_initial_state.py:106: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+headers = {'Accept': 'application/json', 'Authorization': 'Bearer sk_live_d3f06613-d4b9-442a-8da5-4e74354ecb54-OouuOUUgG4OZU5HQM...8f8180', 'x-apideck-app-id': 'REDACTED', 'x-apideck-consumer-id': 'REDACTED', ...}
+
+    def _list_all_root_items(headers: dict) -> list[dict]:
+        """Page through `/file-storage/files` and return every item."""
+        url = f"{APIDECK_UNIFY_URL}/file-storage/files"
+        params: dict = {"limit": 200}
+        seen: set[str] = set()
+        items: list[dict] = []
+        while True:
+            response = requests.get(url, headers=headers, params=params, timeout=60)
+>           assert response.status_code == 200, (
+                f"GET /file-storage/files returned {response.status_code}: "
+                f"{response.text}"
+            )
+E           AssertionError: GET /file-storage/files returned 401: {"status_code":401,"error":"Unauthorized","type_name":"ConnectorCredentialsError","message":"File-storage Connector not authorized.","detail":"noConnectionFound","ref":"https://developers.apideck.com/errors#connectorcredentialserror"}
+E           assert 401 == 200
+E            +  where 401 = <Response [401]>.status_code
+
+bootstrap/test_initial_state.py:46: AssertionError
+------------------------------ Captured log call -------------------------------
+DEBUG    urllib3.connectionpool:connectionpool.py:1062 Starting new HTTPS connection (1): unify.apideck.com:443
+DEBUG    urllib3.connectionpool:connectionpool.py:544 https://unify.apideck.com:443 "GET /file-storage/files?limit=200 HTTP/1.1" 401 234
+=========================== short test summary info ============================
+FAILED bootstrap/test_initial_state.py::test_seed_six_source_files_at_drive_root
+========================= 1 failed, 4 passed in 7.91s ==========================

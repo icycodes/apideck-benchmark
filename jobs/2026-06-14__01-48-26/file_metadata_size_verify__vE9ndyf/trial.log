@@ -1,0 +1,79 @@
+Skipping image OS validation for hb__file_metadata_size_verify: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-ve9ndyf > /logs/artifacts/run-id && echo file_metadata_size_verify__vE9ndyf > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.5-flash --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# ApiDeck File Storage — Verify Byte-Exact Upload Size
+
+## Background
+ApiDeck's File Storage Unified API exposes a `size` field (bytes) on file metadata. You will upload a small text file to the connected OneDrive drive root via the ApiDeck unified File Storage API and confirm that the uploaded file's reported `size` matches the exact byte length of the payload you sent.
+
+## Requirements
+- Read the current `run-id` from the `ZEALT_RUN_ID` environment variable.
+- Upload exactly one file at the drive root with the name `SIZED-${run-id}.txt`.
+- The file's content (the raw byte body) MUST be the ASCII string `ApiDeck-${run-id}-payload-line\n` (where `\n` is a single LF byte, `0x0A`) repeated EXACTLY 100 times, with no leading bytes, no trailing bytes, and no other modifications.
+- After uploading, the file's metadata `size` reported by ApiDeck MUST equal the exact byte length of the payload you sent.
+
+## Implementation Hints
+- File Storage uploads use the upload host (`upload.apideck.com`), not the unify host.
+- The upload endpoint expects the file metadata (`name`, `parent_folder_id`) inside the `x-apideck-metadata` request header as a JSON string, and the request body must be the raw binary bytes of the file (not multipart/form-data).
+- Use `parent_folder_id` `"root"` to place the file at the drive root.
+- The connector for File Storage is OneDrive — set the `x-apideck-service-id` header accordingly.
+- Required ApiDeck headers: `Authorization: Bearer $APIDECK_API_KEY`, `x-apideck-app-id`, `x-apideck-consumer-id`, `x-apideck-service-id`.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the upload is actually performed against ApiDeck (no mocking) and the artifact log exists.
+- Log file: /home/user/apideck_task/output.log
+- Read `run-id` from the `ZEALT_RUN_ID` environment variable.
+- Exactly one file named `SIZED-${run-id}.txt` exists at the root of the configured OneDrive drive.
+- The reported `size` (bytes) on the file's ApiDeck metadata equals the exact byte length of the payload sent.
+- The file's `mime_type` is NOT asserted by the verifier (connectors may normalize it differently); you do not need to control it.
+- The log file must contain the uploaded file's ApiDeck id in the format: `File ID: <file_id>`.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+The verifier.env contains an API key (often the case for LLM-based verifiers). You will incur costs associated with the API calls.
