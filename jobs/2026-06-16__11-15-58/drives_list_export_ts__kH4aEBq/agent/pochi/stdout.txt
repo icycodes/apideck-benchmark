@@ -1,0 +1,34 @@
+- Initializing MCP connections...
+You
+# Export Apideck File Storage Drive Metadata with the TypeScript SDK ## Background Apideck's Unified File Storage API normalizes drives, folders, and files across providers like OneDrive, Google Drive, Dropbox, Box, and SharePoint. Before performing higher-level file operations, integrators often need to resolve the internal ID of a specific drive by its human-readable name. In this task, you will use the official Apideck **TypeScript / Node.js SDK** (`@apideck/unify`) to call the File Storage `List Drives` endpoint and persist the metadata of the drive that matches a configured name. The File Storage Unified API is preconfigured with the OneDrive connector (service id `onedrive`). The drive name you must resolve is supplied via the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable. ## Requirements - Use the official **`@apideck/unify`** TypeScript / Node.js SDK to list drives from the File Storage Unified API for the `onedrive` connector. - Identify the drive whose `name` exactly matches the value of the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable. - Persist the matched drive's metadata (its `id` and `name`) as a JSON document on disk for downstream consumption. - Also emit a log line so the verifier can confirm the run succeeded. ## Implementation Hints - Install `@apideck/unify` and initialize the SDK with the `APIDECK_API_KEY`, `APIDECK_APP_ID`, and `APIDECK_CONSUMER_ID` credentials available in the environment. - The File Storage Unified API exposes a `drives.list` operation; remember that you must pass the `serviceId` (`onedrive`) so the request is routed to the correct connector. - The list response wraps drives under a `getDrivesResponse.data` array; iterate it to find the entry whose `name` equals `APIDECK_FILE_STORAGE_DRIVE_NAME`. - Use TypeScript and run the program with a Node.js runtime that supports it (e.g., `npx tsx ...`). - Read environment variables with `process.env` and write text output with `fs/promises`. - Include the `ZEALT_RUN_ID` value somewhere in the log output so concurrent runs do not interfere with each other. ## Acceptance Criteria - Project path: `/home/user/myproject` - Ensure the script is executed against the live Apideck API and the artifacts below exist. - Output artifact: `/home/user/myproject/drive.json` — a JSON object containing at least the fields `id` (string) and `name` (string) of the matched drive. The `name` field MUST equal the value of `APIDECK_FILE_STORAGE_DRIVE_NAME`. - Log file: `/home/user/myproject/output.log` — MUST contain the run id in the format `Run ID: <ZEALT_RUN_ID>` on one line and the resolved drive id in the format `Drive ID: <drive_id>` on another line. - Use the official `@apideck/unify` TypeScript / Node.js SDK to perform the API call (the project's `package.json` MUST declare `@apideck/unify` as a dependency and the `node_modules/@apideck/unify` package MUST be installed).   
+
+Pochi
+💭 Thinking for 745 characters   
+💫 Executing mkdir -p /home/user/myproject && cd /home/user/myproject && npm init -y && npm install @apideck/unify typescript @types/node tsx ✔ 
+💭 Thinking for 298 characters   
+✏️  Writing /home/user/myproject/index.ts ✔ 
+💭 Thinking for 199 characters   
+💫 Executing cd /home/user/myproject && npx tsx index.ts ✖ "Command exited with code 1"
+💭 Thinking for 205 characters   
+✏️  Writing /home/user/myproject/debug.ts ✔ 
+💫 Executing cd /home/user/myproject && npx tsx debug.ts ✔ 
+💭 Thinking for 565 characters   
+✏️  Writing /home/user/myproject/index.ts ✔ 
+💭 Thinking for 144 characters   
+💫 Executing cd /home/user/myproject && npx tsx index.ts ✔ 
+💫 Executing cd /home/user/myproject && cat drive.json && echo "" && cat output.log ✔ 
+💭 Thinking for 293 characters   
+💫 Executing cd /home/user/myproject && cat package.json ✔ 
+💭 Thinking for 141 characters   
+🎉 Task Completed
+The Node.js project has been successfully set up at `/home/user/myproject`. 
+
+I have:
+1. Created the project and installed the official `@apideck/unify` TypeScript / Node.js SDK, along with `typescript`, `tsx`, and `@types/node`.
+2. Written `index.ts` to connect to the unified Apideck API and list drives for the `onedrive` connector.
+3. Extracted the drive matching the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable.
+4. Persisted the resolved drive metadata to `/home/user/myproject/drive.json`.
+5. Created the log file at `/home/user/myproject/output.log` containing the `Run ID` and the resolved `Drive ID`.
+
+The script was successfully executed and both `drive.json` and `output.log` have been generated with the correct data.   
+  

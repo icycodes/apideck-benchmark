@@ -1,0 +1,134 @@
+{
+    "id": "549be7dd-b442-40fe-9e59-0273c7372865",
+    "started_at": "2026-06-16T11:15:58.439206",
+    "updated_at": "2026-06-16T11:54:15.187739",
+    "finished_at": "2026-06-16T11:54:15.187739",
+    "n_total_trials": 39,
+    "stats": {
+        "n_completed_trials": 39,
+        "n_errored_trials": 8,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__claude-4-6-sonnet__tasks": {
+                "n_trials": 13,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.5384615384615384
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "list_tickets_pagination_py__7JLkYqa",
+                            "drives_list_export_ts__hM83Bne",
+                            "ticket_subject_description_updat__czgtTnK",
+                            "file_listing_cursor_aggregation__a2e6KqT",
+                            "cross_api_ticket_file_summary__y3jhGm3",
+                            "delete_folder_after_create_py__dqzun6j",
+                            "upload_file_curl_with_metadata__dpfNYt5"
+                        ],
+                        "0.0": [
+                            "list_collection_users_export_py__gKELGup",
+                            "comment_edit_delete_workflow__39fVF3r",
+                            "upload_files_python_sdk_py__kRvNrcB",
+                            "create_subfolder_ts__VBmJk3A",
+                            "folder_create_and_populate__2xVWn6x",
+                            "file_search_endpoint_filter__ooS2tdG"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "file_search_endpoint_filter__ooS2tdG"
+                    ]
+                }
+            },
+            "pochi__gemini-3.1-pro__tasks": {
+                "n_trials": 13,
+                "n_errors": 3,
+                "metrics": [
+                    {
+                        "mean": 0.6153846153846154
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "list_tickets_pagination_py__Au6CRh7",
+                            "upload_files_python_sdk_py__kXEghyv",
+                            "create_subfolder_ts__J6rzkZz",
+                            "folder_create_and_populate__mixQZd2",
+                            "file_search_endpoint_filter__VEonR3Q"
+                        ],
+                        "1.0": [
+                            "drives_list_export_ts__kH4aEBq",
+                            "list_collection_users_export_py__UAttbx6",
+                            "ticket_subject_description_updat__kcC3N7U",
+                            "comment_edit_delete_workflow__coSKKqa",
+                            "file_listing_cursor_aggregation__8RcYdti",
+                            "cross_api_ticket_file_summary__jf2dP69",
+                            "delete_folder_after_create_py__6njH3CC",
+                            "upload_file_curl_with_metadata__VftyNAd"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "list_tickets_pagination_py__Au6CRh7",
+                        "upload_files_python_sdk_py__kXEghyv",
+                        "file_search_endpoint_filter__VEonR3Q"
+                    ]
+                }
+            },
+            "pochi__glm-5.1__tasks": {
+                "n_trials": 13,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.6153846153846154
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "list_tickets_pagination_py__AJu8e7c",
+                            "upload_files_python_sdk_py__n3McuiR",
+                            "create_subfolder_ts__uQdTDNb",
+                            "folder_create_and_populate__vsRQcCA",
+                            "file_search_endpoint_filter__drrVVWm"
+                        ],
+                        "1.0": [
+                            "drives_list_export_ts__tbB6N7X",
+                            "list_collection_users_export_py__uQi2ddR",
+                            "ticket_subject_description_updat__qVDM7QC",
+                            "comment_edit_delete_workflow__ZPhbzTJ",
+                            "file_listing_cursor_aggregation__XZq9Rna",
+                            "cross_api_ticket_file_summary__puHRJjf",
+                            "delete_folder_after_create_py__iHtqSvQ",
+                            "upload_file_curl_with_metadata__22Nm5Ay"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "list_tickets_pagination_py__AJu8e7c",
+                        "upload_files_python_sdk_py__n3McuiR",
+                        "cross_api_ticket_file_summary__puHRJjf",
+                        "file_search_endpoint_filter__drrVVWm"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 936441,
+        "cost_usd": null
+    }
+}

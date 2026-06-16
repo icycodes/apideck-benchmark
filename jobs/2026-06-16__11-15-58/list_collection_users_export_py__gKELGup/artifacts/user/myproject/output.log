@@ -1,0 +1,10 @@
+2026-06-16 03:19:06,860 INFO Starting Apideck Issue Tracking users export for collection 'zealt-user-default-repo'
+2026-06-16 03:19:10,281 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"
+2026-06-16 03:19:47,422 INFO Starting Apideck Issue Tracking users export for collection 'zealt-user-default-repo'
+2026-06-16 03:19:49,081 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"
+2026-06-16 03:20:29,643 INFO Starting Apideck Issue Tracking users export for collection 'zealt-user-default-repo'
+2026-06-16 03:20:30,617 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"
+2026-06-16 03:21:08,495 INFO Starting Apideck Issue Tracking users export for collection 'zealt-user-default-repo'
+2026-06-16 03:21:09,933 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"
+2026-06-16 03:21:09,938 INFO User count: 2
+2026-06-16 03:21:09,939 INFO Artifact written to /home/user/myproject/users.json

@@ -1,0 +1,36 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 4 items
+
+tests/test_final_state.py ...F                                           [100%]
+
+=================================== FAILURES ===================================
+______________________ test_output_log_records_user_count ______________________
+
+users_artifact = {'collection_id': 'zealt-user-default-repo', 'service_id': 'github', 'users': [{'email': None, 'first_name': None, 'id...t-user01', 'last_name': None, ...}, {'email': None, 'first_name': None, 'id': 'zealt-user02', 'last_name': None, ...}]}
+
+    def test_output_log_records_user_count(users_artifact: dict):
+        assert os.path.isfile(LOG_FILE), (
+            f"Expected log file at {LOG_FILE}, but it does not exist."
+        )
+        with open(LOG_FILE, "r", encoding="utf-8") as fh:
+            log_content = fh.read()
+    
+        matches = re.findall(r"^User count: (\d+)$", log_content, flags=re.MULTILINE)
+>       assert matches, (
+            "output.log must contain a line matching 'User count: <integer>'. "
+            f"Log contents (truncated): {log_content[:500]!r}"
+        )
+E       AssertionError: output.log must contain a line matching 'User count: <integer>'. Log contents (truncated): '2026-06-16 03:19:06,860 INFO Starting Apideck Issue Tracking users export for collection \'zealt-user-default-repo\'\n2026-06-16 03:19:10,281 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"\n2026-06-16 03:19:47,422 INFO Starting Apideck Issue Tracking users export for collection \'zealt-user-default-repo\'\n2026-06-16 03:19:49,081 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zea'
+E       assert []
+
+tests/test_final_state.py:154: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_users_json_top_level_shape
+PASSED tests/test_final_state.py::test_each_user_entry_has_expected_field_types
+PASSED tests/test_final_state.py::test_user_ids_match_apideck_api
+FAILED tests/test_final_state.py::test_output_log_records_user_count - Assert...
+========================= 1 failed, 3 passed in 1.45s ==========================

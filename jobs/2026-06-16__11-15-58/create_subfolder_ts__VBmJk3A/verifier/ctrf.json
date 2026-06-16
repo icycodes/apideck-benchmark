@@ -1,0 +1,86 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:37:13.018690+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581025268,
+            "stop": 1781581033018
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_contains_required_fields",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581025351,
+                "stop": 1781581025352,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_log_folder_names_use_run_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581025352,
+                "stop": 1781581025353,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_log_folder_ids_distinct",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781581025353,
+                "stop": 1781581025353,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_contains_apideck_unify",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581025353,
+                "stop": 1781581025354,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_parent_folder_exists_in_drive",
+                "status": "passed",
+                "duration": 4048,
+                "start": 1781581025354,
+                "stop": 1781581029402,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_child_folder_exists_and_nested_under_parent",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 3616,
+                "start": 1781581029402,
+                "stop": 1781581033018,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "log_payload = {'child_folder_id': 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2UwY2Q5NDI0YmQ2ODQ1ZjA4ZDZkMTIwNzYyN2UwNjk2IiwiZHJpdmVfaWQiOiIzQ...IjNBREEwNzlCNzg1MzRGRjEhc2VhMWU3NGJiNGFlMTRmMTZhMWE5MDIzZGM1MDU4YTcyIiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=', ...}\nresolved_drive_id = '3ada079b78534ff1'\n\n    def test_child_folder_exists_and_nested_under_parent(\n        log_payload: dict, resolved_drive_id: str\n    ):\n        child_id = log_payload[\"child_folder_id\"]\n        parent_id = log_payload[\"parent_folder_id\"]\n        expected_child_name = log_payload[\"child_folder_name\"]\n    \n        child = _get_file(child_id)\n        assert child.get(\"type\") == \"folder\", (\n            f\"Expected child {child_id} to be a folder, got type={child.get('type')!r}.\"\n        )\n        assert child.get(\"name\") == expected_child_name, (\n            f\"Expected child folder name {expected_child_name!r}, got {child.get('name')!r}.\"\n        )\n    \n        parent_chain_ids = [p.get(\"id\") for p in (child.get(\"parent_folders\") or [])]\n        if parent_id in parent_chain_ids:\n            return\n    \n        # Fallback: list folder contents under the parent folder via filter[folder_id]\n        listed = list(_iter_files({\"filter[folder_id]\": parent_id}))\n        listed_ids = {item.get(\"id\") for item in listed if item.get(\"type\") == \"folder\"}\n>       assert child_id in listed_ids, (\n            f\"Child folder {child_id!r} ({expected_child_name!r}) is not nested under \"\n            f\"parent {parent_id!r}: parent_folders chain={parent_chain_ids}, \"\n            f\"folder listing ids under parent={listed_ids}.\"\n        )\nE       AssertionError: Child folder 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2UwY2Q5NDI0YmQ2ODQ1ZjA4ZDZkMTIwNzYyN2UwNjk2IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' ('apideck-child-zr-vbmjk3a') is not nested under parent 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2VhMWU3NGJiNGFlMTRmMTZhMWE5MDIzZGM1MDU4YTcyIiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=': parent_folders chain=['eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2VhMWU3NGJiNGFlMTRmMTZhMWE5MDIzZGM1MDU4YTcyIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='], folder listing ids under parent={'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2UwY2Q5NDI0YmQ2ODQ1ZjA4ZDZkMTIwNzYyN2UwNjk2IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}.\nE       assert 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2UwY2Q5NDI0YmQ2ODQ1ZjA4ZDZkMTIwNzYyN2UwNjk2IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' in {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2UwY2Q5NDI0YmQ2ODQ1ZjA4ZDZkMTIwNzYyN2UwNjk2IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}\n\ntests/test_final_state.py:201: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

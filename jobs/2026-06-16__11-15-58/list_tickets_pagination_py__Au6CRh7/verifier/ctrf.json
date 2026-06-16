@@ -1,0 +1,86 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:29:58.108603+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 5,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781580567080,
+            "stop": 1781580598108
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_top_level_run_and_collection_ids_match",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580567171,
+                "stop": 1781580567172,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_page_count_is_positive_integer",
+                "status": "passed",
+                "duration": 0,
+                "start": 1781580567172,
+                "stop": 1781580567172,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_tickets_array_shape_and_subjects",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 22,
+                "start": 1781580567172,
+                "stop": 1781580567194,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "tickets_payload = {'collection_id': 'zealt-user-default-repo', 'page_count': 96, 'run_id': 'zr-au6crh7', 'tickets': [{'id': '150', 'inde...ject': 'Pagination demo 2 - zr-au6crh7'}, {'id': '156', 'index': 2, 'subject': 'Pagination demo 2 - zr-au6crh7'}, ...]}\nexpected_subjects = {1: 'Pagination demo 1 - zr-au6crh7', 2: 'Pagination demo 2 - zr-au6crh7', 3: 'Pagination demo 3 - zr-au6crh7', 4: 'Pagination demo 4 - zr-au6crh7', ...}\n\n    def test_tickets_array_shape_and_subjects(tickets_payload: dict, expected_subjects: dict):\n        tickets = tickets_payload.get(\"tickets\")\n        assert isinstance(tickets, list), (\n            f\"tickets.json `tickets` must be a list; got {type(tickets).__name__}.\"\n        )\n>       assert len(tickets) == SEED_COUNT, (\n            f\"tickets.json `tickets` must contain exactly {SEED_COUNT} entries; got {len(tickets)}.\"\n        )\nE       AssertionError: tickets.json `tickets` must contain exactly 5 entries; got 20.\nE       assert 20 == 5\nE        +  where 20 = len([{'id': '150', 'index': 1, 'subject': 'Pagination demo 1 - zr-au6crh7'}, {'id': '155', 'index': 1, 'subject': 'Paginat...bject': 'Pagination demo 2 - zr-au6crh7'}, {'id': '156', 'index': 2, 'subject': 'Pagination demo 2 - zr-au6crh7'}, ...])\n\ntests/test_final_state.py:96: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_each_ticket_retrievable_via_get_ticket",
+                "status": "passed",
+                "duration": 27228,
+                "start": 1781580567194,
+                "stop": 1781580594422,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_seeded_tickets_appear_in_list_tickets",
+                "status": "passed",
+                "duration": 3679,
+                "start": 1781580594423,
+                "stop": 1781580598102,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_solution_uses_apideck_unify_sdk_and_not_raw_http",
+                "status": "passed",
+                "duration": 6,
+                "start": 1781580598102,
+                "stop": 1781580598108,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

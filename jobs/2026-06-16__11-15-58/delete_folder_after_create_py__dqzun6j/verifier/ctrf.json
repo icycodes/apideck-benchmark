@@ -1,0 +1,74 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:41:16.087484+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581269411,
+            "stop": 1781581276087
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_exists_and_has_required_lines",
+                "status": "passed",
+                "duration": 4,
+                "start": 1781581269510,
+                "stop": 1781581269514,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_deleted_id_matches_created_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581269514,
+                "stop": 1781581269515,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_logged_drive_id_matches_apideck_drive_lookup",
+                "status": "passed",
+                "duration": 2067,
+                "start": 1781581269515,
+                "stop": 1781581271582,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_folder_no_longer_exists_via_get_folder",
+                "status": "passed",
+                "duration": 1756,
+                "start": 1781581271583,
+                "stop": 1781581273339,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_folder_name_not_listed_in_drive",
+                "status": "passed",
+                "duration": 2746,
+                "start": 1781581273340,
+                "stop": 1781581276086,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

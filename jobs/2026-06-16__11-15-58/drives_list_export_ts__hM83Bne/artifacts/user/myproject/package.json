@@ -1,0 +1,16 @@
+{
+  "name": "apideck-file-storage",
+  "version": "1.0.0",
+  "description": "Apideck File Storage Drive Metadata Export",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx tsx src/index.ts"
+  },
+  "dependencies": {
+    "@apideck/unify": "latest"
+  },
+  "devDependencies": {
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

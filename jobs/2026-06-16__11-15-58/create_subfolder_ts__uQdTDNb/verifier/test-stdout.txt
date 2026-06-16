@@ -1,0 +1,54 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py .....F                                         [100%]
+
+=================================== FAILURES ===================================
+_______________ test_child_folder_exists_and_nested_under_parent _______________
+
+log_payload = {'child_folder_id': 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczczNDMwOTYwZjM4ODQ3OTI4MTg0NzE4MmVkYThkYTM4IiwiZHJpdmVfaWQiOiIzQ...IjNBREEwNzlCNzg1MzRGRjEhczllN2EyYWYwNGJlYjQ1YThiNjNjY2VlNGYwMWRhZWM3IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=', ...}
+resolved_drive_id = '3ada079b78534ff1'
+
+    def test_child_folder_exists_and_nested_under_parent(
+        log_payload: dict, resolved_drive_id: str
+    ):
+        child_id = log_payload["child_folder_id"]
+        parent_id = log_payload["parent_folder_id"]
+        expected_child_name = log_payload["child_folder_name"]
+    
+        child = _get_file(child_id)
+        assert child.get("type") == "folder", (
+            f"Expected child {child_id} to be a folder, got type={child.get('type')!r}."
+        )
+        assert child.get("name") == expected_child_name, (
+            f"Expected child folder name {expected_child_name!r}, got {child.get('name')!r}."
+        )
+    
+        parent_chain_ids = [p.get("id") for p in (child.get("parent_folders") or [])]
+        if parent_id in parent_chain_ids:
+            return
+    
+        # Fallback: list folder contents under the parent folder via filter[folder_id]
+        listed = list(_iter_files({"filter[folder_id]": parent_id}))
+        listed_ids = {item.get("id") for item in listed if item.get("type") == "folder"}
+>       assert child_id in listed_ids, (
+            f"Child folder {child_id!r} ({expected_child_name!r}) is not nested under "
+            f"parent {parent_id!r}: parent_folders chain={parent_chain_ids}, "
+            f"folder listing ids under parent={listed_ids}."
+        )
+E       AssertionError: Child folder 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczczNDMwOTYwZjM4ODQ3OTI4MTg0NzE4MmVkYThkYTM4IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' ('apideck-child-zr-uqdtdnb') is not nested under parent 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczllN2EyYWYwNGJlYjQ1YThiNjNjY2VlNGYwMWRhZWM3IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=': parent_folders chain=['eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczllN2EyYWYwNGJlYjQ1YThiNjNjY2VlNGYwMWRhZWM3IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='], folder listing ids under parent={'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczczNDMwOTYwZjM4ODQ3OTI4MTg0NzE4MmVkYThkYTM4IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}.
+E       assert 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczczNDMwOTYwZjM4ODQ3OTI4MTg0NzE4MmVkYThkYTM4IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' in {'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczczNDMwOTYwZjM4ODQ3OTI4MTg0NzE4MmVkYThkYTM4IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='}
+
+tests/test_final_state.py:201: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_file_contains_required_fields
+PASSED tests/test_final_state.py::test_log_folder_names_use_run_id
+PASSED tests/test_final_state.py::test_log_folder_ids_distinct
+PASSED tests/test_final_state.py::test_package_json_contains_apideck_unify
+PASSED tests/test_final_state.py::test_parent_folder_exists_in_drive
+FAILED tests/test_final_state.py::test_child_folder_exists_and_nested_under_parent
+========================= 1 failed, 5 passed in 7.79s ==========================

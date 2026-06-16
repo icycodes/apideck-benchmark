@@ -1,0 +1,37 @@
+=== Apideck Issue Tracking Comment Edit & Delete Workflow ===
+Run ID: zr-zphbztj
+Collection ID: zealt-user-default-repo
+
+--- Step 1: Creating ticket ---
+Create ticket response: {"status_code":201,"status":"Created","service":"github","resource":"collection-tickets","operation":"add","data":{"id":"195"}}
+Ticket ID: 195
+
+--- Step 2: Adding 4 comments ---
+Creating comment with body: A-zr-zphbztj
+Response: {"status_code":201,"status":"Created","service":"github","resource":"collection-ticket-comments","operation":"add","data":{"id":"4714590823"}}
+Comment A ID: 4714590823
+Creating comment with body: B-zr-zphbztj
+Response: {"status_code":201,"status":"Created","service":"github","resource":"collection-ticket-comments","operation":"add","data":{"id":"4714590957"}}
+Comment B ID: 4714590957
+Creating comment with body: C-zr-zphbztj
+Response: {"status_code":201,"status":"Created","service":"github","resource":"collection-ticket-comments","operation":"add","data":{"id":"4714591125"}}
+Comment C ID: 4714591125
+Creating comment with body: D-zr-zphbztj
+Response: {"status_code":201,"status":"Created","service":"github","resource":"collection-ticket-comments","operation":"add","data":{"id":"4714591274"}}
+Comment D ID: 4714591274
+
+--- Step 3: Editing comment B to B-EDITED ---
+Edit response: {"status_code":200,"status":"OK","service":"github","resource":"collection-ticket-comments","operation":"update","data":{"id":"4714590957"}}
+
+--- Step 4: Deleting comment C ---
+Delete response: {"status_code":200,"status":"OK","service":"github","resource":"collection-ticket-comments","operation":"delete","data":{}}
+
+--- Step 5: Verifying final state ---
+Final comments on ticket:
+4714590823 | A-zr-zphbztj
+4714590957 | B-EDITED-zr-zphbztj
+4714591274 | D-zr-zphbztj
+
+
+
+=== Workflow Complete ===
