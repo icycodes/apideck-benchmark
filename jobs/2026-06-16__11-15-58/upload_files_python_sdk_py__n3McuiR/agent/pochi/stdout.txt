@@ -1,0 +1,823 @@
+- Initializing MCP connections...
+You
+# Upload Multiple Files to OneDrive via the Apideck Python SDK ## Background Apideck Unify exposes a normalized File Storage API over 200+ connectors at `https://unify.apideck.com`, but file uploads (and downloads) actually go through a separate host: `https://upload.apideck.com`. The official Python SDK (`apideck-unify`) hides that detail and lets you upload binary payloads through a single method call. In this task you will use the Python SDK to push a small batch of plain-text reports into the consumer's configured OneDrive drive and record the returned file IDs so a downstream verifier can locate them. ## Requirements * Implement a Python script at `/home/user/myproject/upload_reports.py` that uses the `apideck-unify` SDK (not raw `requests`/`curl`) to upload two text files to the root of the OneDrive drive named `APIDECK_FILE_STORAGE_DRIVE_NAME`. * The two uploaded files must be named `report-${run-id}-alpha.txt` and `report-${run-id}-beta.txt`, where `${run-id}` comes from the `ZEALT_RUN_ID` environment variable. Their contents must be the literal strings `alpha payload for ${run-id}\n` and `beta payload for ${run-id}\n` respectively (UTF-8, ending with a single newline). * After both uploads succeed, append a single JSON object to `/home/user/myproject/output.log` containing the two returned Apideck file IDs and the file names, then exit cleanly. ## Implementation Hints * Install and import the `apideck-unify` Python SDK (`pip install apideck-unify`). Construct the client with `api_key`, `app_id`, and `consumer_id` read from environment variables. * The OneDrive connector is enabled in the dashboard; pass its service id when calling the File Storage upload method. * Resolve the configured drive (whose name is in `APIDECK_FILE_STORAGE_DRIVE_NAME`) before uploading so you can pass its drive id. The unified File Storage API exposes a `drives` resource that you can list to find the matching drive id by name. * For each upload, pass the file name, the parent folder id (`"root"`), the resolved drive id, and the raw bytes of the file. Capture the returned upload response and read the new file id from it. ## Acceptance Criteria * Project path: /home/user/myproject * Script path: /home/user/myproject/upload\_reports.py * Log file: /home/user/myproject/output.log * The executor is responsible for actually running the upload; the verifier will not re-run it. * File names must be exactly `report-${run-id}-alpha.txt` and `report-${run-id}-beta.txt`, with `${run-id}` taken from the `ZEALT_RUN_ID` environment variable. * The two files must end up at the root of the drive named `APIDECK_FILE_STORAGE_DRIVE_NAME` on the OneDrive connector. * The log file must contain a single line of JSON with this shape (no extra keys, no trailing comma): ``` {"alpha": {"name": "report-${run-id}-alpha.txt", "id": "<apideck file id>"}, "beta": {"name": "report-${run-id}-beta.txt", "id": "<apideck file id>"}} ``` Both `id` values must be non-empty strings returned by the Apideck upload call.   
+
+Pochi
+💭 Thinking for 445 characters   
+📋 Updating todo list (4 items) ✔ 
+💭 Thinking for 43 characters   
+📂 Listing files in /home/user/myproject ✔ 
+💫 Executing pip show apideck-unify 2>/dev/null || echo "NOT INSTALLED" ✔ 
+💫 Executing env | grep -E '(APIDECK|ZEALT)' 2>/dev/null || echo "NO ENV VARS" ✔ 
+💭 Thinking for 231 characters   
+💫 Executing python3 -c "import apideck_unify; print(dir(apideck_unify))" ✔ 
+💫 Executing python3 -c "from apideck_unify import Apideck; help(Apideck.__init__)" 2>&1 | head -30 ✔ 
+💭 Thinking for 110 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck
+# Check what's available on the file_storage attribute
+print(type(sdk))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+fs = sdk.file_storage
+print(dir(fs))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+drives = sdk.file_storage.drives
+print(type(drives))
+print(dir(drives))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+files = sdk.file_storage.files
+print(type(files))
+print(dir(files))
+" 2>&1 ✔ 
+💭 Thinking for 145 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+us = sdk.file_storage.upload_sessions
+print(type(us))
+print(dir(us))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+# Check drives.list signature
+import inspect
+print(inspect.signature(sdk.file_storage.drives.list))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+import inspect
+# Check upload_sessions.create signature
+print('=== upload_sessions.create ===')
+print(inspect.signature(sdk.file_storage.upload_sessions.create))
+print()
+print('=== upload_sessions.upload ===')
+print(inspect.signature(sdk.file_storage.upload_sessions.upload))
+print()
+print('=== upload_sessions.finish ===')
+print(inspect.signature(sdk.file_storage.upload_sessions.finish))
+" 2>&1 ✔ 
+💭 Thinking for 368 characters   
+💫 Executing python3 -c "
+from apideck_unify.models import FileStorageUploadSessionsAddResponse, FileStorageUploadSessionsFinishResponse
+import inspect
+print('=== Add Response ===')
+print(dir(FileStorageUploadSessionsAddResponse))
+print()
+print('=== Finish Response ===')
+print(dir(FileStorageUploadSessionsFinishResponse))
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import FileStorageUploadSessionsAddResponse
+# Check the fields
+print(FileStorageUploadSessionsAddResponse.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import CreateUploadSessionResponse
+print(CreateUploadSessionResponse.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import FileStorageUploadSessionsFinishResponse
+print(FileStorageUploadSessionsFinishResponse.__annotations__)
+from apideck_unify.models import FileStorageUploadSessionsFinishResponseBody
+print('---')
+print(FileStorageUploadSessionsFinishResponseBody.__annotations__)
+" 2>&1 ✖ "Command exited with code 1"
+💭 Thinking for 175 characters   
+💫 Executing python3 -c "
+from apideck_unify.models import GetFileResponse
+print(GetFileResponse.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import UnifiedID
+print(UnifiedID.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import UnifiedFile
+print(UnifiedFile.__annotations__)
+" 2>&1 ✔ 
+💭 Thinking for 547 characters   
+💫 Executing python3 -c "
+from apideck_unify.models import FileStorageDrivesAllResponse
+print(FileStorageDrivesAllResponse.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import GetDrivesResponse
+print(GetDrivesResponse.__annotations__)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+from apideck_unify.models import Drive
+print(Drive.__annotations__)
+" 2>&1 ✔ 
+💭 Thinking for 457 characters   
+📋 Updating todo list (4 items) ✔ 
+Now I have all the information I need. Let me create the script:   
+✏️  Writing /home/user/myproject/upload_reports.py ✔ 
+📋 Updating todo list (4 items) ✔ 
+💫 Executing cd /home/user/myproject && python3 upload_reports.py 2>&1 ✖ "Command exited with code 1"
+💭 Thinking for 1545 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+try:
+    resp = sdk.file_storage.drives.list(service_id='microsoftonedrive')
+    print('Success:', resp)
+except Exception as e:
+    print(f'Error: {type(e).__name__}: {e}')
+" 2>&1 ✔ 
+💭 Thinking for 173 characters   
+💫 Executing python3 -c "
+import apideck_unify
+# Search for service id constants related to onedrive
+attrs = [a for a in dir(apideck_unify) if 'onedrive' in a.lower() or 'one_drive' in a.lower() or 'microsoft' in a.lower()]
+print(attrs)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+import apideck_unify
+# Search for file storage service id constants
+attrs = [a for a in dir(apideck_unify) if 'FILE_STORAGE' in a and 'SERVICE' in a]
+print(attrs[:20])
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+# Let's try without service_id to see what happens
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+try:
+    resp = sdk.file_storage.drives.list()
+    print('Success:', type(resp))
+    if resp.get_drives_response:
+        print('Data:', resp.get_drives_response.data)
+except Exception as e:
+    print(f'Error: {type(e).__name__}: {e}')
+" 2>&1 ✔ 
+💭 Thinking for 1511 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives without service_id
+drives_response = sdk.file_storage.drives.list()
+
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+print(f'Drive ID: {drive_id}')
+
+# Try creating an upload session without service_id
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+try:
+    create_resp = sdk.file_storage.upload_sessions.create(
+        name=alpha_name,
+        parent_folder_id='root',
+        size=len(alpha_content),
+        drive_id=drive_id,
+    )
+    print(f'Session created: {create_resp.create_upload_session_response.data}')
+except Exception as e:
+    print(f'Error creating session: {type(e).__name__}: {e}')
+" 2>&1 ✔ 
+💭 Thinking for 120 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+print(f'Drive ID: {drive_id}')
+
+# Create upload session for alpha
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session ID created')
+
+# Upload content
+upload_resp = sdk.file_storage.upload_sessions.upload(
+    id=session_id,
+    part_number=1,
+    request_body=alpha_content,
+)
+print(f'Upload done')
+
+# Finish
+finish_resp = sdk.file_storage.upload_sessions.finish(
+    id=session_id,
+)
+file_data = finish_resp.get_file_response.data
+print(f'File ID: {file_data.id}')
+print(f'File name: {file_data.name}')
+" 2>&1 ✖ "Command exited with code 1"
+💭 Thinking for 375 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+import inspect
+
+# Check what server-related constants exist
+attrs = [a for a in dir(Apideck) if 'server' in a.lower() or 'SERVER' in a]
+print('Apideck server attrs:', attrs)
+
+# Check upload_sessions for server info
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+us = sdk.file_storage.upload_sessions
+server_attrs = [a for a in dir(us) if 'server' in a.lower() or 'SERVER' in a]
+print('UploadSessions server attrs:', server_attrs)
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+# Check if there are server URL constants in the module
+import apideck_unify
+attrs = [a for a in dir(apideck_unify) if 'UPLOAD' in a or 'upload' in a.lower() or 'SERVER' in a]
+print(attrs[:30])
+" 2>&1 ✔ 
+💫 Executing python3 -c "
+# Check the upload method source for server URL handling
+import inspect
+from apideck_unify.uploadsessions import UploadSessions
+src = inspect.getsource(UploadSessions.upload)
+# Print first 100 lines
+lines = src.split('\n')
+for i, line in enumerate(lines[:80]):
+    print(f'{i}: {line}')
+" 2>&1 ✔ 
+💭 Thinking for 178 characters   
+💫 Executing python3 -c "
+from apideck_unify import models
+print('UPLOAD_OP_SERVERS:', models.FILE_STORAGE_UPLOAD_SESSIONS_UPLOAD_OP_SERVERS)
+print('ADD_OP_SERVERS:', models.FILE_STORAGE_UPLOAD_SESSIONS_ADD_OP_SERVERS)
+print('FINISH_OP_SERVERS:', models.FILE_STORAGE_UPLOAD_SESSIONS_FINISH_OP_SERVERS)
+" 2>&1 ✔ 
+💭 Thinking for 773 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+# Check raw response to see service info
+drives_response = sdk.file_storage.drives.list(raw=True)
+if drives_response.get_drives_response:
+    print('Meta:', drives_response.get_drives_response.meta)
+    print('Links:', drives_response.get_drives_response.links)
+    print('Status:', drives_response.get_drives_response.status)
+    print('Service:', drives_response.get_drives_response.service)
+" 2>&1 ✔ 
+💭 Thinking for 76 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+print(f'Drive ID: {drive_id}')
+
+# Create upload session for alpha
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+    service_id='onedrive',
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session created')
+
+# Upload content
+upload_resp = sdk.file_storage.upload_sessions.upload(
+    id=session_id,
+    part_number=1,
+    request_body=alpha_content,
+    service_id='onedrive',
+)
+print(f'Upload done')
+
+# Finish
+finish_resp = sdk.file_storage.upload_sessions.finish(
+    id=session_id,
+    service_id='onedrive',
+)
+file_data = finish_resp.get_file_response.data
+print(f'File ID: {file_data.id}')
+print(f'File name: {file_data.name}')
+" 2>&1 ✖ "Command exited with code 1"
+💭 Thinking for 133 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session for alpha
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session created: {session_id[:50]}...')
+
+# Try upload with raw=True to see the error details
+try:
+    upload_resp = sdk.file_storage.upload_sessions.upload(
+        id=session_id,
+        part_number=1,
+        request_body=alpha_content,
+        raw=True,
+    )
+    print(f'Upload response: {upload_resp}')
+except Exception as e:
+    print(f'Error type: {type(e).__name__}')
+    print(f'Error: {e}')
+    # Try to get more details
+    if hasattr(e, 'http_res'):
+        print(f'HTTP Response: {e.http_res}')
+    if hasattr(e, 'response_data'):
+        print(f'Response data: {e.response_data}')
+" 2>&1 ✔ 
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session for alpha
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session created')
+
+# Try using raw httpx to see what's happening
+import httpx
+import json
+
+url = f'https://upload.apideck.com/file-storage/upload-sessions/{session_id}'
+headers = {
+    'Authorization': f'Bearer {os.environ[\"APIDECK_API_KEY\"]}',
+    'x-apideck-app-id': os.environ['APIDECK_APP_ID'],
+    'x-apideck-consumer-id': os.environ['APIDECK_CONSUMER_ID'],
+    'Content-Type': 'application/octet-stream',
+}
+params = {'part_number': '1'}
+
+resp = httpx.put(url, headers=headers, params=params, content=alpha_content)
+print(f'Status: {resp.status_code}')
+print(f'Response: {resp.text[:2000]}')
+" 2>&1 ✔ 
+💭 Thinking for 1120 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+import inspect
+
+# Check files methods
+files = sdk.file_storage.files
+methods = [m for m in dir(files) if not m.startswith('_')]
+print('Files methods:', methods)
+
+# Check if there's a create or upload method
+for method_name in methods:
+    method = getattr(files, method_name)
+    if callable(method) and not isinstance(method, type):
+        try:
+            sig = inspect.signature(method)
+            print(f'  {method_name}{sig}')
+        except:
+            print(f'  {method_name}: (no signature)')
+" 2>&1 ✔ 
+💭 Thinking for 1198 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session for alpha
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session = create_resp.create_upload_session_response
+session_id = session.data.id
+print(f'Session created')
+print(f'Session data: {session.data}')
+
+# Get the upload session details
+session_details = sdk.file_storage.upload_sessions.get(id=session_id)
+print(f'Session details: {session_details}')
+" 2>&1 ✖ "Command exited with code 1"
+💭 Thinking for 1945 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives with raw=True to see service info
+drives_response = sdk.file_storage.drives.list(raw=True)
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+print(f'Drive ID: {drive_id}')
+
+# Create upload session for alpha with service_id='onedrive'
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+try:
+    create_resp = sdk.file_storage.upload_sessions.create(
+        name=alpha_name,
+        parent_folder_id='root',
+        size=len(alpha_content),
+        drive_id=drive_id,
+        service_id='onedrive',
+    )
+    session_id = create_resp.create_upload_session_response.data.id
+    print(f'Session created with service_id=onedrive')
+
+    # Upload content with service_id='onedrive'
+    upload_resp = sdk.file_storage.upload_sessions.upload(
+        id=session_id,
+        part_number=1,
+        request_body=alpha_content,
+        service_id='onedrive',
+    )
+    print(f'Upload done')
+
+    # Finish with service_id='onedrive'
+    finish_resp = sdk.file_storage.upload_sessions.finish(
+        id=session_id,
+        service_id='onedrive',
+    )
+    file_data = finish_resp.get_file_response.data
+    print(f'File ID: {file_data.id}')
+    print(f'File name: {file_data.name}')
+except Exception as e:
+    print(f'Error: {type(e).__name__}: {e}')
+    if hasattr(e, 'http_res'):
+        print(f'HTTP status: {e.http_res.status_code}')
+        print(f'HTTP body: {e.http_res.text[:500]}')
+" 2>&1 ✔ 
+💭 Thinking for 928 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session with raw=True to see full response
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+    raw=True,
+)
+print(f'Status code: {create_resp.create_upload_session_response.status_code}')
+print(f'Session data: {create_resp.create_upload_session_response.data}')
+print(f'Raw response keys: {create_resp.create_upload_session_response.raw.keys() if create_resp.create_upload_session_response.raw else None}')
+" 2>&1 ✔ 
+💭 Thinking for 471 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os, json
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session with raw=True
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+    raw=True,
+)
+print('Raw response:')
+print(json.dumps(create_resp.create_upload_session_response.raw, indent=2))
+" 2>&1 ✔ 
+💭 Thinking for 873 characters   
+💫 Executing python3 -c "
+import inspect
+from apideck_unify.uploadsessions import UploadSessions
+src = inspect.getsource(UploadSessions.upload)
+print(src)
+" 2>&1 ✔ 
+💭 Thinking for 2173 characters   
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+sdk = Apideck(api_key='test', consumer_id='test', app_id='test')
+# Check all resources in file_storage
+fs = sdk.file_storage
+resources = [attr for attr in dir(fs) if not attr.startswith('_')]
+print('File storage resources:', resources)
+
+# Check folders
+folders = fs.folders
+folder_methods = [m for m in dir(folders) if not m.startswith('_') and callable(getattr(folders, m))]
+print('Folder methods:', folder_methods)
+
+import inspect
+for method_name in ['create']:
+    if hasattr(folders, method_name):
+        sig = inspect.signature(getattr(folders, method_name))
+        print(f'  folders.{method_name}{sig}')
+" 2>&1 ✔ 
+💭 Thinking for 574 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os, io
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session created')
+
+# Try upload with BytesIO
+try:
+    upload_resp = sdk.file_storage.upload_sessions.upload(
+        id=session_id,
+        part_number=1,
+        request_body=io.BytesIO(alpha_content),
+    )
+    print(f'Upload done')
+    
+    # Finish
+    finish_resp = sdk.file_storage.upload_sessions.finish(
+        id=session_id,
+    )
+    file_data = finish_resp.get_file_response.data
+    print(f'File ID: {file_data.id}')
+except Exception as e:
+    print(f'Error: {type(e).__name__}: {e}')
+    if hasattr(e, 'http_res'):
+        print(f'HTTP status: {e.http_res.status_code}')
+        print(f'HTTP body: {e.http_res.text[:1000]}')
+" 2>&1 ✔ 
+💭 Thinking for 1933 characters   
+💫 Executing cd /home/user/myproject && python3 -c "
+from apideck_unify import Apideck
+import os
+
+sdk = Apideck(
+    api_key=os.environ['APIDECK_API_KEY'],
+    app_id=os.environ['APIDECK_APP_ID'],
+    consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+)
+
+run_id = os.environ['ZEALT_RUN_ID']
+drive_name = os.environ['APIDECK_FILE_STORAGE_DRIVE_NAME']
+
+# List drives
+drives_response = sdk.file_storage.drives.list()
+drive_id = None
+for drive in drives_response.get_drives_response.data:
+    if drive.name == drive_name:
+        drive_id = drive.id
+        break
+
+# Create upload session
+alpha_name = f'report-{run_id}-alpha.txt'
+alpha_content = f'alpha payload for {run_id}\n'.encode('utf-8')
+
+create_resp = sdk.file_storage.upload_sessions.create(
+    name=alpha_name,
+    parent_folder_id='root',
+    size=len(alpha_content),
+    drive_id=drive_id,
+)
+session_id = create_resp.create_upload_session_response.data.id
+print(f'Session created')
+
+# Try upload with explicit consumer_id and app_id
+try:
+    upload_resp = sdk.file_storage.upload_sessions.upload(
+        id=session_id,
+        part_number=1,
+        request_body=alpha_content,
+        consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+        app_id=os.environ['APIDECK_APP_ID'],
+    )
+    print(f'Upload done')
+    
+    finish_resp = sdk.file_storage.upload_sessions.finish(
+        id=session_id,
+        consumer_id=os.environ['APIDECK_CONSUMER_ID'],
+        app_id=os.environ['APIDECK_APP_ID'],
+    )
+    file_data = finish_resp.get_file_response.data
+    print(f'File ID: {file_data.id}')
+except Exception as e:
+    print(f'Error: {type(e).__name__}: {e}')
+" 2>&1 ✔ 

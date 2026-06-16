@@ -1,0 +1,58 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 3 items
+
+tests/test_final_state.py FFF                                            [100%]
+
+=================================== FAILURES ===================================
+____________________ test_exactly_three_report_files_exist _____________________
+
+matching_files = []
+expected_file_names = ['REPORT-zr-ewcphhc-A.txt', 'REPORT-zr-ewcphhc-B.txt', 'REPORT-zr-ewcphhc-C.txt']
+
+    def test_exactly_three_report_files_exist(matching_files, expected_file_names):
+        actual_names = sorted(f.get("name", "") for f in matching_files)
+>       assert actual_names == sorted(expected_file_names), (
+            f"Expected exactly the three files {sorted(expected_file_names)} at the OneDrive root, "
+            f"got {actual_names}."
+        )
+E       AssertionError: Expected exactly the three files ['REPORT-zr-ewcphhc-A.txt', 'REPORT-zr-ewcphhc-B.txt', 'REPORT-zr-ewcphhc-C.txt'] at the OneDrive root, got [].
+E       assert [] == ['REPORT-zr-e...wcphhc-C.txt']
+E         Right contains 3 more items, first extra item: 'REPORT-zr-ewcphhc-A.txt'
+E         Use -v to get more diff
+
+tests/test_final_state.py:105: AssertionError
+___________________ test_exactly_one_matching_ticket_exists ____________________
+
+matching_tickets = [], run_id = 'zr-ewcphhc'
+
+    def test_exactly_one_matching_ticket_exists(matching_tickets, run_id):
+>       assert len(matching_tickets) == 1, (
+            f"Expected exactly 1 ticket whose subject contains both '{TICKET_MARKER}' and "
+            f"ZEALT_RUN_ID '{run_id}', got {len(matching_tickets)}."
+        )
+E       AssertionError: Expected exactly 1 ticket whose subject contains both '[FILE-INDEX]' and ZEALT_RUN_ID 'zr-ewcphhc', got 0.
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_final_state.py:112: AssertionError
+________________ test_ticket_description_lists_sorted_file_ids _________________
+
+matching_tickets = [], matching_files = []
+
+    def test_ticket_description_lists_sorted_file_ids(matching_tickets, matching_files):
+>       assert len(matching_tickets) == 1, (
+            "Cannot verify description without exactly one matching ticket."
+        )
+E       AssertionError: Cannot verify description without exactly one matching ticket.
+E       assert 0 == 1
+E        +  where 0 = len([])
+
+tests/test_final_state.py:119: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_final_state.py::test_exactly_three_report_files_exist - Ass...
+FAILED tests/test_final_state.py::test_exactly_one_matching_ticket_exists - A...
+FAILED tests/test_final_state.py::test_ticket_description_lists_sorted_file_ids
+============================== 3 failed in 5.30s ===============================

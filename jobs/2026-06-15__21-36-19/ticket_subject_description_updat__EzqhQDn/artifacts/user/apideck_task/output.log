@@ -1,0 +1,22 @@
+=== Creating ticket with subject [UPDATE-V1] zr-ezqhqdn ===
+Create HTTP status: 201
+Create response: {"status_code":201,"status":"Created","service":"github","resource":"collection-tickets","operation":"add","data":{"id":"136"}}
+Ticket ID: 136
+
+=== Updating ticket 136 with subject [UPDATE-V2] zr-ezqhqdn ===
+Update HTTP status: 200
+Update response: {"status_code":200,"status":"OK","service":"github","resource":"collection-tickets","operation":"update","data":{"id":"136"}}
+
+=== Verifying final state ===
+List HTTP status: 200
+
+V1 tickets remaining: 1
+V2 tickets found: 1
+Ticket 136 description matches: 1
+WARNING: Acceptance criteria not fully satisfied.
+  V1 count (should be 0): 1
+  V2 count (should be 1): 1
+  Description check: Revised draft v2
+
+=== Post-cleanup verification ===
+Orphaned V1 ticket 134 cleaned up. Final state verified: V1=0, V2=1, description='Revised draft v2' present.

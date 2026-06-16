@@ -1,0 +1,42 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 4 items
+
+tests/test_final_state.py ...F                                           [100%]
+
+=================================== FAILURES ===================================
+_____________________ test_solution_uses_curl_and_not_sdk ______________________
+
+    def test_solution_uses_curl_and_not_sdk():
+        project_path = Path(PROJECT_DIR)
+        assert project_path.is_dir(), f"Project directory {PROJECT_DIR} is missing."
+    
+        interesting_suffixes = {".sh", ".bash", ".py", ".js", ".mjs", ".ts", ".rb", ".pl"}
+        sources: list[tuple[Path, str]] = []
+        for path in project_path.rglob("*"):
+            if not path.is_file():
+                continue
+            if path.suffix.lower() not in interesting_suffixes and path.name != "Makefile":
+                continue
+            try:
+                sources.append((path, path.read_text(encoding="utf-8", errors="ignore")))
+            except OSError:
+                continue
+    
+>       assert sources, (
+            f"Expected at least one persisted solution script under {PROJECT_DIR} "
+            "(e.g., a shell or Python file invoking curl)."
+        )
+E       AssertionError: Expected at least one persisted solution script under /home/user/myproject (e.g., a shell or Python file invoking curl).
+E       assert []
+
+tests/test_final_state.py:194: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_output_log_has_single_file_id
+PASSED tests/test_final_state.py::test_get_file_returns_expected_metadata
+PASSED tests/test_final_state.py::test_file_appears_in_list_files
+FAILED tests/test_final_state.py::test_solution_uses_curl_and_not_sdk - Asser...
+========================= 1 failed, 3 passed in 6.93s ==========================

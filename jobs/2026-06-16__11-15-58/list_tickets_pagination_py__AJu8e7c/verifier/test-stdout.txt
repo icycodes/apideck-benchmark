@@ -1,0 +1,36 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py ..F...                                         [100%]
+
+=================================== FAILURES ===================================
+____________________ test_tickets_array_shape_and_subjects _____________________
+
+tickets_payload = {'collection_id': 'zealt-user-default-repo', 'page_count': 93, 'run_id': 'zr-aju8e7c', 'tickets': [{'id': '160', 'inde...ject': 'Pagination demo 2 - zr-aju8e7c'}, {'id': '181', 'index': 2, 'subject': 'Pagination demo 2 - zr-aju8e7c'}, ...]}
+expected_subjects = {1: 'Pagination demo 1 - zr-aju8e7c', 2: 'Pagination demo 2 - zr-aju8e7c', 3: 'Pagination demo 3 - zr-aju8e7c', 4: 'Pagination demo 4 - zr-aju8e7c', ...}
+
+    def test_tickets_array_shape_and_subjects(tickets_payload: dict, expected_subjects: dict):
+        tickets = tickets_payload.get("tickets")
+        assert isinstance(tickets, list), (
+            f"tickets.json `tickets` must be a list; got {type(tickets).__name__}."
+        )
+>       assert len(tickets) == SEED_COUNT, (
+            f"tickets.json `tickets` must contain exactly {SEED_COUNT} entries; got {len(tickets)}."
+        )
+E       AssertionError: tickets.json `tickets` must contain exactly 5 entries; got 12.
+E       assert 12 == 5
+E        +  where 12 = len([{'id': '160', 'index': 1, 'subject': 'Pagination demo 1 - zr-aju8e7c'}, {'id': '161', 'index': 1, 'subject': 'Paginat...bject': 'Pagination demo 2 - zr-aju8e7c'}, {'id': '181', 'index': 2, 'subject': 'Pagination demo 2 - zr-aju8e7c'}, ...])
+
+tests/test_final_state.py:96: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_top_level_run_and_collection_ids_match
+PASSED tests/test_final_state.py::test_page_count_is_positive_integer
+PASSED tests/test_final_state.py::test_each_ticket_retrievable_via_get_ticket
+PASSED tests/test_final_state.py::test_seeded_tickets_appear_in_list_tickets
+PASSED tests/test_final_state.py::test_solution_uses_apideck_unify_sdk_and_not_raw_http
+FAILED tests/test_final_state.py::test_tickets_array_shape_and_subjects - Ass...
+========================= 1 failed, 5 passed in 18.92s =========================

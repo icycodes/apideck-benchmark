@@ -1,0 +1,77 @@
+Skipping image OS validation for hb__comment_edit_delete_workflow: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-coskkqa > /logs/artifacts/run-id && echo comment_edit_delete_workflow__coSKKqa > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model google/gemini-3.1-pro --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Apideck Issue Tracking: Comment Edit & Delete Workflow
+
+## Background
+You are working with the Apideck Unified Issue Tracking API connected to GitHub (service id `github`). Your job is to drive a full comment-modification workflow on a single ticket: create the ticket, append a sequence of comments, edit one of them in place, and remove another. The final state on the remote ticket must match the expected configuration.
+
+## Requirements
+- Create exactly one ticket inside the collection identified by the `APIDECK_ISSUE_TRACKING_COLLECTION_ID` environment variable.
+- Add four comments, then edit one and delete one, so that three comments remain at the end with the expected bodies.
+- Persist a small log file with the identifiers your script created so the workflow is auditable.
+
+## Implementation Hints
+- Read all credentials, ids, and `ZEALT_RUN_ID` from environment variables before issuing any request.
+- Apideck Unified APIs require `Authorization`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id` on every call.
+- Comments live under `/issue-tracking/collections/{collection_id}/tickets/{ticket_id}/comments`; the body field on create/update is `body`.
+- Use the official endpoints to create, update (PATCH), and delete comments — do not work around them with `pass_through` rewrites.
+- The List Comments endpoint paginates with an opaque cursor (`meta.cursors.next`); you may need to follow it to verify final state.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the script is executed and the artifacts exist.
+- Log file: /home/user/apideck_task/output.log
+- The log file must contain a line of the form `Ticket ID: <ticket_id>` for the ticket created by this run.
+- Exactly one ticket exists in the configured collection whose subject contains both `[COMMENT-EDIT-DELETE]` and the current `ZEALT_RUN_ID` value.
+- After the workflow finishes, that ticket has exactly three comments. Their body values, as a set, equal `{"A-<ZEALT_RUN_ID>", "B-EDITED-<ZEALT_RUN_ID>", "D-<ZEALT_RUN_ID>"}`.
+- No remaining comment on that ticket has a body equal to `B-<ZEALT_RUN_ID>` or `C-<ZEALT_RUN_ID>`.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+The verifier.env contains an API key (often the case for LLM-based verifiers). You will incur costs associated with the API calls.

@@ -1,0 +1,2510 @@
+{
+    "schema_version": 1,
+    "created_at": "2026-06-15T04:38:48.312751Z",
+    "harbor": {
+        "version": "0.7.1",
+        "is_editable": false
+    },
+    "invocation": [
+        "/home/icy/github/benchmark-run/.venv/bin/harbor",
+        "run",
+        "--model",
+        "google/gemini-3.5-flash",
+        "--model",
+        "openai/gpt-5.5",
+        "--model",
+        "deepseek/deepseek-4-pro",
+        "--agent-import-path",
+        "agents.pochi:Pochi",
+        "--env",
+        "docker",
+        "--path",
+        "/home/icy/github/benchmark-run/local-scripts/../tasks",
+        "--jobs-dir",
+        "/home/icy/github/benchmark-run/local-scripts/../jobs",
+        "--n-attempts",
+        "1",
+        "--max-retries",
+        "0",
+        "--n-concurrent",
+        "8",
+        "--artifact",
+        "/home/user",
+        "--mounts",
+        "[{\"type\": \"bind\",\"source\":\"test_initial_state.py\",\"target\":\"/bootstrap/test_initial_state.py\"}]",
+        "--yes"
+    ],
+    "n_concurrent_trials": 8,
+    "retry": {
+        "max_retries": 0,
+        "exclude_exceptions": [
+            "RewardFileEmptyError",
+            "AgentTimeoutError",
+            "RewardFileNotFoundError",
+            "VerifierOutputParseError",
+            "VerifierTimeoutError"
+        ],
+        "wait_multiplier": 1.0,
+        "min_wait_sec": 1.0,
+        "max_wait_sec": 60.0
+    },
+    "trials": [
+        {
+            "task": {
+                "name": "ticket_bulk_close_by_run",
+                "type": "local",
+                "digest": "sha256:2067b208e1603b4d57b9e93fbd127fc6102cfe0b20f9b2ab2c727e7772793ba0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_bulk_close_by_run"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_bulk_close_by_run",
+                "type": "local",
+                "digest": "sha256:2067b208e1603b4d57b9e93fbd127fc6102cfe0b20f9b2ab2c727e7772793ba0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_bulk_close_by_run"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_bulk_close_by_run",
+                "type": "local",
+                "digest": "sha256:2067b208e1603b4d57b9e93fbd127fc6102cfe0b20f9b2ab2c727e7772793ba0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_bulk_close_by_run"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_rename_and_move",
+                "type": "local",
+                "digest": "sha256:ca2bfa1e23a0bd89d4b520409e05ffebdc1e0fab70b6542ce5dfb92a1a5d133a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_rename_and_move"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_rename_and_move",
+                "type": "local",
+                "digest": "sha256:ca2bfa1e23a0bd89d4b520409e05ffebdc1e0fab70b6542ce5dfb92a1a5d133a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_rename_and_move"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_rename_and_move",
+                "type": "local",
+                "digest": "sha256:ca2bfa1e23a0bd89d4b520409e05ffebdc1e0fab70b6542ce5dfb92a1a5d133a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_rename_and_move"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_move_between_folders",
+                "type": "local",
+                "digest": "sha256:e98cdc9db948c4cdd1a44f1d5eca6a8f6db32193f0fc4d46c5b4e156e7cfbe18",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_move_between_folders"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_move_between_folders",
+                "type": "local",
+                "digest": "sha256:e98cdc9db948c4cdd1a44f1d5eca6a8f6db32193f0fc4d46c5b4e156e7cfbe18",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_move_between_folders"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_move_between_folders",
+                "type": "local",
+                "digest": "sha256:e98cdc9db948c4cdd1a44f1d5eca6a8f6db32193f0fc4d46c5b4e156e7cfbe18",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_move_between_folders"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_subtask_hierarchy",
+                "type": "local",
+                "digest": "sha256:5c1d2818fe49b90132c38e25150a222b2a0e918d08f4676d71407349ffb98819",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_subtask_hierarchy"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_subtask_hierarchy",
+                "type": "local",
+                "digest": "sha256:5c1d2818fe49b90132c38e25150a222b2a0e918d08f4676d71407349ffb98819",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_subtask_hierarchy"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_subtask_hierarchy",
+                "type": "local",
+                "digest": "sha256:5c1d2818fe49b90132c38e25150a222b2a0e918d08f4676d71407349ffb98819",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_subtask_hierarchy"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_pagination_reorder",
+                "type": "local",
+                "digest": "sha256:1936863a7e9c49dbb8b0bbef16d48ed82cca7e6c95bac8f732bc385652befea2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_pagination_reorder"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_pagination_reorder",
+                "type": "local",
+                "digest": "sha256:1936863a7e9c49dbb8b0bbef16d48ed82cca7e6c95bac8f732bc385652befea2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_pagination_reorder"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_pagination_reorder",
+                "type": "local",
+                "digest": "sha256:1936863a7e9c49dbb8b0bbef16d48ed82cca7e6c95bac8f732bc385652befea2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_pagination_reorder"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_edit_delete_workflow",
+                "type": "local",
+                "digest": "sha256:0ea99536f53f45ef684a05823b2e0989e8c4a53485c950e40b9cd19c155b3859",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_edit_delete_workflow"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_edit_delete_workflow",
+                "type": "local",
+                "digest": "sha256:0ea99536f53f45ef684a05823b2e0989e8c4a53485c950e40b9cd19c155b3859",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_edit_delete_workflow"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "comment_edit_delete_workflow",
+                "type": "local",
+                "digest": "sha256:0ea99536f53f45ef684a05823b2e0989e8c4a53485c950e40b9cd19c155b3859",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/comment_edit_delete_workflow"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "drives_lookup_by_name",
+                "type": "local",
+                "digest": "sha256:8ce0714e290706d24b8b8ad2848b8a716fed0aaa5638c7b552bc155c851f1ac0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/drives_lookup_by_name"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "drives_lookup_by_name",
+                "type": "local",
+                "digest": "sha256:8ce0714e290706d24b8b8ad2848b8a716fed0aaa5638c7b552bc155c851f1ac0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/drives_lookup_by_name"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "drives_lookup_by_name",
+                "type": "local",
+                "digest": "sha256:8ce0714e290706d24b8b8ad2848b8a716fed0aaa5638c7b552bc155c851f1ac0",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/drives_lookup_by_name"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_due_date_rescheduling",
+                "type": "local",
+                "digest": "sha256:aee5e8223059695966c4856205961c41a3a117b39529c09aff1dfd91610bd70c",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_due_date_rescheduling"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_due_date_rescheduling",
+                "type": "local",
+                "digest": "sha256:aee5e8223059695966c4856205961c41a3a117b39529c09aff1dfd91610bd70c",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_due_date_rescheduling"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_due_date_rescheduling",
+                "type": "local",
+                "digest": "sha256:aee5e8223059695966c4856205961c41a3a117b39529c09aff1dfd91610bd70c",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_due_date_rescheduling"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_listing_cursor_aggregation",
+                "type": "local",
+                "digest": "sha256:7995c9c1b907252b8c9cb039664d198a864facf7d274a69a6d1a7f26eab7517f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_listing_cursor_aggregation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_listing_cursor_aggregation",
+                "type": "local",
+                "digest": "sha256:7995c9c1b907252b8c9cb039664d198a864facf7d274a69a6d1a7f26eab7517f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_listing_cursor_aggregation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_listing_cursor_aggregation",
+                "type": "local",
+                "digest": "sha256:7995c9c1b907252b8c9cb039664d198a864facf7d274a69a6d1a7f26eab7517f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_listing_cursor_aggregation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "cross_api_ticket_file_summary",
+                "type": "local",
+                "digest": "sha256:28e382e678c37329b7fc1be3e0647d8f66d561c6f28d2203059a2a5ef4d05865",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/cross_api_ticket_file_summary"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "cross_api_ticket_file_summary",
+                "type": "local",
+                "digest": "sha256:28e382e678c37329b7fc1be3e0647d8f66d561c6f28d2203059a2a5ef4d05865",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/cross_api_ticket_file_summary"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "cross_api_ticket_file_summary",
+                "type": "local",
+                "digest": "sha256:28e382e678c37329b7fc1be3e0647d8f66d561c6f28d2203059a2a5ef4d05865",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/cross_api_ticket_file_summary"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_search_subject_prefix",
+                "type": "local",
+                "digest": "sha256:0f80d46fffc546bea5712bf378762310d596b48b1a650a44f2a9e89989d5ea23",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_search_subject_prefix"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_search_subject_prefix",
+                "type": "local",
+                "digest": "sha256:0f80d46fffc546bea5712bf378762310d596b48b1a650a44f2a9e89989d5ea23",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_search_subject_prefix"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_search_subject_prefix",
+                "type": "local",
+                "digest": "sha256:0f80d46fffc546bea5712bf378762310d596b48b1a650a44f2a9e89989d5ea23",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_search_subject_prefix"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_in_progress_partition",
+                "type": "local",
+                "digest": "sha256:3ea8075ad9015bd477f2d7015aab154091443d671c7ac79b2654fc0463d1e7f1",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_in_progress_partition"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_in_progress_partition",
+                "type": "local",
+                "digest": "sha256:3ea8075ad9015bd477f2d7015aab154091443d671c7ac79b2654fc0463d1e7f1",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_in_progress_partition"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_in_progress_partition",
+                "type": "local",
+                "digest": "sha256:3ea8075ad9015bd477f2d7015aab154091443d671c7ac79b2654fc0463d1e7f1",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_in_progress_partition"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_metadata_size_verify",
+                "type": "local",
+                "digest": "sha256:f53fe32684a2febd2750a1ae8daaf5b998d29e2efe8c4a39386370d2231ca69a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_metadata_size_verify"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_metadata_size_verify",
+                "type": "local",
+                "digest": "sha256:f53fe32684a2febd2750a1ae8daaf5b998d29e2efe8c4a39386370d2231ca69a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_metadata_size_verify"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_metadata_size_verify",
+                "type": "local",
+                "digest": "sha256:f53fe32684a2febd2750a1ae8daaf5b998d29e2efe8c4a39386370d2231ca69a",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_metadata_size_verify"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_field_audit_update",
+                "type": "local",
+                "digest": "sha256:9ca9613617de9673bcda38f1d7ae7177e3e3d40034e0a4a6518ae6114fd6465f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_field_audit_update"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_field_audit_update",
+                "type": "local",
+                "digest": "sha256:9ca9613617de9673bcda38f1d7ae7177e3e3d40034e0a4a6518ae6114fd6465f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_field_audit_update"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_field_audit_update",
+                "type": "local",
+                "digest": "sha256:9ca9613617de9673bcda38f1d7ae7177e3e3d40034e0a4a6518ae6114fd6465f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_field_audit_update"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_search_endpoint_filter",
+                "type": "local",
+                "digest": "sha256:5a0cabafffe9cbff41f990d8aef94943f7dfaeda9ac7142e11792883cee0321e",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_search_endpoint_filter"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_search_endpoint_filter",
+                "type": "local",
+                "digest": "sha256:5a0cabafffe9cbff41f990d8aef94943f7dfaeda9ac7142e11792883cee0321e",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_search_endpoint_filter"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_search_endpoint_filter",
+                "type": "local",
+                "digest": "sha256:5a0cabafffe9cbff41f990d8aef94943f7dfaeda9ac7142e11792883cee0321e",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_search_endpoint_filter"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_tags_apply_resolve",
+                "type": "local",
+                "digest": "sha256:39e6a4ff97e6584eabc01522cab8624a2f80172a1ef97b4ed5f9f5cea5ebb4a5",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_tags_apply_resolve"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_tags_apply_resolve",
+                "type": "local",
+                "digest": "sha256:39e6a4ff97e6584eabc01522cab8624a2f80172a1ef97b4ed5f9f5cea5ebb4a5",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_tags_apply_resolve"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_tags_apply_resolve",
+                "type": "local",
+                "digest": "sha256:39e6a4ff97e6584eabc01522cab8624a2f80172a1ef97b4ed5f9f5cea5ebb4a5",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_tags_apply_resolve"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_users_directory_assign",
+                "type": "local",
+                "digest": "sha256:204f956e847d9b71031537e927abe747e19d3346166f4c4f340d66472135cf3f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_users_directory_assign"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_users_directory_assign",
+                "type": "local",
+                "digest": "sha256:204f956e847d9b71031537e927abe747e19d3346166f4c4f340d66472135cf3f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_users_directory_assign"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "ticket_users_directory_assign",
+                "type": "local",
+                "digest": "sha256:204f956e847d9b71031537e927abe747e19d3346166f4c4f340d66472135cf3f",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/ticket_users_directory_assign"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "collections_lookup_and_ticket",
+                "type": "local",
+                "digest": "sha256:ac2cb7ac68000486b8838b38ee2017a569aec5724a2d8c3f234efb3ed9649ec2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/collections_lookup_and_ticket"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "collections_lookup_and_ticket",
+                "type": "local",
+                "digest": "sha256:ac2cb7ac68000486b8838b38ee2017a569aec5724a2d8c3f234efb3ed9649ec2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/collections_lookup_and_ticket"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "collections_lookup_and_ticket",
+                "type": "local",
+                "digest": "sha256:ac2cb7ac68000486b8838b38ee2017a569aec5724a2d8c3f234efb3ed9649ec2",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/collections_lookup_and_ticket"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_nested_hierarchy_creation",
+                "type": "local",
+                "digest": "sha256:d9040232ad80194337dcf9421aa9b05f7067615606ad3509fbfb5ba1a081c32d",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_nested_hierarchy_creation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_nested_hierarchy_creation",
+                "type": "local",
+                "digest": "sha256:d9040232ad80194337dcf9421aa9b05f7067615606ad3509fbfb5ba1a081c32d",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_nested_hierarchy_creation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "folder_nested_hierarchy_creation",
+                "type": "local",
+                "digest": "sha256:d9040232ad80194337dcf9421aa9b05f7067615606ad3509fbfb5ba1a081c32d",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/folder_nested_hierarchy_creation"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_rename_via_patch",
+                "type": "local",
+                "digest": "sha256:269506dca459739b6cd0f652b72bf78dec72169e5157a41392b207cc71611d56",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_rename_via_patch"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_rename_via_patch",
+                "type": "local",
+                "digest": "sha256:269506dca459739b6cd0f652b72bf78dec72169e5157a41392b207cc71611d56",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_rename_via_patch"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_rename_via_patch",
+                "type": "local",
+                "digest": "sha256:269506dca459739b6cd0f652b72bf78dec72169e5157a41392b207cc71611d56",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_rename_via_patch"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_organize_by_extension",
+                "type": "local",
+                "digest": "sha256:af04a69484bcc62b6c7f3836e4ffdb38f4b3abdd859c1049e0c9a338c32d6cd4",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_organize_by_extension"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "google/gemini-3.5-flash",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_organize_by_extension",
+                "type": "local",
+                "digest": "sha256:af04a69484bcc62b6c7f3836e4ffdb38f4b3abdd859c1049e0c9a338c32d6cd4",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_organize_by_extension"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "openai/gpt-5.5",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        },
+        {
+            "task": {
+                "name": "file_organize_by_extension",
+                "type": "local",
+                "digest": "sha256:af04a69484bcc62b6c7f3836e4ffdb38f4b3abdd859c1049e0c9a338c32d6cd4",
+                "source": "tasks",
+                "path": "/home/icy/github/benchmark-run/local-scripts/../tasks/file_organize_by_extension"
+            },
+            "timeout_multiplier": 1.0,
+            "agent": {
+                "import_path": "agents.pochi:Pochi",
+                "model_name": "deepseek/deepseek-4-pro",
+                "skills": [],
+                "kwargs": {},
+                "env": {},
+                "mcp_servers": []
+            },
+            "skills": [],
+            "environment": {
+                "type": "docker",
+                "force_build": false,
+                "delete": true,
+                "suppress_override_warnings": false,
+                "mounts": [
+                    {
+                        "type": "bind",
+                        "source": "test_initial_state.py",
+                        "target": "/bootstrap/test_initial_state.py"
+                    }
+                ],
+                "extra_docker_compose": [],
+                "env": {},
+                "kwargs": {}
+            },
+            "verifier": {
+                "env": {},
+                "disable": false
+            }
+        }
+    ]
+}

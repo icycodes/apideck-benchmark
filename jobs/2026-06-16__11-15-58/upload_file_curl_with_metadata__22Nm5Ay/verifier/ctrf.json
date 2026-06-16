@@ -1,0 +1,65 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:48:27.383167+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 4,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781581700738,
+            "stop": 1781581707382
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_output_log_has_single_file_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781581700819,
+                "stop": 1781581700820,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_get_file_returns_expected_metadata",
+                "status": "passed",
+                "duration": 3778,
+                "start": 1781581700820,
+                "stop": 1781581704598,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_file_appears_in_list_files",
+                "status": "passed",
+                "duration": 2779,
+                "start": 1781581704599,
+                "stop": 1781581707378,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_solution_uses_curl_and_not_sdk",
+                "status": "passed",
+                "duration": 3,
+                "start": 1781581707379,
+                "stop": 1781581707382,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            }
+        ]
+    }
+}

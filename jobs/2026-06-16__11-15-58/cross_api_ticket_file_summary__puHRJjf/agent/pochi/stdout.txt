@@ -1,0 +1,509 @@
+- Initializing MCP connections...
+You
+# Cross-API Ticket / File Summary Using Apideck Unify, perform these two side effects in the connected services for the current `ZEALT_RUN_ID`: 1. Upload exactly three small text files at the OneDrive drive root (service id `onedrive`), named (case-sensitive): * `REPORT-${ZEALT_RUN_ID}-A.txt` * `REPORT-${ZEALT_RUN_ID}-B.txt` * `REPORT-${ZEALT_RUN_ID}-C.txt` 2. Create exactly one Issue Tracking ticket (service id `github`, collection `APIDECK_ISSUE_TRACKING_COLLECTION_ID`) whose `subject` contains both `ZEALT_RUN_ID` and the literal marker `[FILE-INDEX]`, and whose `description` is the newline-joined list of those three uploaded files' Apideck file ids, sorted ascending. The description MUST contain only those three id lines and nothing else. ## Acceptance Criteria * Project path: /home/user/apideck\_task * The real Apideck side effects must be executed (no mocking). * After completion, the OneDrive drive root contains exactly three files whose names equal `REPORT-${ZEALT_RUN_ID}-A.txt`, `REPORT-${ZEALT_RUN_ID}-B.txt`, `REPORT-${ZEALT_RUN_ID}-C.txt`. * The Issue Tracking collection contains exactly one ticket whose `subject` includes both the literal substring `[FILE-INDEX]` and `${ZEALT_RUN_ID}`. * That ticket's `description`, split by `\n` with empty lines discarded and surrounding whitespace stripped, equals the ascending-sorted list of the three uploaded files' Apideck `id` values.   
+
+Pochi
+💭 Thinking for 329 characters   
+📋 Updating todo list (4 items) ✔ 
+💭 Thinking for 71 characters   
+📂 Listing files in /home/user/apideck_task recursively ✔ 
+💫 Executing echo "ZEALT_RUN_ID=$ZEALT_RUN_ID" && echo "APIDECK_ISSUE_TRACKING_COLLECTION_ID=$APIDECK_ISSUE_TRACKING_COLLECTION_ID" && env | grep -i apideck ✔ 
+💭 Thinking for 1075 characters   
+💫 Executing ls -la /home/user/apideck_task/ ✔ 
+💫 Executing which curl && curl --version | head -1 ✔ 
+💭 Thinking for 1160 characters   
+💫 Executing curl -s -X GET "https://unify.apideck.com/file-storage/drives?service_id=onedrive" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" | python3 -m json.tool ✔ 
+💭 Thinking for 456 characters   
+💫 Executing curl -s -X GET "https://unify.apideck.com/file-storage/drives" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" | python3 -m json.tool ✔ 
+💭 Thinking for 438 characters   
+💫 Executing curl -s -X GET "https://unify.apideck.com/file-storage/files?drive_id=3ada079b78534ff1" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" | python3 -m json.tool ✔ 
+💭 Thinking for 294 characters   
+🛠️ Tool webFetch ✔ 
+💭 Thinking for 1198 characters   
+🛠️ Tool webFetch ✔ 
+💭 Thinking for 1781 characters   
+📋 Updating todo list (4 items) ✔ 
+💭 Thinking for 86 characters   
+💫 Executing echo "Report A for zr-puhrjjf" > /tmp/REPORT-zr-puhrjjf-A.txt && echo "Report B for zr-puhrjjf" > /tmp/REPORT-zr-puhrjjf-B.txt && echo "Report C for zr-puhrjjf" > /tmp/REPORT-zr-puhrjjf-C.txt ✔ 
+💭 Thinking for 63 characters   
+💫 Executing curl -s -X POST "https://upload.apideck.com/file-storage/files" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "Content-Type: text/plain" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: onedrive" \
+  -H 'x-apideck-metadata: {"name": "REPORT-zr-puhrjjf-A.txt", "parent_folder_id": "root"}' \
+  --data-binary @/tmp/REPORT-zr-puhrjjf-A.txt | python3 -m json.tool ✔ 
+💭 Thinking for 210 characters   
+💫 Executing curl -s -X POST "https://upload.apideck.com/file-storage/files" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "Content-Type: text/plain" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: onedrive" \
+  -H 'x-apideck-metadata: {"name": "REPORT-zr-puhrjjf-B.txt", "parent_folder_id": "root"}' \
+  --data-binary @/tmp/REPORT-zr-puhrjjf-B.txt | python3 -m json.tool ✔ 
+💫 Executing curl -s -X POST "https://upload.apideck.com/file-storage/files" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "Content-Type: text/plain" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: onedrive" \
+  -H 'x-apideck-metadata: {"name": "REPORT-zr-puhrjjf-C.txt", "parent_folder_id": "root"}' \
+  --data-binary @/tmp/REPORT-zr-puhrjjf-C.txt | python3 -m json.tool ✔ 
+💭 Thinking for 2154 characters   
+💫 Executing python3 -c "
+ids = [
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='
+]
+sorted_ids = sorted(ids)
+for sid in sorted_ids:
+    print(sid)
+" ✔ 
+💭 Thinking for 521 characters   
+📋 Updating todo list (4 items) ✔ 
+💭 Thinking for 123 characters   
+🛠️ Tool webFetch ✔ 
+💭 Thinking for 129 characters   
+🛠️ Tool webFetch ✔ 
+💭 Thinking for 722 characters   
+💫 Executing python3 -c "
+ids = [
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='
+]
+sorted_ids = sorted(ids)
+description = '\n'.join(sorted_ids)
+print(repr(description))
+" ✔ 
+💭 Thinking for 296 characters   
+💫 Executing curl -s -X POST "https://unify.apideck.com/issue-tracking/tickets" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "Content-Type: application/json" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: github" \
+  -d '{
+    "subject": "zr-puhrjjf [FILE-INDEX]",
+    "description": "eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\neyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\neyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=",
+    "collection_id": "zealt-user-default-repo"
+  }' | python3 -m json.tool ✔ 
+💭 Thinking for 1006 characters   
+💫 Executing curl -s -X POST "https://unify.apideck.com/issue-tracking/tickets" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "Content-Type: application/json" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: github" \
+  --data-raw '{"subject":"zr-puhrjjf [FILE-INDEX]","description":"eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\neyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\neyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=","collection_id":"zealt-user-default-repo"}' ✔ 
+💭 Thinking for 490 characters   
+💫 Executing curl -v -s -X GET "https://unify.apideck.com/issue-tracking/tickets?limit=1" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" \
+  -H "x-apideck-service-id: github" 2>&1 | head -80 ✔ 
+💭 Thinking for 3315 characters   
+💫 Executing curl -s -X GET "https://unify.apideck.com/issue-tracking/tickets?limit=1" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" ✔ 
+💭 Thinking for 1594 characters   
+💫 Executing which python3 && python3 -c "import urllib.request; print('urllib available')" ✔ 
+💭 Thinking for 120 characters   
+💫 Executing python3 << 'PYEOF'
+import urllib.request
+import json
+
+url = "https://unify.apideck.com/issue-tracking/tickets?limit=1"
+headers = {
+    "Authorization": "Bearer (*****SECRET_LEAK_DETECTED*****)",
+    "x-apideck-app-id": "605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    "x-apideck-consumer-id": "test-consumer"
+}
+
+req = urllib.request.Request(url, headers=headers)
+try:
+    with urllib.request.urlopen(req) as response:
+        print(f"Status: {response.status}")
+        print(response.read().decode())
+except urllib.error.HTTPError as e:
+    print(f"HTTP Error: {e.code}")
+    print(e.read().decode())
+except Exception as e:
+    print(f"Error: {e}")
+PYEOF ✔ 
+💭 Thinking for 635 characters   
+💫 Executing python3 << 'PYEOF'
+import urllib.request
+import json
+
+# Try with api_key as query parameter instead
+url = "https://unify.apideck.com/issue-tracking/tickets?limit=1&api_key=(*****SECRET_LEAK_DETECTED*****)"
+headers = {
+    "x-apideck-app-id": "605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    "x-apideck-consumer-id": "test-consumer"
+}
+
+req = urllib.request.Request(url, headers=headers)
+try:
+    with urllib.request.urlopen(req) as response:
+        print(f"Status: {response.status}")
+        print(response.read().decode())
+except urllib.error.HTTPError as e:
+    print(f"HTTP Error: {e.code}")
+    print(e.read().decode())
+except Exception as e:
+    print(f"Error: {e}")
+PYEOF ✔ 
+💭 Thinking for 539 characters   
+💫 Executing python3 << 'PYEOF'
+import urllib.request
+
+# Test file storage endpoint to confirm it works
+url = "https://unify.apideck.com/file-storage/drives"
+headers = {
+    "Authorization": "Bearer (*****SECRET_LEAK_DETECTED*****)",
+    "x-apideck-app-id": "605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    "x-apideck-consumer-id": "test-consumer"
+}
+
+req = urllib.request.Request(url, headers=headers)
+try:
+    with urllib.request.urlopen(req) as response:
+        print(f"Status: {response.status}")
+        data = response.read().decode()
+        print(data[:200])
+except urllib.error.HTTPError as e:
+    print(f"HTTP Error: {e.code}")
+    print(e.read().decode())
+PYEOF ✔ 
+💭 Thinking for 1241 characters   
+💫 Executing which npm node 2>/dev/null; npm --version 2>/dev/null; node --version 2>/dev/null ✖ "Command exited with code 127"
+💭 Thinking for 84 characters   
+💫 Executing pip3 install apideck 2>&1 | tail -5 ✔ 
+💫 Executing pip3 install --break-system-packages apideck 2>&1 | tail -10 ✔ 
+💫 Executing python3 << 'PYEOF'
+from apideck import Apideck
+from apideck.utils.models import Operation
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Try to list tickets
+try:
+    res = apideck.issue_tracking.tickets.list(service_id="github")
+    print(res)
+except Exception as e:
+    print(f"Error: {e}")
+PYEOF ✖ "Command exited with code 1"
+💫 Executing pip3 install --break-system-packages python-dateutil 2>&1 | tail -5 ✔ 
+💫 Executing python3 << 'PYEOF'
+from apideck import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Try to list tickets
+try:
+    res = apideck.issue_tracking.tickets.list(service_id="github")
+    print(res)
+except Exception as e:
+    print(f"Error type: {type(e).__name__}")
+    print(f"Error: {e}")
+    if hasattr(e, 'status_code'):
+        print(f"Status code: {e.status_code}")
+    if hasattr(e, 'body'):
+        print(f"Body: {e.body}")
+PYEOF ✖ "Command exited with code 1"
+💭 Thinking for 119 characters   
+💫 Executing python3 -c "import apideck; print(dir(apideck))" ✔ 
+💭 Thinking for 203 characters   
+💫 Executing pip3 install --break-system-packages apideck-unify 2>&1 | tail -10 ✔ 
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Try to list tickets
+try:
+    res = apideck.issue_tracking.tickets.list(service_id="github")
+    print(res)
+except Exception as e:
+    print(f"Error type: {type(e).__name__}")
+    print(f"Error: {e}")
+PYEOF ✔ 
+💫 Executing python3 -c "
+from apideck_unify import Apideck
+apideck = Apideck(
+    consumer_id='test-consumer',
+    app_id='605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg',
+    api_key='(*****SECRET_LEAK_DETECTED*****)',
+)
+it = apideck.issue_tracking
+print(dir(it))
+" ✔ 
+💭 Thinking for 146 characters   
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Explore the issue tracking module
+it = apideck.issue_tracking
+print("collection_tickets type:", type(it.collection_tickets))
+print("collection_tickets methods:", [m for m in dir(it.collection_tickets) if not m.startswith('_')])
+PYEOF ✔ 
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+from apideck_unify.types import Optional
+import inspect
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Check the create method signature
+ct = apideck.issue_tracking.collection_tickets
+sig = inspect.signature(ct.create)
+print("create signature:", sig)
+print()
+# Also check what parameters are needed
+help(ct.create)
+PYEOF ✖ "Command exited with code 1"
+💫 Executing python3 << 'PYEOF'
+import inspect
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+ct = apideck.issue_tracking.collection_tickets
+sig = inspect.signature(ct.create)
+print("create signature:", sig)
+PYEOF ✔ 
+💭 Thinking for 320 characters   
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+sorted_ids = sorted([
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='
+])
+
+description = '\n'.join(sorted_ids)
+
+try:
+    res = apideck.issue_tracking.collection_tickets.create(
+        collection_id="zealt-user-default-repo",
+        service_id="github",
+        subject="zr-puhrjjf [FILE-INDEX]",
+        description=description
+    )
+    print("Response:", res)
+except Exception as e:
+    print(f"Error type: {type(e).__name__}")
+    print(f"Error: {e}")
+    if hasattr(e, 'body'):
+        print(f"Body: {e.body}")
+PYEOF ✔ 
+💭 Thinking for 402 characters   
+📋 Updating todo list (4 items) ✔ 
+💫 Executing curl -s -X GET "https://unify.apideck.com/file-storage/files?filter%5Bdrive_id%5D=3ada079b78534ff1&filter%5Bfolder_id%5D=root&limit=50" \
+  -H "Authorization: Bearer (*****SECRET_LEAK_DETECTED*****)" \
+  -H "x-apideck-app-id: 605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg" \
+  -H "x-apideck-consumer-id: test-consumer" | python3 -m json.tool ✔ 
+💭 Thinking for 73 characters   
+💫 Executing python3 << 'PYEOF'
+import json
+
+with open('/root/.pochi/tasks/8931bcb0-7113-4d5a-be8a-f9be4e3dcb20/tool-results/executeCommand-call_a15d-output.log', 'r') as f:
+    data = json.load(f)
+
+# Find our uploaded files
+our_files = []
+for item in data['data']:
+    if item.get('name', '').startswith('REPORT-zr-puhrjjf-'):
+        our_files.append({
+            'id': item['id'],
+            'name': item['name'],
+            'type': item['type']
+        })
+
+print("Found our files:")
+for f in our_files:
+    print(f"  Name: {f['name']}, ID: {f['id']}, Type: {f['type']}")
+
+print(f"\nTotal files found: {len(our_files)}")
+PYEOF ✔ 
+💭 Thinking for 312 characters   
+💫 Executing python3 << 'PYEOF'
+import json
+
+with open('/root/.pochi/tasks/8931bcb0-7113-4d5a-be8a-f9be4e3dcb20/tool-results/executeCommand-call_a15d-output.log', 'r') as f:
+    data = json.load(f)
+
+# Find our uploaded files - search more broadly
+our_files = []
+for item in data['data']:
+    name = item.get('name', '')
+    if 'REPORT' in name or 'zr-puhrjjf' in name:
+        our_files.append({
+            'id': item['id'],
+            'name': item['name'],
+            'type': item['type']
+        })
+
+print("Files matching our search:")
+for f in our_files:
+    print(f"  Name: {f['name']}, ID: {f['id']}, Type: {f['type']}")
+
+# Also check if the file IDs from upload are present
+upload_ids = [
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='
+]
+
+for uid in upload_ids:
+    found = False
+    for item in data['data']:
+        if item.get('id', '') == uid:
+            found = True
+            print(f"Found uploaded file: {item.get('name')}")
+    if not found:
+        print(f"Upload ID not found in listing: {uid[:50]}...")
+
+print(f"\nTotal items in response: {len(data['data'])}")
+print(f"Meta: {data.get('meta')}")
+PYEOF ✔ 
+💭 Thinking for 214 characters   
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Search for our files
+upload_ids = [
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczgxZTU0YTliOTQyYzRiZmI4ZWM4ZGVhMDlhMGNjZTJkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczM5NTVhNzZmODVhMDQzNWM5MmRkMGViZmY3Nzk3OTNjIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=',
+    'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhc2RkMzlmZTM4YTQ2ODQ5YmU5ZmRmMGJlYmZlZjhkNWFkIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='
+]
+
+# Get each file individually
+for fid in upload_ids:
+    try:
+        res = apideck.file_storage.files.get(id=fid, service_id="onedrive")
+        print(f"File ID: {fid[:40]}...")
+        print(f"  Name: {res.get_file_response.data.name}")
+        print(f"  Type: {res.get_file_response.data.type}")
+        print(f"  ID: {res.get_file_response.data.id}")
+        print()
+    except Exception as e:
+        print(f"Error getting file {fid[:40]}...: {e}")
+PYEOF ✔ 
+💭 Thinking for 588 characters   
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Get the ticket we created
+try:
+    res = apideck.issue_tracking.collection_tickets.get(
+        collection_id="zealt-user-default-repo",
+        id="200",
+        service_id="github"
+    )
+    ticket = res.get_ticket_response.data
+    print(f"Ticket ID: {ticket.id}")
+    print(f"Subject: {ticket.subject}")
+    print(f"Description: {ticket.description}")
+except Exception as e:
+    print(f"Error: {e}")
+PYEOF ✔ 
+💫 Executing python3 << 'PYEOF'
+import inspect
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+ct = apideck.issue_tracking.collection_tickets
+sig = inspect.signature(ct.get)
+print("get signature:", sig)
+PYEOF ✔ 
+💫 Executing python3 << 'PYEOF'
+from apideck_unify import Apideck
+
+apideck = Apideck(
+    consumer_id="test-consumer",
+    app_id="605EzrgGklBBo5T9tcIgkHs4omRyk3ykcJVtcIg",
+    api_key="(*****SECRET_LEAK_DETECTED*****)",
+)
+
+# Get the ticket we created
+try:
+    res = apideck.issue_tracking.collection_tickets.get(
+        ticket_id="200",
+        collection_id="zealt-user-default-repo",
+        service_id="github"
+    )
+    ticket = res.get_ticket_response.data
+    print(f"Ticket ID: {ticket.id}")
+    print(f"Subject: {ticket.subject}")
+    print(f"Description: {ticket.description}")
+except Exception as e:
+    print(f"Error type: {type(e).__name__}")
+    print(f"Error: {e}")
+    if hasattr(e, 'body'):
+        print(f"Body: {e.body}")
+PYEOF ✔ 

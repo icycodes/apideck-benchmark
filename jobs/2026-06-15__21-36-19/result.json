@@ -1,0 +1,166 @@
+{
+    "id": "70014b1d-8a93-46f3-87d6-14da43e5df23",
+    "started_at": "2026-06-15T21:36:19.971615",
+    "updated_at": "2026-06-15T23:06:52.607858",
+    "finished_at": "2026-06-15T23:06:52.607858",
+    "n_total_trials": 60,
+    "stats": {
+        "n_completed_trials": 60,
+        "n_errored_trials": 34,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__gemini-3.5-flash__tasks": {
+                "n_trials": 13,
+                "n_errors": 11,
+                "metrics": [
+                    {
+                        "mean": 0.3
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "list_tickets_pagination_py__WbngTd9",
+                            "folder_rename_py__c6cwMXb",
+                            "upload_files_python_sdk_py__h2XM3CM",
+                            "file_move_to_new_folder__wuzHbrc",
+                            "folder_create_and_populate__fb94MCD",
+                            "assign_ticket_to_user_py__p39S55x",
+                            "ticket_get_by_id_export_py__dHRQ2Wf"
+                        ],
+                        "1.0": [
+                            "drives_list_export_ts__UQ5XWpA",
+                            "list_collection_users_export_py__fBe9NcM",
+                            "ticket_subject_description_updat__3645At5",
+                            "list_collection_tags_export_py__3qa3TP6",
+                            "create_subfolder_ts__qsEBtkK",
+                            "upload_file_curl_with_metadata__U5GcVNE"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentTimeoutError": [
+                        "list_tickets_pagination_py__WbngTd9",
+                        "upload_files_python_sdk_py__h2XM3CM",
+                        "file_move_to_new_folder__wuzHbrc",
+                        "ticket_get_by_id_export_py__dHRQ2Wf"
+                    ],
+                    "AgentSetupTimeoutError": [
+                        "add_comments_to_new_ticket_ts__cpJQGC5",
+                        "drive_get_by_name_py__7gnMRt7",
+                        "delete_folder_after_create_py__usjF8iU",
+                        "update_ticket_status_py__XYsBjqn",
+                        "delete_file_after_upload_py__MH3zBsU",
+                        "create_tickets_with_run_id_py__PeVJ6AG",
+                        "file_rename_py__eTgmwdw"
+                    ]
+                }
+            },
+            "pochi__gpt-5.5__tasks": {
+                "n_trials": 13,
+                "n_errors": 7,
+                "metrics": [
+                    {
+                        "mean": 0.3
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "list_tickets_pagination_py__zgRJ9jk",
+                            "ticket_subject_description_updat__QvkMupx",
+                            "upload_files_python_sdk_py__aLukmUu",
+                            "list_collection_tags_export_py__QNZDCWA",
+                            "delete_folder_after_create_py__JtuPqW8",
+                            "folder_create_and_populate__mVWvREH"
+                        ],
+                        "0.0": [
+                            "folder_rename_py__xjEbqNa",
+                            "list_collection_users_export_py__K9UkCKo",
+                            "add_comments_to_new_ticket_ts__RMi643s",
+                            "create_subfolder_ts__NbsfmgR",
+                            "assign_ticket_to_user_py__cJqJgtH",
+                            "ticket_get_by_id_export_py__nJ6n9UH",
+                            "upload_file_curl_with_metadata__YcFd3vg"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentSetupTimeoutError": [
+                        "drives_list_export_ts__oNfYGfK",
+                        "file_move_to_new_folder__PbSSfZX",
+                        "drive_get_by_name_py__r8849ZN",
+                        "update_ticket_status_py__mgr5iX9",
+                        "delete_file_after_upload_py__toCxaVL",
+                        "create_tickets_with_run_id_py__HcjExTb"
+                    ],
+                    "NonZeroAgentExitCodeError": [
+                        "file_rename_py__BDEcg29"
+                    ]
+                }
+            },
+            "pochi__deepseek-4-pro__tasks": {
+                "n_trials": 11,
+                "n_errors": 16,
+                "metrics": [
+                    {
+                        "mean": 0.2
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "list_tickets_pagination_py__sL3sSsX",
+                            "ticket_subject_description_updat__EzqhQDn",
+                            "list_collection_tags_export_py__ZX8UHue",
+                            "delete_folder_after_create_py__iRsKQBj"
+                        ],
+                        "0.0": [
+                            "folder_rename_py__zwtWSPB",
+                            "list_collection_users_export_py__dUQKckN",
+                            "upload_files_python_sdk_py__A5raiMF",
+                            "create_subfolder_ts__fr9RZTw",
+                            "folder_create_and_populate__eR5HZgC",
+                            "assign_ticket_to_user_py__owvzaiX",
+                            "file_rename_py__wFVRysS"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "AgentSetupTimeoutError": [
+                        "drives_list_export_ts__8mHGDnQ",
+                        "file_move_to_new_folder__NwYjW9w",
+                        "drive_get_by_name_py__C8iTH5s",
+                        "ticket_get_by_id_export_py__XKssR2G",
+                        "update_ticket_status_py__R5cte7P",
+                        "delete_file_after_upload_py__D4dAXrQ",
+                        "create_tickets_with_run_id_py__D6uRuNC"
+                    ],
+                    "AgentTimeoutError": [
+                        "folder_rename_py__zwtWSPB",
+                        "list_collection_users_export_py__dUQKckN",
+                        "ticket_subject_description_updat__EzqhQDn",
+                        "upload_files_python_sdk_py__A5raiMF",
+                        "create_subfolder_ts__fr9RZTw",
+                        "assign_ticket_to_user_py__owvzaiX",
+                        "file_rename_py__wFVRysS"
+                    ],
+                    "NonZeroAgentExitCodeError": [
+                        "add_comments_to_new_ticket_ts__Jap7c4m",
+                        "upload_file_curl_with_metadata__j7p2XDe"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 899662,
+        "cost_usd": null
+    }
+}

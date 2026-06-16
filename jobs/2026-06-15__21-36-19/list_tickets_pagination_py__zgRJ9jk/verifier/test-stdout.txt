@@ -1,0 +1,17 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py ......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_top_level_run_and_collection_ids_match
+PASSED tests/test_final_state.py::test_page_count_is_positive_integer
+PASSED tests/test_final_state.py::test_tickets_array_shape_and_subjects
+PASSED tests/test_final_state.py::test_each_ticket_retrievable_via_get_ticket
+PASSED tests/test_final_state.py::test_seeded_tickets_appear_in_list_tickets
+PASSED tests/test_final_state.py::test_solution_uses_apideck_unify_sdk_and_not_raw_http
+============================== 6 passed in 10.34s ==============================

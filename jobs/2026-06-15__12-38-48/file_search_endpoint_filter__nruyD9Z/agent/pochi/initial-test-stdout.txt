@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /bootstrap
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 4 items
+
+bootstrap/test_initial_state.py::test_apideck_sdk_importable PASSED
+bootstrap/test_initial_state.py::test_requests_importable PASSED
+bootstrap/test_initial_state.py::test_project_directory_exists PASSED
+bootstrap/test_initial_state.py::test_required_env_vars_present PASSED
+
+============================== 4 passed in 3.02s ===============================

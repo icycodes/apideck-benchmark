@@ -1,0 +1,161 @@
+{
+    "id": "db58d111-1896-417f-b06f-83bb8ca91b6f",
+    "started_at": "2026-06-15T12:38:48.271643",
+    "updated_at": "2026-06-15T13:29:40.332982",
+    "finished_at": "2026-06-15T13:29:40.332982",
+    "n_total_trials": 63,
+    "stats": {
+        "n_completed_trials": 63,
+        "n_errored_trials": 16,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "pochi__gemini-3.5-flash__tasks": {
+                "n_trials": 18,
+                "n_errors": 4,
+                "metrics": [
+                    {
+                        "mean": 0.2857142857142857
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "folder_rename_and_move__2LcMu3X",
+                            "file_move_between_folders__rzKWuVb",
+                            "ticket_subtask_hierarchy__Yu6xB6g",
+                            "comment_edit_delete_workflow__vCMJ8ZD",
+                            "drives_lookup_by_name__c9CKpkq",
+                            "ticket_due_date_rescheduling__bhf8Kaw",
+                            "file_metadata_size_verify__mCnFj4B",
+                            "file_search_endpoint_filter__nruyD9Z",
+                            "ticket_users_directory_assign__jvz4wPL",
+                            "folder_nested_hierarchy_creation__AaJFbJU",
+                            "file_rename_via_patch__z8ZyhoD",
+                            "file_organize_by_extension__w6JX4JA"
+                        ],
+                        "1.0": [
+                            "file_listing_cursor_aggregation__SK4BGZF",
+                            "cross_api_ticket_file_summary__ZkEkVgd",
+                            "ticket_search_subject_prefix__hcW3LQC",
+                            "ticket_field_audit_update__Lz3HPcC",
+                            "ticket_tags_apply_resolve__SnH47cT",
+                            "collections_lookup_and_ticket__CoEhmV8"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "InitialStateError": [
+                        "ticket_bulk_close_by_run__Wwmoeaq",
+                        "comment_pagination_reorder__Jyjx2ow",
+                        "ticket_in_progress_partition__i7sRzyD"
+                    ],
+                    "AgentTimeoutError": [
+                        "file_search_endpoint_filter__nruyD9Z"
+                    ]
+                }
+            },
+            "pochi__gpt-5.5__tasks": {
+                "n_trials": 18,
+                "n_errors": 3,
+                "metrics": [
+                    {
+                        "mean": 0.38095238095238093
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "folder_rename_and_move__zDLsSDe",
+                            "file_move_between_folders__xR74ZeN",
+                            "ticket_subtask_hierarchy__jTE6f6w",
+                            "drives_lookup_by_name__n3a5KpC",
+                            "ticket_due_date_rescheduling__PEJuWEa",
+                            "file_metadata_size_verify__LVU6Zi9",
+                            "ticket_users_directory_assign__mhaZjJL",
+                            "folder_nested_hierarchy_creation__devi5PC",
+                            "file_rename_via_patch__cLWvPJM",
+                            "file_organize_by_extension__u9ngjPJ"
+                        ],
+                        "1.0": [
+                            "comment_edit_delete_workflow__n3rNmN4",
+                            "file_listing_cursor_aggregation__foJNsXY",
+                            "cross_api_ticket_file_summary__WX9MSJb",
+                            "ticket_search_subject_prefix__EhiJBvV",
+                            "ticket_field_audit_update__7QkFv9M",
+                            "file_search_endpoint_filter__XzMNaAG",
+                            "ticket_tags_apply_resolve__oDDe5S6",
+                            "collections_lookup_and_ticket__EskdZJi"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "InitialStateError": [
+                        "ticket_bulk_close_by_run__yTwxEC2",
+                        "comment_pagination_reorder__97yZspy",
+                        "ticket_in_progress_partition__824oKaX"
+                    ]
+                }
+            },
+            "pochi__deepseek-4-pro__tasks": {
+                "n_trials": 18,
+                "n_errors": 9,
+                "metrics": [
+                    {
+                        "mean": 0.19047619047619047
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "folder_rename_and_move__x54zESh",
+                            "file_move_between_folders__EuGT7eF",
+                            "ticket_subtask_hierarchy__dfgVso5",
+                            "comment_edit_delete_workflow__aVHGxzr",
+                            "drives_lookup_by_name__sHo8ZVT",
+                            "ticket_due_date_rescheduling__jCZ79Sk",
+                            "file_listing_cursor_aggregation__2MncBcd",
+                            "cross_api_ticket_file_summary__EwCPHhc",
+                            "file_metadata_size_verify__SGHD7si",
+                            "file_search_endpoint_filter__9VLGAff",
+                            "ticket_users_directory_assign__5MThGSe",
+                            "folder_nested_hierarchy_creation__b9bvbFv",
+                            "file_rename_via_patch__6Rv54mf",
+                            "file_organize_by_extension__r6ScTFJ"
+                        ],
+                        "1.0": [
+                            "ticket_search_subject_prefix__QJzfjAx",
+                            "ticket_field_audit_update__tq3cRsS",
+                            "ticket_tags_apply_resolve__FRqoCYr",
+                            "collections_lookup_and_ticket__EPfiRpP"
+                        ]
+                    }
+                },
+                "exception_stats": {
+                    "InitialStateError": [
+                        "ticket_bulk_close_by_run__NsU2ms7",
+                        "comment_pagination_reorder__6ZE8jGx",
+                        "ticket_in_progress_partition__NT8XfMJ"
+                    ],
+                    "AgentTimeoutError": [
+                        "folder_rename_and_move__x54zESh",
+                        "ticket_subtask_hierarchy__dfgVso5",
+                        "file_listing_cursor_aggregation__2MncBcd",
+                        "cross_api_ticket_file_summary__EwCPHhc",
+                        "file_search_endpoint_filter__9VLGAff",
+                        "file_rename_via_patch__6Rv54mf"
+                    ]
+                }
+            }
+        },
+        "n_input_tokens": 0,
+        "n_cache_tokens": 0,
+        "n_output_tokens": 1708708,
+        "cost_usd": null
+    }
+}

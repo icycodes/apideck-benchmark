@@ -1,0 +1,65 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 3 items
+
+tests/test_final_state.py .EE                                            [100%]
+
+==================================== ERRORS ====================================
+_______________ ERROR at setup of test_exactly_one_marked_ticket _______________
+
+run_id = 'zr-avhgxzr', collection_id = 'zealt-user-default-repo'
+ticket_id_from_log = '60'
+
+    @pytest.fixture(scope="session")
+    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:
+        url = f"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets"
+        tickets = _get_paginated(url)
+        matches = [
+            t
+            for t in tickets
+            if isinstance(t.get("subject"), str)
+            and MARKER in t["subject"]
+            and run_id in t["subject"]
+        ]
+>       assert len(matches) == 1, (
+            f"Expected exactly 1 ticket with marker '{MARKER}' and run id '{run_id}', "
+            f"got {len(matches)}: subjects={[t.get('subject') for t in matches]}"
+        )
+E       AssertionError: Expected exactly 1 ticket with marker '[COMMENT-EDIT-DELETE]' and run id 'zr-avhgxzr', got 4: subjects=['[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr']
+E       assert 4 == 1
+E        +  where 4 = len([{'collection_id': 'zealt-user-default-repo', 'created_at': '2026-06-15T04:52:47.000Z', 'created_by': 'zealt-user01', ...55:33.000Z', 'created_by': 'zealt-user01', 'description': 'Integration test for comment edit & delete workflow.', ...}])
+
+tests/test_final_state.py:87: AssertionError
+_________________ ERROR at setup of test_final_comment_bodies __________________
+
+run_id = 'zr-avhgxzr', collection_id = 'zealt-user-default-repo'
+ticket_id_from_log = '60'
+
+    @pytest.fixture(scope="session")
+    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:
+        url = f"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets"
+        tickets = _get_paginated(url)
+        matches = [
+            t
+            for t in tickets
+            if isinstance(t.get("subject"), str)
+            and MARKER in t["subject"]
+            and run_id in t["subject"]
+        ]
+>       assert len(matches) == 1, (
+            f"Expected exactly 1 ticket with marker '{MARKER}' and run id '{run_id}', "
+            f"got {len(matches)}: subjects={[t.get('subject') for t in matches]}"
+        )
+E       AssertionError: Expected exactly 1 ticket with marker '[COMMENT-EDIT-DELETE]' and run id 'zr-avhgxzr', got 4: subjects=['[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr', '[COMMENT-EDIT-DELETE] zr-avhgxzr']
+E       assert 4 == 1
+E        +  where 4 = len([{'collection_id': 'zealt-user-default-repo', 'created_at': '2026-06-15T04:52:47.000Z', 'created_by': 'zealt-user01', ...55:33.000Z', 'created_by': 'zealt-user01', 'description': 'Integration test for comment edit & delete workflow.', ...}])
+
+tests/test_final_state.py:87: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_file_has_ticket_id
+ERROR tests/test_final_state.py::test_exactly_one_marked_ticket - AssertionEr...
+ERROR tests/test_final_state.py::test_final_comment_bodies - AssertionError: ...
+========================= 1 passed, 2 errors in 1.96s ==========================

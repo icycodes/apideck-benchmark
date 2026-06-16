@@ -1,0 +1,80 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T14:28:31.235490+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 3,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781533694621,
+            "stop": 1781533711235
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_has_valid_shape",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781533694702,
+                "stop": 1781533694703,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_folder_exists_at_drive_root",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5045,
+                "start": 1781533694703,
+                "stop": 1781533699748,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_folder_exists_at_drive_root():\n        run_id = os.environ[\"ZEALT_RUN_ID\"]\n        drive_name = os.environ[\"APIDECK_FILE_STORAGE_DRIVE_NAME\"]\n        expected_name = f\"FOLDER-{run_id}\"\n    \n        payload = _load_log_payload()\n        log_folder_id = payload[\"folder_id\"]\n    \n        drive_id = _resolve_drive_id(drive_name)\n        entries = _list_files(drive_id, \"root\")\n        matches = [\n            e for e in entries\n            if e.get(\"type\") == \"folder\" and e.get(\"name\") == expected_name\n        ]\n        assert len(matches) == 1, (\n            f\"Expected exactly one folder named {expected_name!r} at the root of drive \"\n            f\"{drive_name!r}, found {len(matches)}: \"\n            f\"{[ (e.get('id'), e.get('name')) for e in matches ]}\"\n        )\n        actual_folder_id = matches[0].get(\"id\")\n        assert isinstance(actual_folder_id, str) and actual_folder_id, (\n            f\"Folder {expected_name!r} has no string id: {matches[0]}\"\n        )\n>       assert actual_folder_id == log_folder_id, (\n            f\"Logged folder_id {log_folder_id!r} does not match the folder discovered \"\n            f\"on the drive {actual_folder_id!r}.\"\n        )\nE       AssertionError: Logged folder_id 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczZhMTkzNGIzYmNjODQzZjY4ZTA2NDA4NDczM2ZlM2U0IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' does not match the folder discovered on the drive 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczZhMTkzNGIzYmNjODQzZjY4ZTA2NDA4NDczM2ZlM2U0IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='.\nE       assert 'eyJpZCI6IjNB...4NTM0ZmYxIn0=' == 'eyJpZCI6IjNB...4NTM0RkYxIn0='\nE         Skipping 86 identical leading characters in diff, use -v to show\nE         - VfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=\nE         ?           ^^ ^    ^       ^^\nE         + VfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\nE         ?           ^^ ^    ^       ^^\n\ntests/test_final_state.py:177: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_note_files_are_not_at_drive_root",
+                "status": "passed",
+                "duration": 5405,
+                "start": 1781533699748,
+                "stop": 1781533705153,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_three_note_files_live_inside_created_folder",
+                "status": "passed",
+                "duration": 4010,
+                "start": 1781533705154,
+                "stop": 1781533709164,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_each_uploaded_file_reports_correct_parent_folder",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2069,
+                "start": 1781533709165,
+                "stop": 1781533711234,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_each_uploaded_file_reports_correct_parent_folder():\n        run_id = os.environ[\"ZEALT_RUN_ID\"]\n        expected_names = {\n            f\"NOTE-{run_id}-1.txt\",\n            f\"NOTE-{run_id}-2.txt\",\n            f\"NOTE-{run_id}-3.txt\",\n        }\n    \n        payload = _load_log_payload()\n        log_folder_id = payload[\"folder_id\"]\n        log_file_ids: list[str] = list(payload[\"file_ids\"])\n    \n        seen_names: set[str] = set()\n        for fid in log_file_ids:\n            data = _get_file(fid)\n            assert data.get(\"type\") == \"file\", (\n                f\"File id {fid!r} reports type {data.get('type')!r}, expected 'file'\"\n            )\n            name = data.get(\"name\")\n            assert isinstance(name, str) and name in expected_names, (\n                f\"File id {fid!r} has unexpected name {name!r}; \"\n                f\"expected one of {sorted(expected_names)}\"\n            )\n            assert name not in seen_names, (\n                f\"Duplicate name {name!r} returned across logged file ids.\"\n            )\n            seen_names.add(name)\n            parents = data.get(\"parent_folders\")\n            assert isinstance(parents, list) and parents, (\n                f\"File {name!r} (id={fid!r}) has empty parent_folders: {data}\"\n            )\n            first_parent = parents[0]\n            assert isinstance(first_parent, dict), (\n                f\"File {name!r} parent_folders[0] is not an object: {first_parent!r}\"\n            )\n            parent_id = first_parent.get(\"id\")\n>           assert parent_id == log_folder_id, (\n                f\"File {name!r} (id={fid!r}) reports parent_folders[0].id={parent_id!r}, \"\n                f\"expected {log_folder_id!r}\"\n            )\nE           AssertionError: File 'NOTE-zr-fb94mcd-1.txt' (id='eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczY3ZTZlYmFhZGFhYzQ5YjZiNGU5NWVlNTM3MzBjNTY4IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=') reports parent_folders[0].id='eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczZhMTkzNGIzYmNjODQzZjY4ZTA2NDA4NDczM2ZlM2U0IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=', expected 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczZhMTkzNGIzYmNjODQzZjY4ZTA2NDA4NDczM2ZlM2U0IiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='\nE           assert 'eyJpZCI6IjNB...4NTM0ZmYxIn0=' == 'eyJpZCI6IjNB...4NTM0RkYxIn0='\nE             Skipping 86 identical leading characters in diff, use -v to show\nE             - VfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=\nE             ?           ^^ ^    ^       ^^\nE             + VfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=\nE             ?           ^^ ^    ^       ^^\n\ntests/test_final_state.py:283: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

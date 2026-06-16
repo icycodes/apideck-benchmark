@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 4 items
+
+tests/test_final_state.py ....                                           [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_output_log_has_single_file_id
+PASSED tests/test_final_state.py::test_get_file_returns_expected_metadata
+PASSED tests/test_final_state.py::test_file_appears_in_list_files
+PASSED tests/test_final_state.py::test_solution_uses_curl_and_not_sdk
+============================== 4 passed in 6.32s ===============================

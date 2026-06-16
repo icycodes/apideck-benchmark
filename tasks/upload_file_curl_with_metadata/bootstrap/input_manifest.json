@@ -1,0 +1,7 @@
+{
+  "library_name": "apideck",
+  "task_name": "upload_file_curl_with_metadata",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "tasks/"
+}

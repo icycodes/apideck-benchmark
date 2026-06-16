@@ -1,0 +1,20 @@
+{
+  "collection_id": "zealt-user-default-repo",
+  "service_id": "github",
+  "users": [
+    {
+      "id": "zealt-user01",
+      "name": "zealt-user01",
+      "first_name": null,
+      "last_name": null,
+      "email": null
+    },
+    {
+      "id": "zealt-user02",
+      "name": "zealt-user02",
+      "first_name": null,
+      "last_name": null,
+      "email": null
+    }
+  ]
+}

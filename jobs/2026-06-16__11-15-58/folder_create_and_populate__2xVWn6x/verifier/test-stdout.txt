@@ -1,0 +1,106 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 5 items
+
+tests/test_final_state.py .F..F                                          [100%]
+
+=================================== FAILURES ===================================
+_______________________ test_folder_exists_at_drive_root _______________________
+
+    def test_folder_exists_at_drive_root():
+        run_id = os.environ["ZEALT_RUN_ID"]
+        drive_name = os.environ["APIDECK_FILE_STORAGE_DRIVE_NAME"]
+        expected_name = f"FOLDER-{run_id}"
+    
+        payload = _load_log_payload()
+        log_folder_id = payload["folder_id"]
+    
+        drive_id = _resolve_drive_id(drive_name)
+        entries = _list_files(drive_id, "root")
+        matches = [
+            e for e in entries
+            if e.get("type") == "folder" and e.get("name") == expected_name
+        ]
+        assert len(matches) == 1, (
+            f"Expected exactly one folder named {expected_name!r} at the root of drive "
+            f"{drive_name!r}, found {len(matches)}: "
+            f"{[ (e.get('id'), e.get('name')) for e in matches ]}"
+        )
+        actual_folder_id = matches[0].get("id")
+        assert isinstance(actual_folder_id, str) and actual_folder_id, (
+            f"Folder {expected_name!r} has no string id: {matches[0]}"
+        )
+>       assert actual_folder_id == log_folder_id, (
+            f"Logged folder_id {log_folder_id!r} does not match the folder discovered "
+            f"on the drive {actual_folder_id!r}."
+        )
+E       AssertionError: Logged folder_id 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczc3NDA3NGYyNGNkMTQ5NTY5ZmUzNjBmNWY3NDcxMGUwIiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=' does not match the folder discovered on the drive 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczc3NDA3NGYyNGNkMTQ5NTY5ZmUzNjBmNWY3NDcxMGUwIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0='.
+E       assert 'eyJpZCI6IjNB...4NTM0ZmYxIn0=' == 'eyJpZCI6IjNB...4NTM0RkYxIn0='
+E         Skipping 86 identical leading characters in diff, use -v to show
+E         - VfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=
+E         ?           ^^ ^    ^       ^^
+E         + VfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=
+E         ?           ^^ ^    ^       ^^
+
+tests/test_final_state.py:177: AssertionError
+____________ test_each_uploaded_file_reports_correct_parent_folder _____________
+
+    def test_each_uploaded_file_reports_correct_parent_folder():
+        run_id = os.environ["ZEALT_RUN_ID"]
+        expected_names = {
+            f"NOTE-{run_id}-1.txt",
+            f"NOTE-{run_id}-2.txt",
+            f"NOTE-{run_id}-3.txt",
+        }
+    
+        payload = _load_log_payload()
+        log_folder_id = payload["folder_id"]
+        log_file_ids: list[str] = list(payload["file_ids"])
+    
+        seen_names: set[str] = set()
+        for fid in log_file_ids:
+            data = _get_file(fid)
+            assert data.get("type") == "file", (
+                f"File id {fid!r} reports type {data.get('type')!r}, expected 'file'"
+            )
+            name = data.get("name")
+            assert isinstance(name, str) and name in expected_names, (
+                f"File id {fid!r} has unexpected name {name!r}; "
+                f"expected one of {sorted(expected_names)}"
+            )
+            assert name not in seen_names, (
+                f"Duplicate name {name!r} returned across logged file ids."
+            )
+            seen_names.add(name)
+            parents = data.get("parent_folders")
+            assert isinstance(parents, list) and parents, (
+                f"File {name!r} (id={fid!r}) has empty parent_folders: {data}"
+            )
+            first_parent = parents[0]
+            assert isinstance(first_parent, dict), (
+                f"File {name!r} parent_folders[0] is not an object: {first_parent!r}"
+            )
+            parent_id = first_parent.get("id")
+>           assert parent_id == log_folder_id, (
+                f"File {name!r} (id={fid!r}) reports parent_folders[0].id={parent_id!r}, "
+                f"expected {log_folder_id!r}"
+            )
+E           AssertionError: File 'NOTE-zr-2xvwn6x-1.txt' (id='eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczA2ZjRkZGZkODVkNDRjNTE5ZDMzOGYxZDE5NDc3YjY5IiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=') reports parent_folders[0].id='eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczc3NDA3NGYyNGNkMTQ5NTY5ZmUzNjBmNWY3NDcxMGUwIiwiZHJpdmVfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=', expected 'eyJpZCI6IjNBREEwNzlCNzg1MzRGRjEhczc3NDA3NGYyNGNkMTQ5NTY5ZmUzNjBmNWY3NDcxMGUwIiwiZHJpdmVfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0='
+E           assert 'eyJpZCI6IjNB...4NTM0ZmYxIn0=' == 'eyJpZCI6IjNB...4NTM0RkYxIn0='
+E             Skipping 86 identical leading characters in diff, use -v to show
+E             - VfaWQiOiIzQURBMDc5Qjc4NTM0RkYxIn0=
+E             ?           ^^ ^    ^       ^^
+E             + VfaWQiOiIzYWRhMDc5Yjc4NTM0ZmYxIn0=
+E             ?           ^^ ^    ^       ^^
+
+tests/test_final_state.py:283: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_log_file_has_valid_shape
+PASSED tests/test_final_state.py::test_note_files_are_not_at_drive_root
+PASSED tests/test_final_state.py::test_three_note_files_live_inside_created_folder
+FAILED tests/test_final_state.py::test_folder_exists_at_drive_root - Assertio...
+FAILED tests/test_final_state.py::test_each_uploaded_file_reports_correct_parent_folder
+========================= 2 failed, 3 passed in 15.83s =========================

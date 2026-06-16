@@ -1,0 +1,58 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-16T03:25:49.697437+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 1,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781580346051,
+            "stop": 1781580349697
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_has_ticket_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781580346124,
+                "stop": 1781580346125,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_exactly_one_marked_ticket",
+                "status": "failed",
+                "duration": 3568,
+                "start": 1781580346125,
+                "stop": 1781580349693,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "run_id = 'zr-39fvf3r', collection_id = 'zealt-user-default-repo'\nticket_id_from_log = '178'\n\n    @pytest.fixture(scope=\"session\")\n    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets\"\n        tickets = _get_paginated(url)\n        matches = [\n            t\n            for t in tickets\n            if isinstance(t.get(\"subject\"), str)\n            and MARKER in t[\"subject\"]\n            and run_id in t[\"subject\"]\n        ]\n>       assert len(matches) == 1, (\n            f\"Expected exactly 1 ticket with marker '{MARKER}' and run id '{run_id}', \"\n            f\"got {len(matches)}: subjects={[t.get('subject') for t in matches]}\"\n        )\nE       AssertionError: Expected exactly 1 ticket with marker '[COMMENT-EDIT-DELETE]' and run id 'zr-39fvf3r', got 2: subjects=['[COMMENT-EDIT-DELETE] zr-39fvf3r', '[COMMENT-EDIT-DELETE] zr-39fvf3r']\nE       assert 2 == 1\nE        +  where 2 = len([{'collection_id': 'zealt-user-default-repo', 'created_at': '2026-06-16T03:24:45.000Z', 'created_by': 'zealt-user01', ...: 'zealt-user-default-repo', 'created_at': '2026-06-16T03:25:12.000Z', 'created_by': 'zealt-user01', 'id': '178', ...}])\n\ntests/test_final_state.py:87: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_final_comment_bodies",
+                "status": "failed",
+                "duration": 4,
+                "start": 1781580349693,
+                "stop": 1781580349697,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "run_id = 'zr-39fvf3r', collection_id = 'zealt-user-default-repo'\nticket_id_from_log = '178'\n\n    @pytest.fixture(scope=\"session\")\n    def matching_ticket(run_id: str, collection_id: str, ticket_id_from_log: str) -> dict:\n        url = f\"{APIDECK_BASE_URL}/issue-tracking/collections/{collection_id}/tickets\"\n        tickets = _get_paginated(url)\n        matches = [\n            t\n            for t in tickets\n            if isinstance(t.get(\"subject\"), str)\n            and MARKER in t[\"subject\"]\n            and run_id in t[\"subject\"]\n        ]\n>       assert len(matches) == 1, (\n            f\"Expected exactly 1 ticket with marker '{MARKER}' and run id '{run_id}', \"\n            f\"got {len(matches)}: subjects={[t.get('subject') for t in matches]}\"\n        )\nE       AssertionError: Expected exactly 1 ticket with marker '[COMMENT-EDIT-DELETE]' and run id 'zr-39fvf3r', got 2: subjects=['[COMMENT-EDIT-DELETE] zr-39fvf3r', '[COMMENT-EDIT-DELETE] zr-39fvf3r']\nE       assert 2 == 1\nE        +  where 2 = len([{'collection_id': 'zealt-user-default-repo', 'created_at': '2026-06-16T03:24:45.000Z', 'created_by': 'zealt-user01', ...: 'zealt-user-default-repo', 'created_at': '2026-06-16T03:25:12.000Z', 'created_by': 'zealt-user01', 'id': '178', ...}])\n\ntests/test_final_state.py:87: AssertionError"
+            }
+        ]
+    }
+}
