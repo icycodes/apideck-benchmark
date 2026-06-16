@@ -1,7 +1,0 @@
-{
-  "library_name": "Apideck",
-  "task_name": "drives_list_export_ts",
-  "complexity_level": "simple set of 2-5 commands",
-  "research_plan_path": "plan.md",
-  "output_dir": "tasks/"
-}

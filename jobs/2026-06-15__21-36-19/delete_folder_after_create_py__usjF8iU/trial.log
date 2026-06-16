@@ -1,5 +1,0 @@
-Skipping image OS validation for hb__delete_folder_after_create_py: docker inspect returned 1
-Running command: apt-get update && apt-get install -y curl ripgrep
-Command outputs captured
-Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
-Trial delete_folder_after_create_py__usjF8iU failed: Agent setup timed out after 360.0 seconds
