@@ -5,18 +5,439 @@
 5:I[36064,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"default"]
 6:I[81497,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"default"]
 7:"$Sreact.suspense"
-8:I[42654,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/babff0e7418ab052.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/3ecbb78a8ff87549.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/32809ad9111a1504.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/f9f579c42c486944.js"],"TasksPageClient"]
-d:I[9986,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"default"]
-:HL["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/29c80e0ec759ef35.css","style"]
+8:I[42654,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/babff0e7418ab052.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/3ecbb78a8ff87549.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/32809ad9111a1504.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c4daf028cb2bd20d.js"],"TasksPageClient"]
+1a:I[9986,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"default"]
+:HL["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/278870d7bbb78ea0.css","style"]
 :HL["/apideck-benchmark/pr-preview/pr-3/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"P":null,"b":"46m67SqHz4P-LaXOrQS1E","c":["","tasks",""],"q":"","i":false,"f":[[["",{"children":["tasks",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/29c80e0ec759ef35.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/babff0e7418ab052.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/3ecbb78a8ff87549.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"inter_5972bc34-module__OU16Qa__className antialiased","children":["$","$L2",null,{"children":["$","$L3",null,{"defaultTheme":"dark","children":[["$","div",null,{"className":"fixed right-4 top-6 z-50 sm:top-8","children":["$","$L4",null,{}]}],["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-background text-foreground font-sans selection:bg-primary/20","children":[["$","div",null,{"className":"fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(#2a2a2a_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 dark:opacity-40"}],["$","$7",null,{"fallback":["$","div",null,{"className":"container mx-auto py-8 text-center","children":"Loading tasks..."}],"children":["$","$L8",null,{"tasksData":[{"taskName":"collections_lookup_and_ticket","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"collections_lookup_and_ticket__soQB2xX","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":269.709,"latency_breakdown":{"env_setup":4.272,"agent_setup":22.002,"agent_exec":228.4,"verifier":1.92},"taskName":"collections_lookup_and_ticket","jobId":"soQB2xX","exec_duration":228.4}]},{"taskName":"comment_edit_delete_workflow","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"comment_edit_delete_workflow__ULqLXgu","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":188.68,"latency_breakdown":{"env_setup":2.657,"agent_setup":13.065,"agent_exec":158.147,"verifier":1.821},"taskName":"comment_edit_delete_workflow","jobId":"ULqLXgu","exec_duration":158.147}]},{"taskName":"comment_pagination_reorder","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"comment_pagination_reorder__oR4phpT","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":61.115,"latency_breakdown":{"env_setup":4.357,"agent_setup":26.438,"agent_exec":14.785,"verifier":null},"taskName":"comment_pagination_reorder","jobId":"oR4phpT","exec_duration":14.785}]},{"taskName":"cross_api_ticket_file_summary","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"cross_api_ticket_file_summary__5ZMgTQ9","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":569.623,"latency_breakdown":{"env_setup":46.929,"agent_setup":17.491,"agent_exec":489.009,"verifier":2.161},"taskName":"cross_api_ticket_file_summary","jobId":"5ZMgTQ9","exec_duration":489.009}]},{"taskName":"drives_lookup_by_name","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"drives_lookup_by_name__PqQkppQ","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":679.069,"latency_breakdown":{"env_setup":47.377,"agent_setup":16.662,"agent_exec":600.216,"verifier":1.173},"taskName":"drives_lookup_by_name","jobId":"PqQkppQ","exec_duration":600.216}]},{"taskName":"file_listing_cursor_aggregation","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_listing_cursor_aggregation__CfifVV3","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":588.695,"latency_breakdown":{"env_setup":2.776,"agent_setup":13.209,"agent_exec":557.864,"verifier":1.818},"taskName":"file_listing_cursor_aggregation","jobId":"CfifVV3","exec_duration":557.864}]},{"taskName":"file_metadata_size_verify","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_metadata_size_verify__vE9ndyf","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":360.477,"latency_breakdown":{"env_setup":47.084,"agent_setup":16.529,"agent_exec":281.428,"verifier":2.244},"taskName":"file_metadata_size_verify","jobId":"vE9ndyf","exec_duration":281.428}]},{"taskName":"file_move_between_folders","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_move_between_folders__cejorwC","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":421.981,"latency_breakdown":{"env_setup":2.625,"agent_setup":12.86,"agent_exec":390.832,"verifier":2.519},"taskName":"file_move_between_folders","jobId":"cejorwC","exec_duration":390.832}]},{"taskName":"file_organize_by_extension","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_organize_by_extension__bXhu4rf","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":42.361,"latency_breakdown":{"env_setup":3.111,"agent_setup":15.236,"agent_exec":10.393,"verifier":null},"taskName":"file_organize_by_extension","jobId":"bXhu4rf","exec_duration":10.393}]},{"taskName":"file_rename_via_patch","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_rename_via_patch__DvidZhq","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":632.65,"latency_breakdown":{"env_setup":2.581,"agent_setup":13.301,"agent_exec":600.369,"verifier":1.272},"taskName":"file_rename_via_patch","jobId":"DvidZhq","exec_duration":600.369}]},{"taskName":"file_search_endpoint_filter","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"file_search_endpoint_filter__vdS4ZWM","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":319.334,"latency_breakdown":{"env_setup":46.707,"agent_setup":17.499,"agent_exec":239.857,"verifier":1.923},"taskName":"file_search_endpoint_filter","jobId":"vdS4ZWM","exec_duration":239.857}]},{"taskName":"folder_nested_hierarchy_creation","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"folder_nested_hierarchy_creation__P2r5vaq","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":358.463,"latency_breakdown":{"env_setup":2.783,"agent_setup":12.864,"agent_exec":323.23,"verifier":6.172},"taskName":"folder_nested_hierarchy_creation","jobId":"P2r5vaq","exec_duration":323.23}]},{"taskName":"folder_rename_and_move","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"folder_rename_and_move__k7fmcUQ","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":245.376,"latency_breakdown":{"env_setup":43.858,"agent_setup":12.975,"agent_exec":172.44,"verifier":3.082},"taskName":"folder_rename_and_move","jobId":"k7fmcUQ","exec_duration":172.44}]},{"taskName":"ticket_bulk_close_by_run","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_bulk_close_by_run__QpW5jhh","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":85.849,"latency_breakdown":{"env_setup":47.473,"agent_setup":15.997,"agent_exec":4.15,"verifier":null},"taskName":"ticket_bulk_close_by_run","jobId":"QpW5jhh","exec_duration":4.15}]},{"taskName":"ticket_due_date_rescheduling","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_due_date_rescheduling__SL3WgFH","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":259.217,"latency_breakdown":{"env_setup":2.515,"agent_setup":12.499,"agent_exec":228.433,"verifier":1.897},"taskName":"ticket_due_date_rescheduling","jobId":"SL3WgFH","exec_duration":228.433}]},{"taskName":"ticket_field_audit_update","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_field_audit_update__mrRwUty","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":203.742,"latency_breakdown":{"env_setup":2.541,"agent_setup":12.331,"agent_exec":173.354,"verifier":2.414},"taskName":"ticket_field_audit_update","jobId":"mrRwUty","exec_duration":173.354}]},{"taskName":"ticket_in_progress_partition","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_in_progress_partition__vsexnZx","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":39.844,"latency_breakdown":{"env_setup":2.685,"agent_setup":12.945,"agent_exec":10.652,"verifier":null},"taskName":"ticket_in_progress_partition","jobId":"vsexnZx","exec_duration":10.652}]},{"taskName":"ticket_search_subject_prefix","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_search_subject_prefix__sgGG8wV","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":179.437,"latency_breakdown":{"env_setup":2.607,"agent_setup":13.518,"agent_exec":148.761,"verifier":1.556},"taskName":"ticket_search_subject_prefix","jobId":"sgGG8wV","exec_duration":148.761}]},{"taskName":"ticket_subtask_hierarchy","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_subtask_hierarchy__NDg7GGW","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":223.191,"latency_breakdown":{"env_setup":2.546,"agent_setup":13.664,"agent_exec":191.94,"verifier":1.943},"taskName":"ticket_subtask_hierarchy","jobId":"NDg7GGW","exec_duration":191.94}]},{"taskName":"ticket_tags_apply_resolve","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_tags_apply_resolve__oHs4oLy","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":38.615,"latency_breakdown":{"env_setup":2.545,"agent_setup":12.949,"agent_exec":10.057,"verifier":null},"taskName":"ticket_tags_apply_resolve","jobId":"oHs4oLy","exec_duration":10.057}]},{"taskName":"ticket_users_directory_assign","instruction":"","trials":[{"job_name":"2026-06-14__01-48-26","trial_name":"ticket_users_directory_assign__Sh7iYnU","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":206.608,"latency_breakdown":{"env_setup":3.493,"agent_setup":14.1,"agent_exec":173.523,"verifier":2.501},"taskName":"ticket_users_directory_assign","jobId":"Sh7iYnU","exec_duration":173.523}]}]}]}]]}],["$L9","$La"],"$Lb"]}],{},null,false,false]},null,false,false]},null,false,false],"$Lc",false]],"m":"$undefined","G":["$d",[]],"S":true}
-e:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"OutletBoundary"]
-10:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"ViewportBoundary"]
-12:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"MetadataBoundary"]
-9:["$","script","script-0",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/32809ad9111a1504.js","async":true,"nonce":"$undefined"}]
-a:["$","script","script-1",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/f9f579c42c486944.js","async":true,"nonce":"$undefined"}]
-b:["$","$Le",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]
-c:["$","$1","h",{"children":[null,["$","$L10",null,{"children":"$L11"}],["$","div",null,{"hidden":true,"children":["$","$L12",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":"$L13"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
-11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-f:null
-13:[["$","title","0",{"children":"ApiDeck Benchmark"}],["$","meta","1",{"name":"description","content":"Performance results of AI coding models on ApiDeck tasks, measuring success rate and execution time with high precision."}]]
+9:T870,# Apideck Issue Tracking: Comment Edit & Delete Workflow
+
+## Background
+You are working with the Apideck Unified Issue Tracking API connected to GitHub (service id `github`). Your job is to drive a full comment-modification workflow on a single ticket: create the ticket, append a sequence of comments, edit one of them in place, and remove another. The final state on the remote ticket must match the expected configuration.
+
+## Requirements
+- Create exactly one ticket inside the collection identified by the `APIDECK_ISSUE_TRACKING_COLLECTION_ID` environment variable.
+- Add four comments, then edit one and delete one, so that three comments remain at the end with the expected bodies.
+- Persist a small log file with the identifiers your script created so the workflow is auditable.
+
+## Implementation Hints
+- Read all credentials, ids, and `ZEALT_RUN_ID` from environment variables before issuing any request.
+- Apideck Unified APIs require `Authorization`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id` on every call.
+- Comments live under `/issue-tracking/collections/{collection_id}/tickets/{ticket_id}/comments`; the body field on create/update is `body`.
+- Use the official endpoints to create, update (PATCH), and delete comments — do not work around them with `pass_through` rewrites.
+- The List Comments endpoint paginates with an opaque cursor (`meta.cursors.next`); you may need to follow it to verify final state.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the script is executed and the artifacts exist.
+- Log file: /home/user/apideck_task/output.log
+- The log file must contain a line of the form `Ticket ID: <ticket_id>` for the ticket created by this run.
+- Exactly one ticket exists in the configured collection whose subject contains both `[COMMENT-EDIT-DELETE]` and the current `ZEALT_RUN_ID` value.
+- After the workflow finishes, that ticket has exactly three comments. Their body values, as a set, equal `{"A-<ZEALT_RUN_ID>", "B-EDITED-<ZEALT_RUN_ID>", "D-<ZEALT_RUN_ID>"}`.
+- No remaining comment on that ticket has a body equal to `B-<ZEALT_RUN_ID>` or `C-<ZEALT_RUN_ID>`.
+
+a:Teed,# Create a Nested Folder Structure in OneDrive via Apideck (TypeScript SDK)
+
+## Background
+You are building a workspace organizer for a SaaS product that uses [Apideck](https://www.apideck.com/) to talk to multiple cloud file storage providers through a single Unified File Storage API. The current environment is configured with a single connector — OneDrive (`service_id: onedrive`) — and a pre-configured drive whose name is provided as `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+
+Your job is to create a two-level folder hierarchy inside that drive using the official Apideck TypeScript / Node.js SDK (`@apideck/unify`): a parent folder created at the drive root, and a child folder created **inside** that parent folder by referencing its `id` as the new folder's `parent_folder_id`.
+
+## Requirements
+- Read all credentials and configuration from environment variables: `APIDECK_APP_ID`, `APIDECK_API_KEY`, `APIDECK_CONSUMER_ID`, `APIDECK_FILE_STORAGE_DRIVE_NAME`, and `ZEALT_RUN_ID`.
+- Use the `@apideck/unify` TypeScript / Node.js SDK to talk to Apideck (do not call `unify.apideck.com` with raw `fetch`/`axios`).
+- Resolve the target drive: list drives in OneDrive and pick the one whose `name` exactly matches `APIDECK_FILE_STORAGE_DRIVE_NAME`. Use its `id` as `drive_id` when creating folders.
+- Create a **parent folder** named `apideck-parent-${ZEALT_RUN_ID}` at the drive's root (`parent_folder_id: "root"`).
+- Create a **child folder** named `apideck-child-${ZEALT_RUN_ID}` whose `parent_folder_id` is the `id` returned by the parent-folder create call (not `"root"` and not a literal path string).
+- Write a JSON log file with the IDs and names of both folders so the verifier can confirm the hierarchy.
+
+## Implementation Hints
+- Install `@apideck/unify` with npm and run TypeScript via a runner of your choice (e.g. `ts-node`, `tsx`, or compile with `tsc` then run with `node`).
+- Initialize the SDK with the API key, app ID, and consumer ID, and pass `serviceId: "onedrive"` on each call so Apideck routes to the OneDrive connector.
+- The drives listing endpoint returns a paginated iterable — make sure you walk pages until you find the matching drive name, or use a `filter` if convenient.
+- `parent_folder_id` for a root-level item is the literal string `"root"`; for the nested folder it must be the parent folder's `id` returned by the create response.
+- Refer to: [Create Folder](https://developers.apideck.com/md/apis/file-storage/reference/folders/foldersAdd.md), [List Drives](https://developers.apideck.com/md/apis/file-storage/reference/drives/drivesAll.md), and the [TypeScript / Node.js SDK](https://developers.apideck.com/sdks/node.md).
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the real folder-creation actions are executed against Apideck/OneDrive and the log artifact exists.
+- Log file: /home/user/myproject/output.log
+- The log file MUST be valid JSON with at least these top-level fields:
+  - `drive_id` (string) — id of the drive resolved from `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+  - `parent_folder_id` (string) — id returned when creating the parent folder.
+  - `parent_folder_name` (string) — `apideck-parent-${ZEALT_RUN_ID}`.
+  - `child_folder_id` (string) — id returned when creating the child folder.
+  - `child_folder_name` (string) — `apideck-child-${ZEALT_RUN_ID}`.
+- The two folders MUST be discoverable via the Apideck File Storage API:
+  - A folder named `apideck-parent-${ZEALT_RUN_ID}` exists in the configured drive.
+  - A folder named `apideck-child-${ZEALT_RUN_ID}` exists in the configured drive and lists the parent folder in its `parent_folders` chain (i.e. its `parent_folders[*].id` includes `parent_folder_id`).
+- The TypeScript / Node.js SDK (`@apideck/unify`) MUST be present in the project's `package.json` dependencies.
+
+b:T58c,# Cross-API Ticket / File Summary
+
+Using Apideck Unify, perform these two side effects in the connected services for the current `ZEALT_RUN_ID`:
+
+1. Upload exactly three small text files at the OneDrive drive root (service id `onedrive`), named (case-sensitive):
+   - `REPORT-${ZEALT_RUN_ID}-A.txt`
+   - `REPORT-${ZEALT_RUN_ID}-B.txt`
+   - `REPORT-${ZEALT_RUN_ID}-C.txt`
+2. Create exactly one Issue Tracking ticket (service id `github`, collection `APIDECK_ISSUE_TRACKING_COLLECTION_ID`) whose `subject` contains both `ZEALT_RUN_ID` and the literal marker `[FILE-INDEX]`, and whose `description` is the newline-joined list of those three uploaded files' Apideck file ids, sorted ascending. The description MUST contain only those three id lines and nothing else.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- The real Apideck side effects must be executed (no mocking).
+- After completion, the OneDrive drive root contains exactly three files whose names equal `REPORT-${ZEALT_RUN_ID}-A.txt`, `REPORT-${ZEALT_RUN_ID}-B.txt`, `REPORT-${ZEALT_RUN_ID}-C.txt`.
+- The Issue Tracking collection contains exactly one ticket whose `subject` includes both the literal substring `[FILE-INDEX]` and `${ZEALT_RUN_ID}`.
+- That ticket's `description`, split by `\n` with empty lines discarded and surrounding whitespace stripped, equals the ascending-sorted list of the three uploaded files' Apideck `id` values.
+
+c:Te32,# Create and Delete a Folder via the ApiDeck File Storage API
+
+## Background
+Your SaaS backend needs to provision short-lived workspaces in a customer's connected cloud drive (OneDrive in this environment) and tear them down after use. ApiDeck's File Storage Unified API exposes a single normalized REST surface for File Storage providers, so the same code path works for OneDrive, Google Drive, Dropbox, Box, and SharePoint. In this task you will exercise both the `Create Folder` and `Delete Folder` endpoints against the preconfigured OneDrive connector, and prove the round trip via a log file.
+
+## Requirements
+- Write a Python program that, when executed, uses the ApiDeck File Storage Unified API to:
+  1. Resolve the OneDrive drive whose `name` matches the value of the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable.
+  2. Create a brand-new folder inside the root of that drive, whose `name` is built from a fixed prefix and the current `run-id` (see Implementation Hints).
+  3. Delete that same folder using its returned `id`.
+  4. Append a structured log of the operation to `/home/user/myproject/output.log`.
+- The script must call the real ApiDeck API; do not stub or mock responses.
+- All ApiDeck requests must use the `onedrive` service id since multiple connectors may be active in the workspace.
+
+## Implementation Hints
+- Read every credential and identifier from environment variables. The following are guaranteed to be present in the execution environment: `APIDECK_APP_ID`, `APIDECK_API_KEY`, `APIDECK_CONSUMER_ID`, `APIDECK_FILE_STORAGE_DRIVE_NAME`, `ZEALT_RUN_ID`.
+- You can use either the official `apideck-unify` Python SDK (preinstalled) or plain `requests` against `https://unify.apideck.com`. The required request headers are documented in the research plan (`Authorization`, `x-apideck-app-id`, `x-apideck-consumer-id`, `x-apideck-service-id`).
+- The drive id is **not** the same as the drive name. Use `GET /file-storage/drives` (or the SDK equivalent) to list drives and find the one whose `name` equals the value of `APIDECK_FILE_STORAGE_DRIVE_NAME`, then keep its `id`.
+- When creating the folder, the `parent_folder_id` for the drive root is the literal string `"root"`. Include `drive_id` in the create request so the folder is created in the resolved drive.
+- Make every externally visible resource collision-free by suffixing the `run-id` (from the `ZEALT_RUN_ID` env var). For this task, the folder `name` must be exactly `harbor-delete-${ZEALT_RUN_ID}`.
+- After deletion, write the log file with one `key: value` per line so it can be parsed by a downstream verifier.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the script is executed and the artifacts exist (the folder must really be created and then deleted on OneDrive via ApiDeck).
+- Log file: /home/user/myproject/output.log
+- The log file must contain these three lines, in any order, each on its own line:
+  - `Drive ID: <drive_id>` — the ApiDeck unified id of the resolved drive.
+  - `Created folder ID: <folder_id>` — the unified id returned by the Create Folder call.
+  - `Deleted folder ID: <folder_id>` — the unified id passed to the Delete Folder call. It must match the created folder id.
+- The created folder name on OneDrive must be exactly `harbor-delete-${ZEALT_RUN_ID}` (where `${ZEALT_RUN_ID}` is the value of the env var at runtime).
+- After the script runs, the folder must no longer exist: a `GET /file-storage/folders/{folder_id}` against ApiDeck (with `x-apideck-service-id: onedrive`) must return HTTP 404, and the folder must not appear when listing files in the drive root.
+
+d:Tb67,# Export Apideck File Storage Drive Metadata with the TypeScript SDK
+
+## Background
+Apideck's Unified File Storage API normalizes drives, folders, and files across providers like OneDrive, Google Drive, Dropbox, Box, and SharePoint. Before performing higher-level file operations, integrators often need to resolve the internal ID of a specific drive by its human-readable name. In this task, you will use the official Apideck **TypeScript / Node.js SDK** (`@apideck/unify`) to call the File Storage `List Drives` endpoint and persist the metadata of the drive that matches a configured name.
+
+The File Storage Unified API is preconfigured with the OneDrive connector (service id `onedrive`). The drive name you must resolve is supplied via the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable.
+
+## Requirements
+- Use the official **`@apideck/unify`** TypeScript / Node.js SDK to list drives from the File Storage Unified API for the `onedrive` connector.
+- Identify the drive whose `name` exactly matches the value of the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable.
+- Persist the matched drive's metadata (its `id` and `name`) as a JSON document on disk for downstream consumption.
+- Also emit a log line so the verifier can confirm the run succeeded.
+
+## Implementation Hints
+- Install `@apideck/unify` and initialize the SDK with the `APIDECK_API_KEY`, `APIDECK_APP_ID`, and `APIDECK_CONSUMER_ID` credentials available in the environment.
+- The File Storage Unified API exposes a `drives.list` operation; remember that you must pass the `serviceId` (`onedrive`) so the request is routed to the correct connector.
+- The list response wraps drives under a `getDrivesResponse.data` array; iterate it to find the entry whose `name` equals `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- Use TypeScript and run the program with a Node.js runtime that supports it (e.g., `npx tsx ...`).
+- Read environment variables with `process.env` and write text output with `fs/promises`.
+- Include the `ZEALT_RUN_ID` value somewhere in the log output so concurrent runs do not interfere with each other.
+
+## Acceptance Criteria
+- Project path: `/home/user/myproject`
+- Ensure the script is executed against the live Apideck API and the artifacts below exist.
+- Output artifact: `/home/user/myproject/drive.json` — a JSON object containing at least the fields `id` (string) and `name` (string) of the matched drive. The `name` field MUST equal the value of `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- Log file: `/home/user/myproject/output.log` — MUST contain the run id in the format `Run ID: <ZEALT_RUN_ID>` on one line and the resolved drive id in the format `Drive ID: <drive_id>` on another line.
+- Use the official `@apideck/unify` TypeScript / Node.js SDK to perform the API call (the project's `package.json` MUST declare `@apideck/unify` as a dependency and the `node_modules/@apideck/unify` package MUST be installed).
+
+e:T7af,# Aggregate Files With Cursor Pagination (Apideck File Storage)
+
+## Background
+Use the Apideck unified File Storage API (connected to OneDrive) to upload a fixed set of files, then walk the file listing using cursor pagination to aggregate identifiers across pages.
+
+## Requirements
+- Upload 7 distinct small text files at the drive root of the OneDrive drive named in `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- After uploading, use cursor pagination with a page size of 3 to walk the file listing and aggregate every file whose name matches the run-scoped prefix.
+- Emit a JSON summary of the aggregation to a log file.
+
+## Implementation Hints
+- Read `APIDECK_APP_ID`, `APIDECK_API_KEY`, `APIDECK_CONSUMER_ID`, `APIDECK_FILE_STORAGE_DRIVE_NAME`, and `ZEALT_RUN_ID` from the environment.
+- File uploads must hit the upload host; listing happens on the unify host. The service id for OneDrive is `onedrive`.
+- Each List Files response exposes a `meta.cursors.next` value; pass it back as the `cursor` query parameter to fetch the next page. Stop only once `next` is empty.
+- The aggregation must include only files whose names start with the run-scoped prefix, regardless of which page they appear on.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the real Apideck uploads are executed and the log artifact exists.
+- Log file: /home/user/apideck_task/output.log
+- After the task runs, exactly 7 files must exist at the drive root with names matching the prefix `AGG-${ZEALT_RUN_ID}-`. The seven file names are `AGG-${ZEALT_RUN_ID}-1.txt` through `AGG-${ZEALT_RUN_ID}-7.txt`.
+- The log file must contain a single JSON object with two keys:
+  - `count`: integer equal to 7.
+  - `ids`: array of strings, each being the Apideck file id of a file matching the prefix. The set of ids must equal the set of ids the verifier discovers via cursor-paginated List Files.
+- The listing walk used to populate `ids` must use cursor pagination with `limit=3`.
+
+f:T94b,# File Search Endpoint with ApiDeck File Storage (OneDrive)
+
+## Background
+You are working with the Apideck File Storage Unified API connected to OneDrive. Your job is to seed the configured OneDrive drive with four marker files and then exercise the unified `Search Files` endpoint to retrieve only the relevant subset.
+
+## Requirements
+- Read the `ZEALT_RUN_ID` environment variable. Use it as `run-id` throughout.
+- Upload exactly four files at the root of the OneDrive drive named `APIDECK_FILE_STORAGE_DRIVE_NAME` with names:
+  - `KEEP-${run-id}-1.txt`
+  - `KEEP-${run-id}-2.txt`
+  - `SKIP-${run-id}-1.txt`
+  - `SKIP-${run-id}-2.txt`
+  Each file's body content can be any small text payload.
+- Issue a single `POST /file-storage/files/search` request with body query `KEEP-${run-id}` and collect the ids of the matching files.
+- Persist a single JSON object to the log file containing only the ids of the matching `KEEP-...` files.
+
+## Implementation Hints
+- Apideck unified requests require `Authorization`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id: onedrive` headers.
+- File uploads use the `https://upload.apideck.com` host, with raw binary body and metadata in the `x-apideck-metadata` header. Other endpoints use `https://unify.apideck.com`.
+- The drive id can be resolved by listing drives and matching on the `APIDECK_FILE_STORAGE_DRIVE_NAME` env var.
+- `POST /file-storage/files/search` accepts a JSON body of the form `{ "query": "..." }`; iterate cursor pages if the response is paginated.
+- Output ids must correspond to files returned by the unified File Storage API (the `id` field of each file in the response).
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the real upload and search actions are executed against Apideck and the log artifact exists.
+- Log file: /home/user/apideck_task/output.log
+- The log file must contain a single line of valid JSON in the exact shape: `{"search_result_ids": ["<id1>", "<id2>"]}` where the array contains exactly the two file ids returned by `POST /file-storage/files/search` for the two `KEEP-${run-id}-*.txt` files (order does not matter).
+- After the task, exactly four files matching `KEEP-${run-id}-1.txt`, `KEEP-${run-id}-2.txt`, `SKIP-${run-id}-1.txt`, and `SKIP-${run-id}-2.txt` must exist at the root of the drive named `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+
+10:Td42,# Apideck File Storage: Create Folder And Populate With Files
+
+## Background
+You are working with the Apideck Unified File Storage API connected to OneDrive (service id `onedrive`). Your job is to organize a small batch of run-scoped notes by first creating a dedicated folder at the OneDrive drive root, and then uploading exactly three text files into that folder. The end state — folder plus three child files — must be observable through the unified File Storage API.
+
+## Requirements
+- Read the `ZEALT_RUN_ID` environment variable. Use its value as `run-id` throughout (use it directly; do not transform it).
+- Resolve the OneDrive drive whose name equals the value of the `APIDECK_FILE_STORAGE_DRIVE_NAME` environment variable, and operate at that drive's root.
+- Create exactly one folder at the drive root whose name is `FOLDER-${run-id}`.
+- Upload exactly three small text files into the newly created folder (NOT at the drive root). The file names must be:
+  - `NOTE-${run-id}-1.txt`
+  - `NOTE-${run-id}-2.txt`
+  - `NOTE-${run-id}-3.txt`
+  Each file body can be any small text payload.
+- Persist a log file at `/home/user/apideck_task/output.log` recording the Apideck identifiers your script created (see `Acceptance Criteria` for the exact format).
+
+## Implementation Hints
+- Apideck Unified requests require `Authorization: Bearer <APIDECK_API_KEY>`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id: onedrive` on every call.
+- The base host for most endpoints is `https://unify.apideck.com`, but **file uploads must hit `https://upload.apideck.com`**.
+- Folder creation uses `POST /file-storage/folders` with a JSON body that includes `name`, `parent_folder_id`, and `drive_id`. Use `"root"` as the parent to create the folder at the drive root.
+- File uploads use `POST /file-storage/files` with the **raw binary** body. Do **NOT** use multipart/form-data. The file's `name` and `parent_folder_id` (which must be the id returned by your folder-create call) belong in the `x-apideck-metadata` request header as a JSON string.
+- The drive id can be resolved by listing drives (`GET /file-storage/drives`) and matching the entry whose `name` equals `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- The folder-create response returns `data.id`; capture and reuse that id for both `parent_folder_id` on uploads and for your log file.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the real Apideck side effects (one folder created, three files uploaded) are executed and the log artifact exists.
+- Log file: /home/user/apideck_task/output.log
+- The log file must contain a single valid JSON object on one line in the exact shape:
+
+  ```json
+  {"folder_id": "<folder_id>", "file_ids": ["<id1>", "<id2>", "<id3>"]}
+  ```
+
+  where `folder_id` is the Apideck id returned for the created folder and `file_ids` are the Apideck ids returned for the three uploaded files (order does not matter).
+- After the run, the drive named by `APIDECK_FILE_STORAGE_DRIVE_NAME` must contain at its root exactly one folder named `FOLDER-${ZEALT_RUN_ID}` (type `folder`).
+- That folder must directly contain exactly three files named `NOTE-${ZEALT_RUN_ID}-1.txt`, `NOTE-${ZEALT_RUN_ID}-2.txt`, and `NOTE-${ZEALT_RUN_ID}-3.txt`. Each of these files, when retrieved via `GET /file-storage/files/{id}`, must report the created folder's id as its direct parent folder.
+
+11:T9f3,# Export Issue Tracking Collection Users with Apideck Python SDK
+
+## Background
+Apideck Unified Issue Tracking exposes a `Users` resource scoped to a collection (e.g., a GitHub repository). These users are typically used to resolve assignee IDs before creating tickets. In this task you will use the official Apideck Python SDK (`apideck-unify`) to enumerate every user in the configured collection and persist them to a JSON artifact for downstream tooling.
+
+The Issue Tracking connector is preconfigured to GitHub (service id `github`). The collection ID is provided via the `APIDECK_ISSUE_TRACKING_COLLECTION_ID` environment variable.
+
+## Requirements
+- Use the Apideck Python SDK to list every user in the configured Issue Tracking collection.
+- Traverse cursor-based pagination so that ALL pages are collected, not just the first 20 results.
+- Write the collected users to a JSON file inside the project directory.
+- Write a log line capturing the total user count.
+
+## Implementation Hints
+- Install and use the `apideck-unify` Python SDK. The SDK exposes the Users endpoint as `apideck.issue_tracking.collection_users.list(...)`.
+- The connector requires `service_id="github"` because multiple Unified APIs are enabled for the consumer.
+- The SDK returns a pageable response object; call `.next()` to advance through cursor pagination until it returns `None`.
+- Read all credentials from environment variables (`APIDECK_API_KEY`, `APIDECK_APP_ID`, `APIDECK_CONSUMER_ID`, `APIDECK_ISSUE_TRACKING_COLLECTION_ID`).
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the script is executed and the artifacts exist.
+- Log file: /home/user/myproject/output.log
+  - The log file must contain a line in the format: `User count: <count>` where `<count>` is the integer number of users collected.
+- Generated artifact: /home/user/myproject/users.json
+  - The file must contain a single JSON object with the following shape:
+
+    ```json
+    {
+      "collection_id": "<the configured collection id>",
+      "service_id": "github",
+      "users": [
+        {
+          "id": "<user id>",
+          "name": "<full name or null>",
+          "first_name": "<first name or null>",
+          "last_name": "<last name or null>",
+          "email": "<email or null>"
+        }
+      ]
+    }
+    ```
+  - The `users` array must contain every user returned across all pages by the Apideck Issue Tracking List Users endpoint for the configured collection and `service_id=github`.
+  - Every user object's `id` value must be a non-empty string.
+
+12:T185c,# Cursor Paginate Apideck Issue Tracking Tickets with the Python SDK
+
+## Background
+[Apideck](https://www.apideck.com/) exposes a unified **Issue Tracking API** that normalizes ticket models from providers such as GitHub, Jira, Linear, and Asana. The unified `List Tickets` endpoint (`GET /issue-tracking/collections/{collection_id}/tickets`) is **cursor-paginated**: each response contains `meta.cursors.next` which must be followed (rather than computing offsets) until exhausted. In this task you will use the official [`apideck-unify` Python SDK](https://developers.apideck.com/sdks/python.md) to seed several tickets in the preconfigured GitHub-backed collection and then walk the entire collection with a small page size to collect every ticket created by the current run. This exercises both ticket creation through the unified surface and the opaque cursor pagination friction point documented in the research plan.
+
+## Requirements
+- Use the official `apideck-unify` Python SDK (do **not** call the REST endpoints with `requests`/`curl`, and do **not** use the Node SDK) for every Apideck call you make.
+- Issue Tracking service id is `github`; the GitHub repository ("collection") to operate on is the one whose id is provided in `APIDECK_ISSUE_TRACKING_COLLECTION_ID`.
+- Seed exactly **5** new tickets in that collection. Every seeded ticket must satisfy:
+  - `subject` equals `Pagination demo {N} - {ZEALT_RUN_ID}` where `{N}` is an integer index starting at `1` and incrementing by `1` (so the subjects are `Pagination demo 1 - ${ZEALT_RUN_ID}` ... `Pagination demo 5 - ${ZEALT_RUN_ID}`).
+  - `description` equals `Seeded by list_tickets_pagination_py for run ${ZEALT_RUN_ID}` (literal string, no extra whitespace).
+- After seeding, **list** the collection's tickets and walk it page-by-page using cursor pagination with `limit=2`. You must rely on the cursor returned in `meta.cursors.next` (or the SDK's built-in pagination helper that uses it) — do **not** hard-code an upper bound on the total number of pages and do **not** call `List Tickets` once with a large `limit` to short-circuit pagination.
+- From the aggregated pagination results, filter to the tickets whose `subject` contains the current `ZEALT_RUN_ID` value, then write a JSON artifact to `/home/user/myproject/tickets.json` with the following exact shape:
+  ```json
+  {
+    "run_id": "<ZEALT_RUN_ID>",
+    "collection_id": "<APIDECK_ISSUE_TRACKING_COLLECTION_ID>",
+    "page_count": <integer>,
+    "tickets": [
+      { "index": 1, "id": "<ticket id>", "subject": "Pagination demo 1 - <ZEALT_RUN_ID>" },
+      { "index": 2, "id": "<ticket id>", "subject": "Pagination demo 2 - <ZEALT_RUN_ID>" },
+      { "index": 3, "id": "<ticket id>", "subject": "Pagination demo 3 - <ZEALT_RUN_ID>" },
+      { "index": 4, "id": "<ticket id>", "subject": "Pagination demo 4 - <ZEALT_RUN_ID>" },
+      { "index": 5, "id": "<ticket id>", "subject": "Pagination demo 5 - <ZEALT_RUN_ID>" }
+    ]
+  }
+  ```
+  - `page_count` is the number of pages traversed during the pagination walk (i.e., the number of `List Tickets` HTTP responses you consumed, including any pages that contained no run-scoped tickets).
+  - `tickets` is an array of exactly 5 entries sorted by `index` ascending. Each entry's `id` must be the Apideck unified ticket `id` returned by the seeding/listing API, and each `subject` must match the corresponding seeded subject exactly.
+
+## Implementation Hints
+- Install the SDK via `pip install apideck-unify` and instantiate `Apideck(api_key=..., app_id=..., consumer_id=...)`. Most issue-tracking methods take `service_id="github"` and `collection_id=APIDECK_ISSUE_TRACKING_COLLECTION_ID`.
+- Read `APIDECK_APP_ID`, `APIDECK_API_KEY`, `APIDECK_CONSUMER_ID`, `APIDECK_ISSUE_TRACKING_COLLECTION_ID`, and `ZEALT_RUN_ID` from the environment. Do not hard-code their values.
+- Some optional ticket fields (e.g., `priority`) are not supported by the GitHub connector. Stick to `subject` and `description` when seeding.
+- For pagination, prefer following `meta.cursors.next` (the SDK exposes `.next()` on list responses that uses that cursor under the hood). Each call must pass `limit=2`.
+- Suggested references: [Issue Tracking API reference](https://developers.apideck.com/apis/issue-tracking/reference), [List Tickets](https://developers.apideck.com/md/apis/issue-tracking/reference/tickets/collectionTicketsAll.md), [Create Ticket](https://developers.apideck.com/md/apis/issue-tracking/reference/tickets/collectionTicketsAdd.md), [Python SDK guide](https://developers.apideck.com/sdks/python.md), [Unified Rate Limits / pagination notes](https://developers.apideck.com/guides/unified-rate-limits.md).
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the seeding and pagination actions are executed against the real Apideck Issue Tracking API and the artifact exists.
+- Log/artifact file: /home/user/myproject/tickets.json (JSON only; the file must be valid JSON and must parse with `json.loads`).
+- The JSON object at `/home/user/myproject/tickets.json` must contain top-level keys `run_id`, `collection_id`, `page_count`, and `tickets`.
+  - `run_id` must equal the value of `ZEALT_RUN_ID`.
+  - `collection_id` must equal the value of `APIDECK_ISSUE_TRACKING_COLLECTION_ID`.
+  - `page_count` must be a positive integer.
+  - `tickets` must be an array of exactly 5 objects with the keys `index`, `id`, and `subject`, sorted by `index` ascending from 1 to 5.
+- Each `subject` value in the JSON must exactly match the corresponding seeded subject (`Pagination demo {index} - ${ZEALT_RUN_ID}`).
+- The 5 ticket IDs in the JSON must be retrievable from the Apideck Issue Tracking API (via `Get Ticket`) and their subjects on the server must match what is recorded locally.
+- The 5 ticket IDs must also be discoverable by paginating `List Tickets` for the same collection (limit-agnostic verification on the verifier side).
+- Any persisted solution file under `/home/user/myproject` that performs Apideck calls must use the `apideck-unify` Python SDK (`import apideck_unify` or `from apideck_unify import Apideck`); no persisted file may shell out to `curl` or use `requests`/`httpx` against `*.apideck.com` to perform the seeding or listing.
+
+13:Taaf,# Apideck Issue Tracking: Ticket Subject & Description Update Workflow
+
+## Background
+You are working with the Apideck Unified Issue Tracking API connected to GitHub (service id `github`). Your job is to drive a small ticket-revision workflow: create a single ticket inside the configured collection with an initial subject and description, then update both fields via the unified PATCH endpoint, and finally persist the resulting ticket identifier for auditing.
+
+## Requirements
+- Create exactly one ticket inside the collection identified by the `APIDECK_ISSUE_TRACKING_COLLECTION_ID` environment variable.
+- The initial subject must contain the literal marker `[UPDATE-V1]` together with the current `ZEALT_RUN_ID` value.
+- After creation, update the ticket through the official unified Update Ticket endpoint so that the subject contains the literal marker `[UPDATE-V2]` together with the current `ZEALT_RUN_ID` value, and the description contains the literal string `Revised draft v2`.
+- Record the resulting ticket identifier to a log file so the workflow is auditable.
+
+## Implementation Hints
+- Read all credentials, the collection id, and `ZEALT_RUN_ID` from environment variables before issuing any request.
+- Apideck Unified APIs require `Authorization: Bearer <APIDECK_API_KEY>`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id: github` on every call.
+- Use `POST /issue-tracking/collections/{collection_id}/tickets` to create the ticket and `PATCH /issue-tracking/collections/{collection_id}/tickets/{ticket_id}` to update it. Do not work around these endpoints with `pass_through` rewrites.
+- The PATCH endpoint accepts `subject` and `description` in the request body; you must also include the ticket `id` in the body as required by the Apideck schema.
+- Note that GitHub does not honor every unified field (for example `priority`). Stick to `subject` and `description` for this workflow.
+- The List Tickets endpoint is cursor-paginated through `meta.cursors.next`; you may need to follow the cursor to verify the final state.
+
+## Acceptance Criteria
+- Project path: /home/user/apideck_task
+- Ensure the script is executed and the artifacts exist.
+- Log file: /home/user/apideck_task/output.log
+- The log file must contain a line of the form `Ticket ID: <ticket_id>` for the ticket created by this run.
+- After the workflow finishes, exactly one ticket exists in the configured collection whose subject contains both `[UPDATE-V2]` and the current `ZEALT_RUN_ID` value.
+- No ticket in the configured collection has a subject that contains both `[UPDATE-V1]` and the current `ZEALT_RUN_ID` value.
+- The ticket identified in the log has a description that contains the substring `Revised draft v2`.
+
+14:T1180,# Direct File Upload via Apideck File Storage with curl
+
+## Background
+[Apideck](https://www.apideck.com/) exposes a unified **File Storage API** that normalizes cloud-drive providers such as OneDrive, Google Drive, Dropbox, Box, and SharePoint. Unlike the unified API base (`https://unify.apideck.com`), file uploads and downloads must hit a separate host (`https://upload.apideck.com`) and the executor must send the file's metadata as a JSON string in the `x-apideck-metadata` HTTP header while the request body holds the raw binary content. In this task you will use `curl` (not the SDK) to perform a direct upload of a small text file into the configured OneDrive drive and record the resulting unified file ID for verification.
+
+## Requirements
+- Use raw HTTP via the `curl` CLI (do **not** use the `apideck-unify` SDK or any wrapper library) to upload exactly one text file through Apideck's File Storage direct upload endpoint.
+- Upload the file into the drive whose `name` (returned by the unified `List Drives` endpoint) equals the value of `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- Place the new file at the **root** of that drive (i.e. `parent_folder_id` = `"root"`).
+- The uploaded file must have:
+  - file name: `apideck-curl-${ZEALT_RUN_ID}.txt` (the literal prefix `zr-` is already part of `ZEALT_RUN_ID`; do not prepend it again).
+  - file body: the exact ASCII string `Uploaded via Apideck File Storage direct upload curl test\n` (a single line terminated by one `\n`, no trailing whitespace, 58 bytes total).
+  - content type / MIME: `text/plain`.
+- After a successful upload, write the unified Apideck file ID returned in `data.id` to `/home/user/myproject/output.log` as the only non-empty line in the file.
+
+## Implementation Hints
+- Read `APIDECK_APP_ID`, `APIDECK_API_KEY`, `APIDECK_CONSUMER_ID`, `APIDECK_FILE_STORAGE_DRIVE_NAME`, and `ZEALT_RUN_ID` from the environment.
+- Discover the target drive by calling `GET https://unify.apideck.com/file-storage/drives` with the standard Apideck headers and `x-apideck-service-id: onedrive`, then pick the entry whose `name` matches `APIDECK_FILE_STORAGE_DRIVE_NAME` and capture its `id`.
+- Send the upload to `POST https://upload.apideck.com/file-storage/files` — note this is a different host than the rest of the unified API. Forgetting to switch hosts is a common source of 404/422 errors.
+- The metadata travels in an HTTP header, not the body. Build a JSON string with at minimum `name`, `parent_folder_id`, and `drive_id` and pass it via `-H 'x-apideck-metadata: { ... }'`. The HTTP body must be the raw bytes of the file (`--data-binary @file`), not multipart form data (do not use `-F` / `--form`).
+- Always include the headers `Authorization: Bearer <api key>`, `x-apideck-app-id`, `x-apideck-consumer-id`, and `x-apideck-service-id: onedrive` (multiple connectors may be enabled on the unified API, so the service id is required).
+- Suggested references: [Uploading Files guide](https://developers.apideck.com/guides/file-upload.md), [Upload File reference](https://developers.apideck.com/md/apis/file-storage/reference/files/filesUpload.md), [List Drives reference](https://developers.apideck.com/md/apis/file-storage/reference/drives/drivesAll.md), [List Files reference](https://developers.apideck.com/md/apis/file-storage/reference/files/filesAll.md).
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the upload action is executed against the real Apideck File Storage API and the log artifact exists.
+- Log file: /home/user/myproject/output.log
+- The log file must contain exactly one non-empty line: the unified Apideck file ID returned in `data.id` from the upload response.
+- The uploaded file must be retrievable via `GET https://unify.apideck.com/file-storage/files/{file_id}` and its `name` must equal `apideck-curl-${ZEALT_RUN_ID}.txt` and its `type` must equal `file`.
+- The file must belong to the drive whose `name` is `APIDECK_FILE_STORAGE_DRIVE_NAME` (verified by matching the drive returned by `List Drives`).
+- The file must additionally be discoverable by paginating `GET https://unify.apideck.com/file-storage/files` and finding the same `name` and `id` in the unified results.
+- Any script files persisted under `/home/user/myproject` must invoke the upload via `curl` (so that the friction points around the `upload.apideck.com` host and the `x-apideck-metadata` header are exercised); the `apideck-unify` SDK must not be imported by the executor's solution.
+
+15:Tbd6,# Upload Multiple Files to OneDrive via the Apideck Python SDK
+
+## Background
+Apideck Unify exposes a normalized File Storage API over 200+ connectors at `https://unify.apideck.com`, but file uploads (and downloads) actually go through a separate host: `https://upload.apideck.com`. The official Python SDK (`apideck-unify`) hides that detail and lets you upload binary payloads through a single method call. In this task you will use the Python SDK to push a small batch of plain-text reports into the consumer's configured OneDrive drive and record the returned file IDs so a downstream verifier can locate them.
+
+## Requirements
+- Implement a Python script at `/home/user/myproject/upload_reports.py` that uses the `apideck-unify` SDK (not raw `requests`/`curl`) to upload two text files to the root of the OneDrive drive named `APIDECK_FILE_STORAGE_DRIVE_NAME`.
+- The two uploaded files must be named `report-${run-id}-alpha.txt` and `report-${run-id}-beta.txt`, where `${run-id}` comes from the `ZEALT_RUN_ID` environment variable. Their contents must be the literal strings `alpha payload for ${run-id}\n` and `beta payload for ${run-id}\n` respectively (UTF-8, ending with a single newline).
+- After both uploads succeed, append a single JSON object to `/home/user/myproject/output.log` containing the two returned Apideck file IDs and the file names, then exit cleanly.
+
+## Implementation Hints
+- Install and import the `apideck-unify` Python SDK (`pip install apideck-unify`). Construct the client with `api_key`, `app_id`, and `consumer_id` read from environment variables.
+- The OneDrive connector is enabled in the dashboard; pass its service id when calling the File Storage upload method.
+- Resolve the configured drive (whose name is in `APIDECK_FILE_STORAGE_DRIVE_NAME`) before uploading so you can pass its drive id. The unified File Storage API exposes a `drives` resource that you can list to find the matching drive id by name.
+- For each upload, pass the file name, the parent folder id (`"root"`), the resolved drive id, and the raw bytes of the file. Capture the returned upload response and read the new file id from it.
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Script path: /home/user/myproject/upload_reports.py
+- Log file: /home/user/myproject/output.log
+- The executor is responsible for actually running the upload; the verifier will not re-run it.
+- File names must be exactly `report-${run-id}-alpha.txt` and `report-${run-id}-beta.txt`, with `${run-id}` taken from the `ZEALT_RUN_ID` environment variable.
+- The two files must end up at the root of the drive named `APIDECK_FILE_STORAGE_DRIVE_NAME` on the OneDrive connector.
+- The log file must contain a single line of JSON with this shape (no extra keys, no trailing comma):
+  ```
+  {"alpha": {"name": "report-${run-id}-alpha.txt", "id": "<apideck file id>"}, "beta": {"name": "report-${run-id}-beta.txt", "id": "<apideck file id>"}}
+  ```
+  Both `id` values must be non-empty strings returned by the Apideck upload call.
+
+0:{"P":null,"b":"dBK1v-j8KraHy4tLSygfT","c":["","tasks",""],"q":"","i":false,"f":[[["",{"children":["tasks",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/278870d7bbb78ea0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/babff0e7418ab052.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/3ecbb78a8ff87549.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"inter_5972bc34-module__OU16Qa__className antialiased","children":["$","$L2",null,{"children":["$","$L3",null,{"defaultTheme":"dark","children":[["$","div",null,{"className":"fixed right-4 top-6 z-50 sm:top-8","children":["$","$L4",null,{}]}],["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L6",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen bg-background text-foreground font-sans selection:bg-primary/20","children":[["$","div",null,{"className":"fixed inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(#2a2a2a_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20 dark:opacity-40"}],["$","$7",null,{"fallback":["$","div",null,{"className":"container mx-auto py-8 text-center","children":"Loading tasks..."}],"children":["$","$L8",null,{"tasksData":[{"taskName":"comment_edit_delete_workflow","instruction":"$9","trials":[{"job_name":"2026-06-15__12-38-48","trial_name":"comment_edit_delete_workflow__n3rNmN4","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":260.133,"latency_breakdown":{"env_setup":65.726,"agent_setup":19.04,"agent_exec":155.313,"verifier":4.062},"taskName":"comment_edit_delete_workflow","exec_duration":155.313},{"job_name":"2026-06-15__12-38-48","trial_name":"comment_edit_delete_workflow__vCMJ8ZD","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":257.07,"latency_breakdown":{"env_setup":64.726,"agent_setup":21.46,"agent_exec":148.871,"verifier":2.352},"taskName":"comment_edit_delete_workflow","exec_duration":148.871},{"job_name":"2026-06-15__12-38-48","trial_name":"comment_edit_delete_workflow__aVHGxzr","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":567.649,"latency_breakdown":{"env_setup":63.834,"agent_setup":19.669,"agent_exec":466.018,"verifier":2.732},"taskName":"comment_edit_delete_workflow","exec_duration":466.018}]},{"taskName":"create_subfolder_ts","instruction":"$a","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"create_subfolder_ts__qsEBtkK","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":589.731,"latency_breakdown":{"env_setup":28.113,"agent_setup":23.647,"agent_exec":505.822,"verifier":10.68},"taskName":"create_subfolder_ts","exec_duration":505.822},{"job_name":"2026-06-15__21-36-19","trial_name":"create_subfolder_ts__NbsfmgR","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":559.935,"latency_breakdown":{"env_setup":29.862,"agent_setup":26.287,"agent_exec":419.114,"verifier":61.094},"taskName":"create_subfolder_ts","exec_duration":419.114},{"job_name":"2026-06-15__21-36-19","trial_name":"create_subfolder_ts__fr9RZTw","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":701.864,"latency_breakdown":{"env_setup":42.541,"agent_setup":36.789,"agent_exec":600.194,"verifier":0.807},"taskName":"create_subfolder_ts","exec_duration":600.194}]},{"taskName":"cross_api_ticket_file_summary","instruction":"$b","trials":[{"job_name":"2026-06-15__12-38-48","trial_name":"cross_api_ticket_file_summary__EwCPHhc","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":674.899,"latency_breakdown":{"env_setup":29.031,"agent_setup":19.679,"agent_exec":600.197,"verifier":6.054},"taskName":"cross_api_ticket_file_summary","exec_duration":600.197},{"job_name":"2026-06-15__12-38-48","trial_name":"cross_api_ticket_file_summary__WX9MSJb","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":282.469,"latency_breakdown":{"env_setup":44.029,"agent_setup":18.75,"agent_exec":198.593,"verifier":4.882},"taskName":"cross_api_ticket_file_summary","exec_duration":198.593},{"job_name":"2026-06-15__12-38-48","trial_name":"cross_api_ticket_file_summary__ZkEkVgd","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":355.797,"latency_breakdown":{"env_setup":40.415,"agent_setup":20.066,"agent_exec":263.536,"verifier":5.29},"taskName":"cross_api_ticket_file_summary","exec_duration":263.536}]},{"taskName":"delete_folder_after_create_py","instruction":"$c","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"delete_folder_after_create_py__iRsKQBj","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":558.949,"latency_breakdown":{"env_setup":45.002,"agent_setup":29.77,"agent_exec":456.752,"verifier":7.326},"taskName":"delete_folder_after_create_py","exec_duration":456.752},{"job_name":"2026-06-15__21-36-19","trial_name":"delete_folder_after_create_py__JtuPqW8","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":812.452,"latency_breakdown":{"env_setup":63.391,"agent_setup":319.151,"agent_exec":405.674,"verifier":7.701},"taskName":"delete_folder_after_create_py","exec_duration":405.674},{"job_name":"2026-06-15__21-36-19","trial_name":"delete_folder_after_create_py__usjF8iU","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":429.514,"latency_breakdown":{"env_setup":50.246,"agent_setup":360.002,"agent_exec":null,"verifier":null},"taskName":"delete_folder_after_create_py","exec_duration":429.514}]},{"taskName":"drives_list_export_ts","instruction":"$d","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"drives_list_export_ts__oNfYGfK","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":528.664,"latency_breakdown":{"env_setup":154.067,"agent_setup":360.001,"agent_exec":null,"verifier":null},"taskName":"drives_list_export_ts","exec_duration":528.664},{"job_name":"2026-06-15__21-36-19","trial_name":"drives_list_export_ts__UQ5XWpA","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":617.949,"latency_breakdown":{"env_setup":91.302,"agent_setup":21.161,"agent_exec":484.994,"verifier":3.369},"taskName":"drives_list_export_ts","exec_duration":484.994},{"job_name":"2026-06-15__21-36-19","trial_name":"drives_list_export_ts__8mHGDnQ","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":549.847,"latency_breakdown":{"env_setup":172.53,"agent_setup":360.001,"agent_exec":null,"verifier":null},"taskName":"drives_list_export_ts","exec_duration":549.847}]},{"taskName":"file_listing_cursor_aggregation","instruction":"$e","trials":[{"job_name":"2026-06-15__12-38-48","trial_name":"file_listing_cursor_aggregation__2MncBcd","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":694.631,"latency_breakdown":{"env_setup":24.012,"agent_setup":19.935,"agent_exec":600.213,"verifier":36.244},"taskName":"file_listing_cursor_aggregation","exec_duration":600.213},{"job_name":"2026-06-15__12-38-48","trial_name":"file_listing_cursor_aggregation__SK4BGZF","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":355.526,"latency_breakdown":{"env_setup":48.666,"agent_setup":20.207,"agent_exec":239.661,"verifier":29.354},"taskName":"file_listing_cursor_aggregation","exec_duration":239.661},{"job_name":"2026-06-15__12-38-48","trial_name":"file_listing_cursor_aggregation__foJNsXY","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":445.238,"latency_breakdown":{"env_setup":52.886,"agent_setup":21.951,"agent_exec":327.339,"verifier":29.449},"taskName":"file_listing_cursor_aggregation","exec_duration":327.339}]},{"taskName":"file_search_endpoint_filter","instruction":"$f","trials":[{"job_name":"2026-06-15__12-38-48","trial_name":"file_search_endpoint_filter__nruyD9Z","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":672.606,"latency_breakdown":{"env_setup":19.95,"agent_setup":20.842,"agent_exec":600.829,"verifier":10.374},"taskName":"file_search_endpoint_filter","exec_duration":600.829},{"job_name":"2026-06-15__12-38-48","trial_name":"file_search_endpoint_filter__XzMNaAG","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":593.178,"latency_breakdown":{"env_setup":52.724,"agent_setup":19.432,"agent_exec":490.491,"verifier":10.193},"taskName":"file_search_endpoint_filter","exec_duration":490.491},{"job_name":"2026-06-15__12-38-48","trial_name":"file_search_endpoint_filter__9VLGAff","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":713.157,"latency_breakdown":{"env_setup":54.275,"agent_setup":19.125,"agent_exec":600.202,"verifier":9.441},"taskName":"file_search_endpoint_filter","exec_duration":600.202}]},{"taskName":"folder_create_and_populate","instruction":"$10","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"folder_create_and_populate__eR5HZgC","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":444.187,"latency_breakdown":{"env_setup":46.724,"agent_setup":18.67,"agent_exec":340.622,"verifier":17.376},"taskName":"folder_create_and_populate","exec_duration":340.622},{"job_name":"2026-06-15__21-36-19","trial_name":"folder_create_and_populate__mVWvREH","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":472.28,"latency_breakdown":{"env_setup":58.346,"agent_setup":22.051,"agent_exec":347.556,"verifier":20.92},"taskName":"folder_create_and_populate","exec_duration":347.556},{"job_name":"2026-06-15__21-36-19","trial_name":"folder_create_and_populate__fb94MCD","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":342.4,"latency_breakdown":{"env_setup":48.945,"agent_setup":56.027,"agent_exec":198.206,"verifier":17.375},"taskName":"folder_create_and_populate","exec_duration":198.206}]},{"taskName":"list_collection_users_export_py","instruction":"$11","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"list_collection_users_export_py__K9UkCKo","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":351.876,"latency_breakdown":{"env_setup":33.11,"agent_setup":19.75,"agent_exec":271.797,"verifier":2.92},"taskName":"list_collection_users_export_py","exec_duration":271.797},{"job_name":"2026-06-15__21-36-19","trial_name":"list_collection_users_export_py__dUQKckN","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":693.208,"latency_breakdown":{"env_setup":42.73,"agent_setup":25.999,"agent_exec":600.194,"verifier":0.918},"taskName":"list_collection_users_export_py","exec_duration":600.194},{"job_name":"2026-06-15__21-36-19","trial_name":"list_collection_users_export_py__fBe9NcM","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":288.596,"latency_breakdown":{"env_setup":20.511,"agent_setup":20.238,"agent_exec":229.395,"verifier":2.324},"taskName":"list_collection_users_export_py","exec_duration":229.395}]},{"taskName":"list_tickets_pagination_py","instruction":"$12","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"list_tickets_pagination_py__WbngTd9","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":1080.991,"latency_breakdown":{"env_setup":116.864,"agent_setup":346.678,"agent_exec":600.186,"verifier":0.874},"taskName":"list_tickets_pagination_py","exec_duration":600.186},{"job_name":"2026-06-15__21-36-19","trial_name":"list_tickets_pagination_py__zgRJ9jk","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":627.237,"latency_breakdown":{"env_setup":153.836,"agent_setup":21.464,"agent_exec":424.597,"verifier":11.077},"taskName":"list_tickets_pagination_py","exec_duration":424.597},{"job_name":"2026-06-15__21-36-19","trial_name":"list_tickets_pagination_py__sL3sSsX","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":658.486,"latency_breakdown":{"env_setup":173.237,"agent_setup":19.414,"agent_exec":438.879,"verifier":10.38},"taskName":"list_tickets_pagination_py","exec_duration":438.879}]},{"taskName":"ticket_subject_description_update","instruction":"$13","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"ticket_subject_description_updat__EzqhQDn","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":true,"reward":1,"error":true,"latency_sec":697.74,"latency_breakdown":{"env_setup":45.274,"agent_setup":20.35,"agent_exec":600.165,"verifier":8.818},"taskName":"ticket_subject_description_update","exec_duration":600.165},{"job_name":"2026-06-15__21-36-19","trial_name":"ticket_subject_description_updat__QvkMupx","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":241.107,"latency_breakdown":{"env_setup":25.717,"agent_setup":29.697,"agent_exec":158.095,"verifier":9.042},"taskName":"ticket_subject_description_update","exec_duration":158.095},{"job_name":"2026-06-15__21-36-19","trial_name":"ticket_subject_description_updat__3645At5","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":612.747,"latency_breakdown":{"env_setup":9.953,"agent_setup":21.187,"agent_exec":535.952,"verifier":23.751},"taskName":"ticket_subject_description_update","exec_duration":535.952}]},{"taskName":"upload_file_curl_with_metadata","instruction":"$14","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"upload_file_curl_with_metadata__j7p2XDe","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":null,"error":true,"latency_sec":292.512,"latency_breakdown":{"env_setup":35.829,"agent_setup":243.333,"agent_exec":null,"verifier":null},"taskName":"upload_file_curl_with_metadata","exec_duration":292.512},{"job_name":"2026-06-15__21-36-19","trial_name":"upload_file_curl_with_metadata__YcFd3vg","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":false,"reward":0,"error":false,"latency_sec":395.158,"latency_breakdown":{"env_setup":43.889,"agent_setup":28.677,"agent_exec":301.256,"verifier":7.601},"taskName":"upload_file_curl_with_metadata","exec_duration":301.256},{"job_name":"2026-06-15__21-36-19","trial_name":"upload_file_curl_with_metadata__U5GcVNE","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":548.472,"latency_breakdown":{"env_setup":38.011,"agent_setup":291.273,"agent_exec":196.647,"verifier":7.561},"taskName":"upload_file_curl_with_metadata","exec_duration":196.647}]},{"taskName":"upload_files_python_sdk_py","instruction":"$15","trials":[{"job_name":"2026-06-15__21-36-19","trial_name":"upload_files_python_sdk_py__aLukmUu","model":"gpt-5.5","rawModel":"openai/gpt-5.5","agent":"Pochi","passed":true,"reward":1,"error":false,"latency_sec":500.25,"latency_breakdown":{"env_setup":41.983,"agent_setup":22.465,"agent_exec":405.261,"verifier":9.478},"taskName":"upload_files_python_sdk_py","exec_duration":405.261},{"job_name":"2026-06-15__21-36-19","trial_name":"upload_files_python_sdk_py__h2XM3CM","model":"gemini-3.5-flash","rawModel":"google/gemini-3.5-flash","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":679.998,"latency_breakdown":{"env_setup":41.901,"agent_setup":19.682,"agent_exec":600.166,"verifier":0.804},"taskName":"upload_files_python_sdk_py","exec_duration":600.166},{"job_name":"2026-06-15__21-36-19","trial_name":"upload_files_python_sdk_py__A5raiMF","model":"deepseek-4-pro","rawModel":"deepseek/deepseek-4-pro","agent":"Pochi","passed":false,"reward":0,"error":true,"latency_sec":700.17,"latency_breakdown":{"env_setup":51.324,"agent_setup":31.628,"agent_exec":600.193,"verifier":0.89},"taskName":"upload_files_python_sdk_py","exec_duration":600.193}]}]}]}]]}],["$L16","$L17"],"$L18"]}],{},null,false,false]},null,false,false]},null,false,false],"$L19",false]],"m":"$undefined","G":["$1a",[]],"S":true}
+1b:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"OutletBoundary"]
+1d:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"ViewportBoundary"]
+1f:I[75049,["/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/d2c13bb33c4fcd54.js","/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c21188132e0e0d48.js"],"MetadataBoundary"]
+16:["$","script","script-0",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/32809ad9111a1504.js","async":true,"nonce":"$undefined"}]
+17:["$","script","script-1",{"src":"/apideck-benchmark/pr-preview/pr-3/_next/static/chunks/c4daf028cb2bd20d.js","async":true,"nonce":"$undefined"}]
+18:["$","$L1b",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@1c"}]}]
+19:["$","$1","h",{"children":[null,["$","$L1d",null,{"children":"$L1e"}],["$","div",null,{"hidden":true,"children":["$","$L1f",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":"$L20"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+1e:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1c:null
+20:[["$","title","0",{"children":"ApiDeck Benchmark"}],["$","meta","1",{"name":"description","content":"Performance results of AI coding models on ApiDeck tasks, measuring success rate and execution time with high precision."}]]
