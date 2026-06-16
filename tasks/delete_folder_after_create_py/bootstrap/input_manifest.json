@@ -1,0 +1,7 @@
+{
+  "library_name": "ApiDeck",
+  "task_name": "delete_folder_after_create_py",
+  "complexity_level": "multi-step sequential command set",
+  "research_plan_path": "plan.md",
+  "output_dir": "tasks/"
+}

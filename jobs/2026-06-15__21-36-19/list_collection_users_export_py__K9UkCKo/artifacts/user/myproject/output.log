@@ -1,0 +1,2 @@
+2026-06-15 13:50:04,306 INFO HTTP Request: GET https://unify.apideck.com/issue-tracking/collections/zealt-user-default-repo/users?raw=false&limit=20 "HTTP/1.1 200 OK"
+2026-06-15 13:50:04,311 INFO User count: 2

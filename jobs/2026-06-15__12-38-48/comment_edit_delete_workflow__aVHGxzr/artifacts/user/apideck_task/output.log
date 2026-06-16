@@ -1,0 +1,17 @@
+=== Creating ticket ===
+Ticket ID: 60
+=== Adding comments ===
+  Added comment A: id=4704696211
+  Added comment B: id=4704696296
+  Added comment C: id=4704696421
+  Added comment D: id=4704696584
+=== Editing comment B ===
+  Edited comment B to: B-EDITED-zr-avhgxzr
+=== Deleting comment C ===
+  Deleted comment C (id=4704696421)
+=== Verifying final state ===
+  Total pages fetched: 1
+  Found bodies:    A-zr-avhgxzr,B-EDITED-zr-avhgxzr,D-zr-avhgxzr
+  Expected bodies: A-zr-avhgxzr,B-EDITED-zr-avhgxzr,D-zr-avhgxzr
+=== VERIFICATION PASSED ===
+=== Workflow complete ===

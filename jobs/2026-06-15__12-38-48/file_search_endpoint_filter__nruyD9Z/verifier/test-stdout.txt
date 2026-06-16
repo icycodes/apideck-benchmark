@@ -1,0 +1,60 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: anyio-4.13.0, json-ctrf-0.5.2
+collected 3 items
+
+tests/test_final_state.py F.F                                            [100%]
+
+=================================== FAILURES ===================================
+___________________ test_log_file_exists_and_has_valid_shape ___________________
+
+    def test_log_file_exists_and_has_valid_shape():
+>       assert os.path.isfile(LOG_FILE), f"Log file {LOG_FILE} does not exist."
+E       AssertionError: Log file /home/user/apideck_task/output.log does not exist.
+E       assert False
+E        +  where False = <function isfile at 0x7363ab430220>('/home/user/apideck_task/output.log')
+E        +    where <function isfile at 0x7363ab430220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:102: AssertionError
+___________________ test_search_result_ids_match_keep_files ____________________
+
+    def test_search_result_ids_match_keep_files():
+        run_id = os.environ["ZEALT_RUN_ID"]
+        drive_name = os.environ["APIDECK_FILE_STORAGE_DRIVE_NAME"]
+        drive_id = _resolve_drive_id(drive_name)
+        files_by_name = _list_run_files(drive_id, run_id)
+    
+        keep_name_1 = f"KEEP-{run_id}-1.txt"
+        keep_name_2 = f"KEEP-{run_id}-2.txt"
+        assert keep_name_1 in files_by_name, (
+            f"Expected file {keep_name_1!r} not found on drive {drive_name!r}"
+        )
+        assert keep_name_2 in files_by_name, (
+            f"Expected file {keep_name_2!r} not found on drive {drive_name!r}"
+        )
+    
+        expected_keep_ids = set()
+        for name in (keep_name_1, keep_name_2):
+            entries = files_by_name[name]
+            assert len(entries) == 1, (
+                f"Expected exactly one file named {name!r} on the drive, found {len(entries)}: "
+                f"{[e.get('id') for e in entries]}"
+            )
+            file_id = entries[0].get("id")
+            assert isinstance(file_id, str) and file_id, (
+                f"File {name!r} has no string id: {entries[0]}"
+            )
+            expected_keep_ids.add(file_id)
+    
+>       with open(LOG_FILE) as f:
+E       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/apideck_task/output.log'
+
+tests/test_final_state.py:177: FileNotFoundError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_four_expected_files_exist_on_drive
+FAILED tests/test_final_state.py::test_log_file_exists_and_has_valid_shape - ...
+FAILED tests/test_final_state.py::test_search_result_ids_match_keep_files - F...
+========================= 2 failed, 1 passed in 9.50s ==========================

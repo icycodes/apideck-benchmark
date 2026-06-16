@@ -1,0 +1,62 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T05:17:02.423478+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 1,
+            "failed": 2,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781500612918,
+            "stop": 1781500622423
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_exists_and_has_valid_shape",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 24,
+                "start": 1781500612997,
+                "stop": 1781500613021,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_log_file_exists_and_has_valid_shape():\n>       assert os.path.isfile(LOG_FILE), f\"Log file {LOG_FILE} does not exist.\"\nE       AssertionError: Log file /home/user/apideck_task/output.log does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7363ab430220>('/home/user/apideck_task/output.log')\nE        +    where <function isfile at 0x7363ab430220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:102: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_four_expected_files_exist_on_drive",
+                "status": "passed",
+                "duration": 4728,
+                "start": 1781500613021,
+                "stop": 1781500617749,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_search_result_ids_match_keep_files",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 4672,
+                "start": 1781500617750,
+                "stop": 1781500622422,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_search_result_ids_match_keep_files():\n        run_id = os.environ[\"ZEALT_RUN_ID\"]\n        drive_name = os.environ[\"APIDECK_FILE_STORAGE_DRIVE_NAME\"]\n        drive_id = _resolve_drive_id(drive_name)\n        files_by_name = _list_run_files(drive_id, run_id)\n    \n        keep_name_1 = f\"KEEP-{run_id}-1.txt\"\n        keep_name_2 = f\"KEEP-{run_id}-2.txt\"\n        assert keep_name_1 in files_by_name, (\n            f\"Expected file {keep_name_1!r} not found on drive {drive_name!r}\"\n        )\n        assert keep_name_2 in files_by_name, (\n            f\"Expected file {keep_name_2!r} not found on drive {drive_name!r}\"\n        )\n    \n        expected_keep_ids = set()\n        for name in (keep_name_1, keep_name_2):\n            entries = files_by_name[name]\n            assert len(entries) == 1, (\n                f\"Expected exactly one file named {name!r} on the drive, found {len(entries)}: \"\n                f\"{[e.get('id') for e in entries]}\"\n            )\n            file_id = entries[0].get(\"id\")\n            assert isinstance(file_id, str) and file_id, (\n                f\"File {name!r} has no string id: {entries[0]}\"\n            )\n            expected_keep_ids.add(file_id)\n    \n>       with open(LOG_FILE) as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/apideck_task/output.log'\n\ntests/test_final_state.py:177: FileNotFoundError",
+                "message": "The test failed in the call phase"
+            }
+        ]
+    }
+}

@@ -1,0 +1,88 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-7.4.4, pluggy-1.4.0
+rootdir: /tests
+plugins: json-ctrf-0.5.2
+collected 6 items
+
+tests/test_final_state.py EEE.EE                                         [100%]
+
+==================================== ERRORS ====================================
+___________ ERROR at setup of test_log_file_contains_required_fields ___________
+
+    @pytest.fixture(scope="module")
+    def log_payload() -> dict:
+>       assert os.path.isfile(LOG_FILE), (
+            f"Expected log file {LOG_FILE} to exist after the task runs."
+        )
+E       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.
+E       assert False
+E        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')
+E        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:31: AssertionError
+______________ ERROR at setup of test_log_folder_names_use_run_id ______________
+
+    @pytest.fixture(scope="module")
+    def log_payload() -> dict:
+>       assert os.path.isfile(LOG_FILE), (
+            f"Expected log file {LOG_FILE} to exist after the task runs."
+        )
+E       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.
+E       assert False
+E        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')
+E        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:31: AssertionError
+________________ ERROR at setup of test_log_folder_ids_distinct ________________
+
+    @pytest.fixture(scope="module")
+    def log_payload() -> dict:
+>       assert os.path.isfile(LOG_FILE), (
+            f"Expected log file {LOG_FILE} to exist after the task runs."
+        )
+E       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.
+E       assert False
+E        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')
+E        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:31: AssertionError
+_____________ ERROR at setup of test_parent_folder_exists_in_drive _____________
+
+    @pytest.fixture(scope="module")
+    def log_payload() -> dict:
+>       assert os.path.isfile(LOG_FILE), (
+            f"Expected log file {LOG_FILE} to exist after the task runs."
+        )
+E       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.
+E       assert False
+E        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')
+E        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:31: AssertionError
+______ ERROR at setup of test_child_folder_exists_and_nested_under_parent ______
+
+    @pytest.fixture(scope="module")
+    def log_payload() -> dict:
+>       assert os.path.isfile(LOG_FILE), (
+            f"Expected log file {LOG_FILE} to exist after the task runs."
+        )
+E       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.
+E       assert False
+E        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')
+E        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile
+E        +      where <module 'posixpath' (frozen)> = os.path
+
+tests/test_final_state.py:31: AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_final_state.py::test_package_json_contains_apideck_unify
+ERROR tests/test_final_state.py::test_log_file_contains_required_fields - Ass...
+ERROR tests/test_final_state.py::test_log_folder_names_use_run_id - Assertion...
+ERROR tests/test_final_state.py::test_log_folder_ids_distinct - AssertionErro...
+ERROR tests/test_final_state.py::test_parent_folder_exists_in_drive - Asserti...
+ERROR tests/test_final_state.py::test_child_folder_exists_and_nested_under_parent
+========================= 1 passed, 5 errors in 0.11s ==========================

@@ -1,0 +1,88 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T14:17:06.705606+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 6,
+            "passed": 1,
+            "failed": 5,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781533026588,
+            "stop": 1781533026705
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_log_file_contains_required_fields",
+                "status": "failed",
+                "duration": 19,
+                "start": 1781533026670,
+                "stop": 1781533026689,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def log_payload() -> dict:\n>       assert os.path.isfile(LOG_FILE), (\n            f\"Expected log file {LOG_FILE} to exist after the task runs.\"\n        )\nE       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.\nE       assert False\nE        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')\nE        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:31: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_log_folder_names_use_run_id",
+                "status": "failed",
+                "duration": 4,
+                "start": 1781533026689,
+                "stop": 1781533026693,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def log_payload() -> dict:\n>       assert os.path.isfile(LOG_FILE), (\n            f\"Expected log file {LOG_FILE} to exist after the task runs.\"\n        )\nE       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.\nE       assert False\nE        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')\nE        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:31: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_log_folder_ids_distinct",
+                "status": "failed",
+                "duration": 4,
+                "start": 1781533026693,
+                "stop": 1781533026697,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def log_payload() -> dict:\n>       assert os.path.isfile(LOG_FILE), (\n            f\"Expected log file {LOG_FILE} to exist after the task runs.\"\n        )\nE       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.\nE       assert False\nE        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')\nE        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:31: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_package_json_contains_apideck_unify",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781533026697,
+                "stop": 1781533026698,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_parent_folder_exists_in_drive",
+                "status": "failed",
+                "duration": 3,
+                "start": 1781533026698,
+                "stop": 1781533026701,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def log_payload() -> dict:\n>       assert os.path.isfile(LOG_FILE), (\n            f\"Expected log file {LOG_FILE} to exist after the task runs.\"\n        )\nE       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.\nE       assert False\nE        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')\nE        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:31: AssertionError"
+            },
+            {
+                "name": "test_final_state.py::test_child_folder_exists_and_nested_under_parent",
+                "status": "failed",
+                "duration": 4,
+                "start": 1781533026701,
+                "stop": 1781533026705,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "@pytest.fixture(scope=\"module\")\n    def log_payload() -> dict:\n>       assert os.path.isfile(LOG_FILE), (\n            f\"Expected log file {LOG_FILE} to exist after the task runs.\"\n        )\nE       AssertionError: Expected log file /home/user/myproject/output.log to exist after the task runs.\nE       assert False\nE        +  where False = <function isfile at 0x739f687a8220>('/home/user/myproject/output.log')\nE        +    where <function isfile at 0x739f687a8220> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\ntests/test_final_state.py:31: AssertionError"
+            }
+        ]
+    }
+}

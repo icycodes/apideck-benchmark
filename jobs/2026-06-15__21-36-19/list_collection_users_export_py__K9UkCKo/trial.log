@@ -1,0 +1,96 @@
+Skipping image OS validation for hb__list_collection_users_export_py: docker inspect returned 1
+Running command: apt-get update && apt-get install -y curl ripgrep
+Command outputs captured
+Running command: set -euo pipefail; curl -fsSL https://getpochi.com/install.sh | bash -x -s -- pochi-v0.6.14 && mkdir -p /logs/agent/pochi && ~/.pochi/bin/pochi --version
+Command outputs captured
+Running command: ln -sf ~/.pochi/bin/pochi /usr/local/bin/pochi
+Command outputs captured
+Running command: echo zr-k9ukcko > /logs/artifacts/run-id && echo list_collection_users_export_py__K9UkCKo > /logs/artifacts/trial_id
+Command outputs captured
+Running command: mkdir -p ~/.pochi && cat << 'EOF' | sed -e "s/OPENAI_API_KEY/${OPENAI_API_KEY}/g" -e "s/DEEPINFRA_API_KEY/${DEEPINFRA_API_KEY}/g" > ~/.pochi/config.jsonc
+{
+  "providers": {
+    "deepinfra": {
+      "kind": "openai",
+      "baseURL": "https://api.deepinfra.com/v1/openai",
+      "apiKey": "DEEPINFRA_API_KEY",
+      "models": {
+        "zai-org/GLM-4.7-Flash": {
+          "name": "glm-4.7-flash"
+        },
+        "moonshotai/Kimi-K2.6": {
+          "name": "kimi-K2.6"
+        },
+        "deepseek-ai/DeepSeek-V4-Pro": {
+          "name": "DeepSeek-V4-Pro"
+        }
+      }
+    },
+    "openai": {
+      "kind": "openai",
+      "baseURL": "https://api.openai.com/v1",
+      "apiKey": "OPENAI_API_KEY",
+      "models": {
+        "gpt-5.4": {
+          "name": "gpt-5.4"
+        }
+      }
+    }
+  }
+}
+EOF
+Command outputs captured
+Running command: if [ -f /bootstrap/test_initial_state.py ]; then pytest -s --log-cli-level=DEBUG /bootstrap/test_initial_state.py > >(tee /logs/agent/pochi/initial-test-stdout.txt) 2> >(tee /logs/agent/pochi/initial-test-stderr.txt >&2); fi
+Command outputs captured
+Running command: pochi --model openai/gpt-5.5 --max-steps 200 --max-retries 10 --blobs-dir /logs/agent/pochi/blobs --experimental-stream-trajectory /logs/agent/pochi/trajectory.jsonl > >(tee /logs/agent/pochi/stdout.txt) 2> >(tee /logs/agent/pochi/stderr.txt >&2) <<'EOF'
+# Export Issue Tracking Collection Users with Apideck Python SDK
+
+## Background
+Apideck Unified Issue Tracking exposes a `Users` resource scoped to a collection (e.g., a GitHub repository). These users are typically used to resolve assignee IDs before creating tickets. In this task you will use the official Apideck Python SDK (`apideck-unify`) to enumerate every user in the configured collection and persist them to a JSON artifact for downstream tooling.
+
+The Issue Tracking connector is preconfigured to GitHub (service id `github`). The collection ID is provided via the `APIDECK_ISSUE_TRACKING_COLLECTION_ID` environment variable.
+
+## Requirements
+- Use the Apideck Python SDK to list every user in the configured Issue Tracking collection.
+- Traverse cursor-based pagination so that ALL pages are collected, not just the first 20 results.
+- Write the collected users to a JSON file inside the project directory.
+- Write a log line capturing the total user count.
+
+## Implementation Hints
+- Install and use the `apideck-unify` Python SDK. The SDK exposes the Users endpoint as `apideck.issue_tracking.collection_users.list(...)`.
+- The connector requires `service_id="github"` because multiple Unified APIs are enabled for the consumer.
+- The SDK returns a pageable response object; call `.next()` to advance through cursor pagination until it returns `None`.
+- Read all credentials from environment variables (`APIDECK_API_KEY`, `APIDECK_APP_ID`, `APIDECK_CONSUMER_ID`, `APIDECK_ISSUE_TRACKING_COLLECTION_ID`).
+
+## Acceptance Criteria
+- Project path: /home/user/myproject
+- Ensure the script is executed and the artifacts exist.
+- Log file: /home/user/myproject/output.log
+  - The log file must contain a line in the format: `User count: <count>` where `<count>` is the integer number of users collected.
+- Generated artifact: /home/user/myproject/users.json
+  - The file must contain a single JSON object with the following shape:
+
+    ```json
+    {
+      "collection_id": "<the configured collection id>",
+      "service_id": "github",
+      "users": [
+        {
+          "id": "<user id>",
+          "name": "<full name or null>",
+          "first_name": "<first name or null>",
+          "last_name": "<last name or null>",
+          "email": "<email or null>"
+        }
+      ]
+    }
+    ```
+  - The `users` array must contain every user returned across all pages by the Apideck Issue Tracking List Users endpoint for the configured collection and `service_id=github`.
+  - Every user object's `id` value must be a non-empty string.
+
+
+EOF
+Command outputs captured
+Running command: rm -f ~/.pochi/config.jsonc
+Command outputs captured
+The verifier.env contains an API key (often the case for LLM-based verifiers). You will incur costs associated with the API calls.

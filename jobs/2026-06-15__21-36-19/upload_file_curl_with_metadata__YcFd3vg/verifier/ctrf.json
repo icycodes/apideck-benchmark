@@ -1,0 +1,68 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T14:57:37.207582+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 4,
+            "passed": 3,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781535450276,
+            "stop": 1781535457207
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_output_log_has_single_file_id",
+                "status": "passed",
+                "duration": 1,
+                "start": 1781535450357,
+                "stop": 1781535450358,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_get_file_returns_expected_metadata",
+                "status": "passed",
+                "duration": 4079,
+                "start": 1781535450358,
+                "stop": 1781535454437,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_file_appears_in_list_files",
+                "status": "passed",
+                "duration": 2739,
+                "start": 1781535454438,
+                "stop": 1781535457177,
+                "retries": 0,
+                "file_path": "test_final_state.py"
+            },
+            {
+                "name": "test_final_state.py::test_solution_uses_curl_and_not_sdk",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 30,
+                "start": 1781535457177,
+                "stop": 1781535457207,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "def test_solution_uses_curl_and_not_sdk():\n        project_path = Path(PROJECT_DIR)\n        assert project_path.is_dir(), f\"Project directory {PROJECT_DIR} is missing.\"\n    \n        interesting_suffixes = {\".sh\", \".bash\", \".py\", \".js\", \".mjs\", \".ts\", \".rb\", \".pl\"}\n        sources: list[tuple[Path, str]] = []\n        for path in project_path.rglob(\"*\"):\n            if not path.is_file():\n                continue\n            if path.suffix.lower() not in interesting_suffixes and path.name != \"Makefile\":\n                continue\n            try:\n                sources.append((path, path.read_text(encoding=\"utf-8\", errors=\"ignore\")))\n            except OSError:\n                continue\n    \n>       assert sources, (\n            f\"Expected at least one persisted solution script under {PROJECT_DIR} \"\n            \"(e.g., a shell or Python file invoking curl).\"\n        )\nE       AssertionError: Expected at least one persisted solution script under /home/user/myproject (e.g., a shell or Python file invoking curl).\nE       assert []\n\ntests/test_final_state.py:194: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

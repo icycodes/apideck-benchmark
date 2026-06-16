@@ -1,0 +1,65 @@
+{
+    "reportFormat": "CTRF",
+    "specVersion": "0.0.0",
+    "timestamp": "2026-06-15T05:08:45.600100+00:00",
+    "generatedBy": "pytest",
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "7.4.4"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 0,
+            "failed": 3,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1781500120296,
+            "stop": 1781500125599
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "test_final_state.py::test_exactly_three_report_files_exist",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2276,
+                "start": 1781500120368,
+                "stop": 1781500122644,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "matching_files = []\nexpected_file_names = ['REPORT-zr-ewcphhc-A.txt', 'REPORT-zr-ewcphhc-B.txt', 'REPORT-zr-ewcphhc-C.txt']\n\n    def test_exactly_three_report_files_exist(matching_files, expected_file_names):\n        actual_names = sorted(f.get(\"name\", \"\") for f in matching_files)\n>       assert actual_names == sorted(expected_file_names), (\n            f\"Expected exactly the three files {sorted(expected_file_names)} at the OneDrive root, \"\n            f\"got {actual_names}.\"\n        )\nE       AssertionError: Expected exactly the three files ['REPORT-zr-ewcphhc-A.txt', 'REPORT-zr-ewcphhc-B.txt', 'REPORT-zr-ewcphhc-C.txt'] at the OneDrive root, got [].\nE       assert [] == ['REPORT-zr-e...wcphhc-C.txt']\nE         Right contains 3 more items, first extra item: 'REPORT-zr-ewcphhc-A.txt'\nE         Use -v to get more diff\n\ntests/test_final_state.py:105: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_exactly_one_matching_ticket_exists",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 2948,
+                "start": 1781500122644,
+                "stop": 1781500125592,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "matching_tickets = [], run_id = 'zr-ewcphhc'\n\n    def test_exactly_one_matching_ticket_exists(matching_tickets, run_id):\n>       assert len(matching_tickets) == 1, (\n            f\"Expected exactly 1 ticket whose subject contains both '{TICKET_MARKER}' and \"\n            f\"ZEALT_RUN_ID '{run_id}', got {len(matching_tickets)}.\"\n        )\nE       AssertionError: Expected exactly 1 ticket whose subject contains both '[FILE-INDEX]' and ZEALT_RUN_ID 'zr-ewcphhc', got 0.\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/test_final_state.py:112: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "test_final_state.py::test_ticket_description_lists_sorted_file_ids",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1781500125592,
+                "stop": 1781500125599,
+                "retries": 0,
+                "file_path": "test_final_state.py",
+                "trace": "matching_tickets = [], matching_files = []\n\n    def test_ticket_description_lists_sorted_file_ids(matching_tickets, matching_files):\n>       assert len(matching_tickets) == 1, (\n            \"Cannot verify description without exactly one matching ticket.\"\n        )\nE       AssertionError: Cannot verify description without exactly one matching ticket.\nE       assert 0 == 1\nE        +  where 0 = len([])\n\ntests/test_final_state.py:119: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}
