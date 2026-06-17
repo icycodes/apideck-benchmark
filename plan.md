@@ -176,7 +176,7 @@ with Apideck(api_key=API_KEY, app_id=APP_ID, consumer_id=CONSUMER_ID) as apideck
 * (Medium) Add a comment to an existing ticket, list comments, and ensure ordering/pagination work with cursor parameters.
 * (Hard) Implement multipart upload using the Upload Sessions flow for a file larger than 100 MB, then download it back and compare hashes.
 * (Hard) Synchronize a ticket lifecycle: create a ticket, attach a file from File Storage as a comment (via shared link), patch the ticket, and finally delete both — verifying side effects after each step.
-* (Hard) Implement cursor‑based pagination across both Tickets and Files to collect all entries created in the current run (filtering by `ZEALT_RUN_ID` in name/subject) and reconcile counts.
+* (Hard) Implement cursor‑based pagination across both Tickets and Files to collect all entries created in the current run (filtering by `run-id` in name/subject) and reconcile counts.
 
 ## 6. Sources
 
@@ -204,17 +204,16 @@ The following environment variables will be provided in the task execution envir
 - APIDECK_CONSUMER_ID
 - APIDECK_ISSUE_TRACKING_COLLECTION_ID
 - APIDECK_FILE_STORAGE_DRIVE_NAME
-- ZEALT_RUN_ID
 
 The following connectors have been configured in the ApiDeck dashboard for testing purposes:
 
 - Issue Tracking: connected to GitHub (Service ID: `github`)
   - Because a `Collection` (which maps to a GitHub repository) cannot be created via ApiDeck APIs, ensure all tasks use the collection ID `APIDECK_ISSUE_TRACKING_COLLECTION_ID`.
-  - For each ticket, include `ZEALT_RUN_ID` in the ticket title/subject to isolate task side effects.
+  - For each ticket, include `run-id` in the ticket title/subject to isolate task side effects.
   - Note that some fields like `priority` are not supported by GitHub connector.
 - File Storage: connected to OneDrive (Service ID: `onedrive`)
   - Because `Create Drives` is not supported for OneDrive via ApiDeck APIs, ensure all tasks use the drive name `APIDECK_FILE_STORAGE_DRIVE_NAME`.
-  - For each file, include `ZEALT_RUN_ID` in the filename to isolate task side effects.
+  - For each file, include `run-id` in the filename to isolate task side effects.
   - Only use `List Files` or `Get File` operation to verify task side effects. Avoid using unsupported APIs like `Download`, `Export` or `Share Link`.
 
 
